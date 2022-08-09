@@ -1,0 +1,6 @@
+[submodule "sat/modules/sat-engine"]
+	path = sat/modules/sat-engine
+	url = https://github.com/bonetblai/sat-engine.git
+[submodule "sat/modules/dfa-sat"]
+	path = sat/modules/dfa-sat
+	url = https://github.com/bonetblai/dfa-sat.git
