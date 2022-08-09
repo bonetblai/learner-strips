@@ -4,7 +4,11 @@ The graph-based representation can be obtained from observable traces of (black 
 action labels; for example, images and action labels. The assumptions being that different nodes correspond
 to different planning states, and different planning states correspond to different nodes.
 
-Two encoding for learning are presented. The original encoding using SAT and that is no longer developed, and
+The learning of first-order STRIPS models is cast as a combinatorial optimization task where a simplest (first-order
+STRIPS) model that fits a given training data is sought. The space of models is finitely bounded by setting values for
+hypeparameters that bound the space (e.g. max arity of predicates/actions, max actions, max predicates, max objects, etc).
+
+Two encodings for learning are presented. The original encoding using SAT and that is no longer developed, and
 a somewhat less efficient but much more compact and flexible encoding using ASP. The later one is being actively
 modified/extended.
 
@@ -74,7 +78,35 @@ These can be used directly by the SAT-based approach for synthesis. For using th
 these must be processed to generate a ```.lp``` description of the corresponding DFA.
 
 
-## SAT Theory
+## SAT-Based Approach
+
+The SAT-based approach mainly consists of a C++ program that generates a SAT theory from given inputs and
+values for the hyperparameters. Although this program can be called directly and then the SAT solver, we
+provide python scripts that implement the solution pipeline.
+
+The source for the C++ program called ```strips``` is in ```sat/src```. To construct it, a simple ```make```
+in the folder should suffice, yet some update to ```makefile``` may be required. The program requires the
+```boost``` library and the submodules ```dfa-sat``` and ```sat-engine``` that can be installed with the
+command ```git sumodule update --init```.
+
+Directly executing ```src/strips``` gives a description of the different options and usages provided.
+One such usage allows for the generation of ```.dot``` (graphical) description of an input DFA.
+
+
+### Generation of graphs for DFAs
+
+To generate a ```.dot``` file that graphically depicts a DFA as a ```.pdf``` file, execute:
+
+```
+./strips --dump-ts-dot --output <filename>.dot <filename>.dfa
+dot -Tpdf -O <filename>.dot
+```
+
+### Scripts
+
+
+
+The learning task is expressed as a SAT-
 
 A SAT theory whose models (if any) are in correspondence with the STRIPS models compatible with the input graph for a given set of *hyperparameters*
 is obtained with the executable ``src/strips``. The argumens are:
