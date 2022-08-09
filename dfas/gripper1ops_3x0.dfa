@@ -1,0 +1,91 @@
+dfa 88 -1
+1 Unique
+1 0
+7 Unique 1 Unique 2 Unique 3 Unique 4 Unique 5 Unique 6 Unique 7
+1 Unique 0
+4 Unique 0 Unique 9 Unique 15 Unique 19
+4 Unique 0 Unique 12 Unique 17 Unique 18
+4 Unique 0 Unique 10 Unique 16 Unique 17
+4 Unique 0 Unique 13 Unique 14 Unique 15
+4 Unique 0 Unique 11 Unique 12 Unique 13
+4 Unique 0 Unique 8 Unique 9 Unique 10
+2 Unique 7 Unique 26
+3 Unique 2 Unique 7 Unique 28
+3 Unique 4 Unique 7 Unique 27
+2 Unique 6 Unique 26
+3 Unique 3 Unique 6 Unique 25
+3 Unique 5 Unique 6 Unique 24
+2 Unique 5 Unique 22
+3 Unique 2 Unique 5 Unique 23
+2 Unique 4 Unique 22
+3 Unique 3 Unique 4 Unique 21
+2 Unique 3 Unique 20
+2 Unique 2 Unique 20
+3 Unique 18 Unique 19 Unique 43
+3 Unique 17 Unique 41 Unique 42
+3 Unique 14 Unique 16 Unique 40
+3 Unique 15 Unique 38 Unique 39
+3 Unique 13 Unique 36 Unique 37
+3 Unique 12 Unique 34 Unique 35
+3 Unique 8 Unique 11 Unique 33
+3 Unique 10 Unique 31 Unique 32
+3 Unique 9 Unique 29 Unique 30
+3 Unique 28 Unique 47 Unique 56
+3 Unique 28 Unique 56 Unique 57
+3 Unique 27 Unique 52 Unique 54
+3 Unique 27 Unique 54 Unique 58
+5 Unique 26 Unique 53 Unique 55 Unique 57 Unique 58
+3 Unique 25 Unique 46 Unique 56
+3 Unique 25 Unique 55 Unique 56
+3 Unique 24 Unique 51 Unique 54
+3 Unique 24 Unique 53 Unique 54
+3 Unique 23 Unique 45 Unique 49
+3 Unique 23 Unique 49 Unique 50
+5 Unique 22 Unique 48 Unique 50 Unique 51 Unique 52
+3 Unique 21 Unique 44 Unique 49
+3 Unique 21 Unique 48 Unique 49
+5 Unique 20 Unique 44 Unique 45 Unique 46 Unique 47
+3 Unique 41 Unique 43 Unique 66
+3 Unique 38 Unique 43 Unique 67
+3 Unique 34 Unique 43 Unique 67
+3 Unique 29 Unique 43 Unique 66
+3 Unique 40 Unique 42 Unique 64
+5 Unique 38 Unique 39 Unique 41 Unique 42 Unique 65
+3 Unique 39 Unique 40 Unique 63
+3 Unique 36 Unique 40 Unique 64
+3 Unique 31 Unique 40 Unique 63
+3 Unique 33 Unique 37 Unique 60
+5 Unique 31 Unique 32 Unique 36 Unique 37 Unique 62
+3 Unique 33 Unique 35 Unique 59
+5 Unique 29 Unique 30 Unique 34 Unique 35 Unique 61
+3 Unique 30 Unique 33 Unique 60
+3 Unique 32 Unique 33 Unique 59
+3 Unique 55 Unique 58 Unique 79
+3 Unique 53 Unique 57 Unique 78
+3 Unique 56 Unique 76 Unique 77
+3 Unique 54 Unique 74 Unique 75
+3 Unique 50 Unique 52 Unique 73
+3 Unique 48 Unique 51 Unique 72
+3 Unique 49 Unique 70 Unique 71
+3 Unique 44 Unique 47 Unique 69
+3 Unique 45 Unique 46 Unique 68
+3 Unique 67 Unique 82 Unique 85
+3 Unique 66 Unique 80 Unique 84
+2 Unique 65 Unique 85
+2 Unique 65 Unique 84
+3 Unique 64 Unique 81 Unique 85
+3 Unique 63 Unique 83 Unique 84
+2 Unique 62 Unique 83
+2 Unique 62 Unique 81
+2 Unique 61 Unique 80
+2 Unique 61 Unique 82
+3 Unique 60 Unique 82 Unique 83
+3 Unique 59 Unique 80 Unique 81
+4 Unique 69 Unique 76 Unique 79 Unique 86
+4 Unique 72 Unique 75 Unique 79 Unique 86
+4 Unique 68 Unique 77 Unique 78 Unique 86
+4 Unique 73 Unique 74 Unique 78 Unique 86
+4 Unique 69 Unique 71 Unique 73 Unique 86
+4 Unique 68 Unique 70 Unique 72 Unique 86
+7 Unique 80 Unique 81 Unique 82 Unique 83 Unique 84 Unique 85 Unique 87
+1 Unique 86

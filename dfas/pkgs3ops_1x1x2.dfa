@@ -1,0 +1,6 @@
+dfa 3 -1
+2 DROP PICK
+1 0
+2 PICK 1 PICK 2
+1 DROP 0
+1 DROP 0

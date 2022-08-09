@@ -1,0 +1,78 @@
+dfa 75 -1
+3 Move Drop Pick
+0
+3 Move 25 Move 50 Drop 10
+2 Move 26 Move 51
+3 Move 27 Move 52 Drop 12
+2 Move 28 Move 53
+3 Move 29 Move 54 Drop 14
+2 Move 30 Move 55
+3 Move 31 Move 56 Drop 15
+2 Move 32 Move 57
+2 Move 33 Move 58
+3 Move 34 Move 59 Drop 17
+3 Move 35 Move 60 Pick 0
+3 Move 36 Move 61 Drop 19
+3 Move 37 Move 62 Pick 2
+3 Move 38 Move 63 Drop 20
+3 Move 39 Move 64 Pick 4
+3 Move 40 Move 65 Pick 6
+3 Move 41 Move 66 Drop 22
+3 Move 42 Move 67 Pick 9
+3 Move 43 Move 68 Drop 23
+3 Move 44 Move 69 Pick 11
+3 Move 45 Move 70 Pick 13
+3 Move 46 Move 71 Drop 24
+3 Move 47 Move 72 Pick 16
+3 Move 48 Move 73 Pick 18
+3 Move 49 Move 74 Pick 21
+3 Move 0 Move 50 Drop 28
+2 Move 1 Move 51
+3 Move 2 Move 52 Drop 30
+3 Move 3 Move 53 Pick 25
+3 Move 4 Move 54 Drop 32
+3 Move 5 Move 55 Pick 27
+3 Move 6 Move 56 Drop 33
+3 Move 7 Move 57 Pick 29
+3 Move 8 Move 58 Pick 31
+3 Move 9 Move 59 Drop 37
+2 Move 10 Move 60
+3 Move 11 Move 61 Drop 39
+3 Move 12 Move 62 Pick 34
+3 Move 13 Move 63 Drop 40
+3 Move 14 Move 64 Pick 36
+3 Move 15 Move 65 Pick 38
+3 Move 16 Move 66 Drop 44
+2 Move 17 Move 67
+3 Move 18 Move 68 Drop 45
+3 Move 19 Move 69 Pick 41
+3 Move 20 Move 70 Pick 43
+3 Move 21 Move 71 Drop 48
+2 Move 22 Move 72
+3 Move 23 Move 73 Pick 46
+2 Move 24 Move 74
+3 Move 0 Move 25 Drop 51
+3 Move 1 Move 26 Pick 50
+3 Move 2 Move 27 Drop 53
+3 Move 3 Move 28 Pick 52
+3 Move 4 Move 29 Drop 55
+3 Move 5 Move 30 Pick 54
+3 Move 6 Move 31 Drop 57
+3 Move 7 Move 32 Pick 56
+2 Move 8 Move 33
+3 Move 9 Move 34 Drop 60
+3 Move 10 Move 35 Pick 59
+3 Move 11 Move 36 Drop 62
+3 Move 12 Move 37 Pick 61
+3 Move 13 Move 38 Drop 64
+3 Move 14 Move 39 Pick 63
+2 Move 15 Move 40
+3 Move 16 Move 41 Drop 67
+3 Move 17 Move 42 Pick 66
+3 Move 18 Move 43 Drop 69
+3 Move 19 Move 44 Pick 68
+2 Move 20 Move 45
+3 Move 21 Move 46 Drop 72
+3 Move 22 Move 47 Pick 71
+2 Move 23 Move 48
+2 Move 24 Move 49

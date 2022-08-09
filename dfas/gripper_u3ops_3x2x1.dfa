@@ -1,0 +1,30 @@
+dfa 27 -1
+5 Move_0 Move_1 Move_2 Drop_0 Pick_0
+0
+3 Move_1 9 Move_2 18 Drop_0 6
+2 Move_1 10 Move_2 19
+3 Move_1 11 Move_2 20 Drop_0 7
+2 Move_1 12 Move_2 21
+2 Move_1 13 Move_2 22
+3 Move_1 14 Move_2 23 Drop_0 8
+3 Move_1 15 Move_2 24 Pick_0 0
+3 Move_1 16 Move_2 25 Pick_0 2
+3 Move_1 17 Move_2 26 Pick_0 5
+3 Move_0 0 Move_2 18 Drop_0 12
+2 Move_0 1 Move_2 19
+3 Move_0 2 Move_2 20 Drop_0 13
+3 Move_0 3 Move_2 21 Pick_0 9
+3 Move_0 4 Move_2 22 Pick_0 11
+3 Move_0 5 Move_2 23 Drop_0 16
+2 Move_0 6 Move_2 24
+3 Move_0 7 Move_2 25 Pick_0 14
+2 Move_0 8 Move_2 26
+3 Move_0 0 Move_1 9 Drop_0 19
+3 Move_0 1 Move_1 10 Pick_0 18
+3 Move_0 2 Move_1 11 Drop_0 21
+3 Move_0 3 Move_1 12 Pick_0 20
+2 Move_0 4 Move_1 13
+3 Move_0 5 Move_1 14 Drop_0 24
+3 Move_0 6 Move_1 15 Pick_0 23
+2 Move_0 7 Move_1 16
+2 Move_0 8 Move_1 17

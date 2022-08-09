@@ -1,0 +1,78 @@
+dfa 75 -1
+1 single
+0
+3 single 25 single 50 single 10
+2 single 26 single 51
+3 single 27 single 52 single 12
+2 single 28 single 53
+3 single 29 single 54 single 14
+2 single 30 single 55
+3 single 31 single 56 single 15
+2 single 32 single 57
+2 single 33 single 58
+3 single 34 single 59 single 17
+3 single 35 single 60 single 0
+3 single 36 single 61 single 19
+3 single 37 single 62 single 2
+3 single 38 single 63 single 20
+3 single 39 single 64 single 4
+3 single 40 single 65 single 6
+3 single 41 single 66 single 22
+3 single 42 single 67 single 9
+3 single 43 single 68 single 23
+3 single 44 single 69 single 11
+3 single 45 single 70 single 13
+3 single 46 single 71 single 24
+3 single 47 single 72 single 16
+3 single 48 single 73 single 18
+3 single 49 single 74 single 21
+3 single 0 single 50 single 28
+2 single 1 single 51
+3 single 2 single 52 single 30
+3 single 3 single 53 single 25
+3 single 4 single 54 single 32
+3 single 5 single 55 single 27
+3 single 6 single 56 single 33
+3 single 7 single 57 single 29
+3 single 8 single 58 single 31
+3 single 9 single 59 single 37
+2 single 10 single 60
+3 single 11 single 61 single 39
+3 single 12 single 62 single 34
+3 single 13 single 63 single 40
+3 single 14 single 64 single 36
+3 single 15 single 65 single 38
+3 single 16 single 66 single 44
+2 single 17 single 67
+3 single 18 single 68 single 45
+3 single 19 single 69 single 41
+3 single 20 single 70 single 43
+3 single 21 single 71 single 48
+2 single 22 single 72
+3 single 23 single 73 single 46
+2 single 24 single 74
+3 single 0 single 25 single 51
+3 single 1 single 26 single 50
+3 single 2 single 27 single 53
+3 single 3 single 28 single 52
+3 single 4 single 29 single 55
+3 single 5 single 30 single 54
+3 single 6 single 31 single 57
+3 single 7 single 32 single 56
+2 single 8 single 33
+3 single 9 single 34 single 60
+3 single 10 single 35 single 59
+3 single 11 single 36 single 62
+3 single 12 single 37 single 61
+3 single 13 single 38 single 64
+3 single 14 single 39 single 63
+2 single 15 single 40
+3 single 16 single 41 single 67
+3 single 17 single 42 single 66
+3 single 18 single 43 single 69
+3 single 19 single 44 single 68
+2 single 20 single 45
+3 single 21 single 46 single 72
+3 single 22 single 47 single 71
+2 single 23 single 48
+2 single 24 single 49

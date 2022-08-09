@@ -1,0 +1,13 @@
+dfa 10 -1
+3 Move Drop Pick
+0
+2 Move 5 Drop 3
+1 Move 6
+2 Move 7 Drop 4
+2 Move 8 Pick 0
+2 Move 9 Pick 2
+2 Move 0 Drop 6
+2 Move 1 Pick 5
+2 Move 2 Drop 8
+2 Move 3 Pick 7
+1 Move 4

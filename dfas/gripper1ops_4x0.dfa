@@ -1,0 +1,259 @@
+dfa 256 -1
+1 Unique
+1 0
+9 Unique 1 Unique 2 Unique 3 Unique 4 Unique 5 Unique 6 Unique 7 Unique 8 Unique 9
+1 Unique 0
+5 Unique 0 Unique 11 Unique 19 Unique 25 Unique 29
+5 Unique 0 Unique 15 Unique 22 Unique 27 Unique 28
+5 Unique 0 Unique 12 Unique 20 Unique 26 Unique 27
+5 Unique 0 Unique 16 Unique 23 Unique 24 Unique 25
+5 Unique 0 Unique 13 Unique 21 Unique 22 Unique 23
+5 Unique 0 Unique 17 Unique 18 Unique 19 Unique 20
+5 Unique 0 Unique 14 Unique 15 Unique 16 Unique 17
+5 Unique 0 Unique 10 Unique 11 Unique 12 Unique 13
+2 Unique 9 Unique 42
+3 Unique 2 Unique 9 Unique 45
+3 Unique 4 Unique 9 Unique 44
+3 Unique 6 Unique 9 Unique 43
+2 Unique 8 Unique 42
+3 Unique 3 Unique 8 Unique 41
+3 Unique 5 Unique 8 Unique 40
+3 Unique 7 Unique 8 Unique 39
+2 Unique 7 Unique 36
+3 Unique 2 Unique 7 Unique 38
+3 Unique 4 Unique 7 Unique 37
+2 Unique 6 Unique 36
+3 Unique 3 Unique 6 Unique 35
+3 Unique 5 Unique 6 Unique 34
+2 Unique 5 Unique 32
+3 Unique 2 Unique 5 Unique 33
+2 Unique 4 Unique 32
+3 Unique 3 Unique 4 Unique 31
+2 Unique 3 Unique 30
+2 Unique 2 Unique 30
+3 Unique 28 Unique 29 Unique 73
+3 Unique 27 Unique 71 Unique 72
+3 Unique 24 Unique 26 Unique 70
+3 Unique 25 Unique 68 Unique 69
+3 Unique 23 Unique 66 Unique 67
+3 Unique 22 Unique 64 Unique 65
+3 Unique 18 Unique 21 Unique 63
+3 Unique 20 Unique 61 Unique 62
+3 Unique 19 Unique 59 Unique 60
+3 Unique 17 Unique 57 Unique 58
+3 Unique 16 Unique 55 Unique 56
+3 Unique 15 Unique 53 Unique 54
+3 Unique 10 Unique 14 Unique 52
+3 Unique 13 Unique 50 Unique 51
+3 Unique 12 Unique 48 Unique 49
+3 Unique 11 Unique 46 Unique 47
+3 Unique 45 Unique 79 Unique 100
+3 Unique 45 Unique 100 Unique 101
+3 Unique 44 Unique 86 Unique 98
+3 Unique 44 Unique 98 Unique 102
+3 Unique 43 Unique 94 Unique 96
+3 Unique 43 Unique 96 Unique 103
+7 Unique 42 Unique 95 Unique 97 Unique 99 Unique 101 Unique 102 Unique 103
+3 Unique 41 Unique 78 Unique 100
+3 Unique 41 Unique 99 Unique 100
+3 Unique 40 Unique 85 Unique 98
+3 Unique 40 Unique 97 Unique 98
+3 Unique 39 Unique 93 Unique 96
+3 Unique 39 Unique 95 Unique 96
+3 Unique 38 Unique 77 Unique 90
+3 Unique 38 Unique 90 Unique 91
+3 Unique 37 Unique 84 Unique 88
+3 Unique 37 Unique 88 Unique 92
+7 Unique 36 Unique 87 Unique 89 Unique 91 Unique 92 Unique 93 Unique 94
+3 Unique 35 Unique 76 Unique 90
+3 Unique 35 Unique 89 Unique 90
+3 Unique 34 Unique 83 Unique 88
+3 Unique 34 Unique 87 Unique 88
+3 Unique 33 Unique 75 Unique 81
+3 Unique 33 Unique 81 Unique 82
+7 Unique 32 Unique 80 Unique 82 Unique 83 Unique 84 Unique 85 Unique 86
+3 Unique 31 Unique 74 Unique 81
+3 Unique 31 Unique 80 Unique 81
+7 Unique 30 Unique 74 Unique 75 Unique 76 Unique 77 Unique 78 Unique 79
+4 Unique 71 Unique 73 Unique 128 Unique 132
+4 Unique 68 Unique 73 Unique 130 Unique 133
+4 Unique 64 Unique 73 Unique 129 Unique 133
+4 Unique 59 Unique 73 Unique 131 Unique 132
+4 Unique 53 Unique 73 Unique 130 Unique 131
+4 Unique 46 Unique 73 Unique 128 Unique 129
+4 Unique 70 Unique 72 Unique 123 Unique 126
+5 Unique 68 Unique 69 Unique 71 Unique 72 Unique 127
+4 Unique 69 Unique 70 Unique 121 Unique 125
+4 Unique 66 Unique 70 Unique 122 Unique 126
+4 Unique 61 Unique 70 Unique 124 Unique 125
+4 Unique 55 Unique 70 Unique 123 Unique 124
+4 Unique 48 Unique 70 Unique 121 Unique 122
+4 Unique 63 Unique 67 Unique 116 Unique 118
+5 Unique 61 Unique 62 Unique 66 Unique 67 Unique 120
+4 Unique 63 Unique 65 Unique 115 Unique 117
+5 Unique 59 Unique 60 Unique 64 Unique 65 Unique 119
+4 Unique 60 Unique 63 Unique 113 Unique 118
+4 Unique 62 Unique 63 Unique 114 Unique 117
+4 Unique 57 Unique 63 Unique 115 Unique 116
+4 Unique 50 Unique 63 Unique 113 Unique 114
+4 Unique 52 Unique 58 Unique 107 Unique 109
+5 Unique 50 Unique 51 Unique 57 Unique 58 Unique 112
+4 Unique 52 Unique 56 Unique 105 Unique 108
+5 Unique 48 Unique 49 Unique 55 Unique 56 Unique 111
+4 Unique 52 Unique 54 Unique 104 Unique 106
+5 Unique 46 Unique 47 Unique 53 Unique 54 Unique 110
+4 Unique 47 Unique 52 Unique 108 Unique 109
+4 Unique 49 Unique 52 Unique 106 Unique 107
+4 Unique 51 Unique 52 Unique 104 Unique 105
+3 Unique 99 Unique 103 Unique 181
+3 Unique 97 Unique 103 Unique 180
+3 Unique 99 Unique 102 Unique 179
+3 Unique 95 Unique 102 Unique 178
+3 Unique 97 Unique 101 Unique 177
+3 Unique 95 Unique 101 Unique 176
+5 Unique 100 Unique 172 Unique 173 Unique 174 Unique 175
+5 Unique 98 Unique 168 Unique 169 Unique 170 Unique 171
+5 Unique 96 Unique 164 Unique 165 Unique 166 Unique 167
+3 Unique 91 Unique 94 Unique 163
+3 Unique 92 Unique 94 Unique 162
+3 Unique 89 Unique 93 Unique 161
+3 Unique 87 Unique 93 Unique 160
+3 Unique 89 Unique 92 Unique 159
+3 Unique 87 Unique 91 Unique 158
+5 Unique 90 Unique 154 Unique 155 Unique 156 Unique 157
+5 Unique 88 Unique 150 Unique 151 Unique 152 Unique 153
+3 Unique 82 Unique 86 Unique 149
+3 Unique 83 Unique 86 Unique 148
+3 Unique 80 Unique 85 Unique 147
+3 Unique 84 Unique 85 Unique 146
+3 Unique 82 Unique 84 Unique 145
+3 Unique 80 Unique 83 Unique 144
+5 Unique 81 Unique 140 Unique 141 Unique 142 Unique 143
+3 Unique 74 Unique 79 Unique 139
+3 Unique 76 Unique 79 Unique 138
+3 Unique 75 Unique 78 Unique 137
+3 Unique 77 Unique 78 Unique 136
+3 Unique 74 Unique 77 Unique 135
+3 Unique 75 Unique 76 Unique 134
+3 Unique 133 Unique 206 Unique 215
+3 Unique 132 Unique 204 Unique 214
+3 Unique 131 Unique 192 Unique 202
+3 Unique 130 Unique 190 Unique 213
+3 Unique 129 Unique 182 Unique 200
+3 Unique 128 Unique 186 Unique 212
+3 Unique 127 Unique 215 Unique 216
+3 Unique 127 Unique 214 Unique 217
+3 Unique 127 Unique 213 Unique 217
+3 Unique 127 Unique 212 Unique 216
+3 Unique 126 Unique 205 Unique 215
+3 Unique 125 Unique 207 Unique 214
+3 Unique 124 Unique 188 Unique 203
+3 Unique 123 Unique 187 Unique 213
+3 Unique 122 Unique 184 Unique 201
+3 Unique 121 Unique 191 Unique 212
+3 Unique 120 Unique 207 Unique 210
+3 Unique 120 Unique 205 Unique 211
+3 Unique 120 Unique 203 Unique 211
+3 Unique 120 Unique 201 Unique 210
+3 Unique 119 Unique 204 Unique 208
+3 Unique 119 Unique 206 Unique 209
+3 Unique 119 Unique 202 Unique 209
+3 Unique 119 Unique 200 Unique 208
+3 Unique 118 Unique 206 Unique 207
+3 Unique 117 Unique 204 Unique 205
+3 Unique 116 Unique 185 Unique 203
+3 Unique 115 Unique 183 Unique 202
+3 Unique 114 Unique 189 Unique 201
+3 Unique 113 Unique 193 Unique 200
+3 Unique 112 Unique 193 Unique 198
+3 Unique 112 Unique 183 Unique 199
+3 Unique 112 Unique 189 Unique 199
+3 Unique 112 Unique 185 Unique 198
+3 Unique 111 Unique 191 Unique 196
+3 Unique 111 Unique 187 Unique 197
+3 Unique 111 Unique 184 Unique 197
+3 Unique 111 Unique 188 Unique 196
+3 Unique 110 Unique 186 Unique 194
+3 Unique 110 Unique 190 Unique 195
+3 Unique 110 Unique 182 Unique 195
+3 Unique 110 Unique 192 Unique 194
+3 Unique 109 Unique 192 Unique 193
+3 Unique 108 Unique 190 Unique 191
+3 Unique 107 Unique 188 Unique 189
+3 Unique 106 Unique 186 Unique 187
+3 Unique 105 Unique 184 Unique 185
+3 Unique 104 Unique 182 Unique 183
+4 Unique 138 Unique 174 Unique 181 Unique 227
+4 Unique 161 Unique 165 Unique 181 Unique 227
+4 Unique 148 Unique 170 Unique 180 Unique 226
+4 Unique 160 Unique 167 Unique 180 Unique 226
+4 Unique 139 Unique 172 Unique 179 Unique 221
+4 Unique 147 Unique 169 Unique 179 Unique 221
+4 Unique 146 Unique 171 Unique 178 Unique 226
+4 Unique 162 Unique 166 Unique 178 Unique 226
+4 Unique 137 Unique 173 Unique 177 Unique 221
+4 Unique 149 Unique 168 Unique 177 Unique 221
+4 Unique 136 Unique 175 Unique 176 Unique 227
+4 Unique 163 Unique 164 Unique 176 Unique 227
+3 Unique 172 Unique 175 Unique 233
+3 Unique 173 Unique 174 Unique 232
+3 Unique 168 Unique 171 Unique 231
+3 Unique 169 Unique 170 Unique 230
+3 Unique 164 Unique 167 Unique 229
+3 Unique 165 Unique 166 Unique 228
+4 Unique 138 Unique 157 Unique 163 Unique 227
+4 Unique 148 Unique 153 Unique 162 Unique 226
+4 Unique 136 Unique 156 Unique 161 Unique 227
+4 Unique 146 Unique 152 Unique 160 Unique 226
+4 Unique 135 Unique 154 Unique 159 Unique 220
+4 Unique 144 Unique 151 Unique 159 Unique 220
+4 Unique 134 Unique 155 Unique 158 Unique 220
+4 Unique 145 Unique 150 Unique 158 Unique 220
+3 Unique 154 Unique 157 Unique 225
+3 Unique 155 Unique 156 Unique 224
+3 Unique 150 Unique 153 Unique 223
+3 Unique 151 Unique 152 Unique 222
+4 Unique 139 Unique 143 Unique 149 Unique 221
+4 Unique 137 Unique 142 Unique 147 Unique 221
+4 Unique 135 Unique 141 Unique 145 Unique 220
+4 Unique 134 Unique 140 Unique 144 Unique 220
+3 Unique 140 Unique 143 Unique 219
+3 Unique 141 Unique 142 Unique 218
+3 Unique 217 Unique 234 Unique 243
+3 Unique 216 Unique 236 Unique 242
+7 Unique 204 Unique 205 Unique 206 Unique 207 Unique 214 Unique 215 Unique 245
+7 Unique 186 Unique 187 Unique 190 Unique 191 Unique 212 Unique 213 Unique 244
+3 Unique 211 Unique 239 Unique 243
+3 Unique 210 Unique 238 Unique 242
+3 Unique 209 Unique 237 Unique 243
+3 Unique 208 Unique 235 Unique 242
+7 Unique 184 Unique 185 Unique 188 Unique 189 Unique 201 Unique 203 Unique 241
+7 Unique 182 Unique 183 Unique 192 Unique 193 Unique 200 Unique 202 Unique 240
+3 Unique 199 Unique 235 Unique 239
+3 Unique 198 Unique 237 Unique 238
+3 Unique 197 Unique 236 Unique 239
+3 Unique 196 Unique 234 Unique 238
+3 Unique 195 Unique 236 Unique 237
+3 Unique 194 Unique 234 Unique 235
+5 Unique 218 Unique 231 Unique 233 Unique 249 Unique 250
+5 Unique 225 Unique 228 Unique 233 Unique 250 Unique 253
+5 Unique 219 Unique 230 Unique 232 Unique 248 Unique 250
+5 Unique 224 Unique 229 Unique 232 Unique 250 Unique 254
+5 Unique 223 Unique 229 Unique 231 Unique 250 Unique 251
+5 Unique 222 Unique 228 Unique 230 Unique 250 Unique 252
+3 Unique 227 Unique 253 Unique 254
+3 Unique 226 Unique 251 Unique 252
+5 Unique 219 Unique 223 Unique 225 Unique 247 Unique 250
+5 Unique 218 Unique 222 Unique 224 Unique 246 Unique 250
+3 Unique 221 Unique 248 Unique 249
+3 Unique 220 Unique 246 Unique 247
+2 Unique 243 Unique 245
+2 Unique 242 Unique 245
+2 Unique 236 Unique 244
+2 Unique 234 Unique 244
+9 Unique 234 Unique 235 Unique 236 Unique 237 Unique 238 Unique 239 Unique 242 Unique 243 Unique 255
+2 Unique 238 Unique 241
+2 Unique 239 Unique 241
+2 Unique 235 Unique 240
+2 Unique 237 Unique 240
+1 Unique 250
