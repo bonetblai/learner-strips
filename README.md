@@ -1,8 +1,8 @@
 # learner-strips
 Repo for learning (first-order) STRIPS models from graph-based representation of state spaces, either complete or partial.
-The graph-based representation can be obtained from observable traces of (black box) states (bb-states) and
-action labels; for example, images and action labels. The assumptions being that different bb-states correspond
-to different planning states, and different planning states correspond to different bb-states.
+The graph-based representation can be obtained from observable traces of (black box states) noes and
+action labels; for example, images and action labels. The assumptions being that different nodes correspond
+to different planning states, and different planning states correspond to different nodes.
 
 Two encoding for learning are presented. The original encoding using SAT and that is no longer developed, and
 a somewhat less efficient but much more compact and flexible encoding using ASP. The later one is being actively
@@ -30,7 +30,7 @@ the same graph with transition labels, and thus two completely different models 
 
 A labeled directed graph is described as a text file in the following format:
 1. First line contains the reserved word ``dfa`` followed by two integers: the number of nodes in graph, and the second is expected to be ``-1``.
-2. Second line specifies the set of labes; first, an integer that tells the number of labels, followed by a space-separated string labels.
+2. Second line specifies the set of labels; first, an integer that tells the number of labels, followed by a space-separated string labels.
 3. Third lines contains ``1 0``.
 4. Following lines, one per each node in order. Each line begins with the number of outgoing edges at the node, then for each edge, the label of the edge followed by the index of the node pointed by the edge.
 
@@ -66,6 +66,13 @@ dfa 22 -1
 1 UNSTACK 11
 1 UNSTACK 10
 ```
+
+## Examples for Inputs
+
+The folder ```dfas``` contains several DFAs (labeled and directed graphs) from different domains.
+These can be used directly by the SAT-based approach for synthesis. For using the ASP-based approach,
+these must be processed to generate a ```.lp``` description of the corresponding DFA.
+
 
 ## SAT Theory
 
