@@ -1,0 +1,333 @@
+===========================================================================
+Meta layer:
+
+Parameters:
+* max arity for atom schema
+* atom schemas: p0, p1, ...
+* max arity for action schema (defines meta-objects: mo0, mo1, ...)
+* action schemas: a0, a1, ...
+* meta-features: mk0, mk1, ...
+* num *static* unary predicates: u0, u1, ... (unary preds)
+* num *static* binary predicates: b0, b1, ... (binary preds)
+
+Decision variables:
+* pre0(a,mk) = meta-feature mk appears negated in precondition of action a
+* pre1(a,mk) = meta-feature mk appears positive in precondition of action a
+* eff0(a,mk) = meta-feature mk appears negated in effect of action a
+* eff1(a,mk) = meta-feature mk appears positive in effect of action a
+* label(a,l) = action a is mapped to label l
+
+Implied variables:
+* using(mk) = meta-feature mk is used by some action
+* using(a,mk) = meta-feature mk is used by action a
+
+Atoms and objects in layer 0:
+
+Decision variables:
+* arity(p,i) = atom p has arity i
+* atom(mk,p) = meta-feature mk is atom p
+* atom(mk,i,mo) = meta-object mo is mapped to i-th arg of meta-feature mk
+* unary(u,a,mo) = action a uses static unary predicate u on argument mo
+* binary(b,a,mo,mo') = action a uses static binary predicate b on arguments mo and mo'
+
+Implied variables:
+* args(a,mo) = meta-object mo is *argument* of action a
+* relevant(a,mo,mk,i) = using(a,mk) & atom(mk,i,mo)
+
+---------------------------------------------------------------------------
+
+Basic definitions:
+ (1) using(mk) <=> OR { using(a,mk) : a }
+ (2) using(a,mk) <=> pre0(a,mk) v pre1(a,mk) v eff0(a,mk) v eff1(a,mk)
+
+Consistent preconditions, effects, and labeling:
+ (3) -pre0(a,mk) v -pre1(a,mk)
+ (4) -eff0(a,mk) v -eff1(a,mk)
+ (5) at-most-1 { label(a,l) : l }
+
+Effects are non-redundant:
+ (6) eff0(a,mk) => -pre0(a,mk)
+ (7) eff1(a,mk) => -pre1(a,mk)
+
+Disjoint meta-features in actions:
+ (8) (optional) at-most-1 { using(a,mk) : a }
+
+Consistent arities for atoms:
+ (9) exactly-1 { arity(p,i) : 0 <= i <= max-arity }
+
+Mapping of meta-features to atoms:
+(10) exactly-1 { atom(mk,p) : p }
+(11) at-most-1 { atom(mk,i,mo) : mo }
+(12) atom(mk,p) & atom(mk,i,mo) => OR { arity(p,j) : i <= j <= max-arity }
+(13) atom(mk,p) & arity(p,i) => OR { atom(mk,j,mo) : mo } [ 1 <= j <= i ]
+(14) atom(mk,p) & arity(p,i) => -atom(mk,j,mo) [ i < j ]
+(15) -atom(mk,0,mo)
+
+1-1 mapping of meta-features to atoms:
+* Vector for meta-feature mk is (in order, coordinate-wise):
+  - -using(mk)
+  - [disjoint meta-features] -using(a,mk) [for each action a]
+  - -atom(mk,p) [for each atom p]
+  - -atom(mk,i,mo) [for each arity i and meta-object mo]
+* Strict lex order implies:
+  - push non-used features to end
+  - 1-1 mapping of meta-features (for each action) into atoms
+  - prunes symmetric models
+(16) <strict-lexicographic-ordering-meta-features>
+
+Relevant arguments for actions:
+(17) using(a,mk) & atom(mk,i,mo) => args(a,mo)
+(18) args(a,mo) => OR { relevant(a,mo,mk,i) : mk, i }
+(19) relevant(a,mo,mk,i) <=> using(a,mk) & atom(mk,i,mo)
+
+Arity for actions and atoms:
+(20) -args(a,mo_i) [ i >= <arity-action-a> ]
+(21) -arity(p,i) [ i > <arity-atom-p> ]
+
+(Regularizer) Exact arities:
+(20x) args(a,mo_i) [ 0 <= i < <arity-action-a> ] 
+(21x) arity(p,i) [ i == <arity-atom-p> ]
+
+Static predicates on relevant arguments:
+(22) unary(u,a,mo) => args(a,mo)
+(23) binary(b,a,mo,mo') => args(a,mo) & args(a,mo')
+
+===========================================================================
+Layers:
+
+Parameters:
+* features: k0, k1, ... (each layer has its own subset of features)
+* objects: o0, o1, ... (shared among layers: o0 in all layers, o1 in ...)
+* lower bound on feature sum per state (optional)
+* upper bound on feature sum per state (optional)
+
+Decision variables:
+* map(t,a) = transition t is mapped to action a
+* mapf(t,k,mk) = feature k is mapped to meta-feature mk for transition t
+* phi(k,s) = value of (boolean) feature k at state s
+
+Implied variables:
+* mapt(t,mo,o) = in transition t, meta-object mo is mapped to object o
+* g(k,s,t) = feature k separates states s and t (XOR)
+* free(k,t,a) = feature k isn't affected by transition t (mapped to a)
+
+* (alt) appl(a,t,s) = action a as in transition t is applicable in state s
+* (alt) mapeq(t,a,t') = map(t,a) & eq(t,t')
+* (alt) eq(t,t') = transitions t and t' are "equivalent"
+* (alt) Z0(t,k,a,s) "=" [ OR { pre0(t,k,a) & mapf(t,k,mk) : mk } => -phi(k,s) ]
+* (alt) Z1(t,k,a,s) "=" [ OR { pre1(t,k,a) & mapf(t,k,mk) : mk } => phi(k,s) ]
+* (alt) X0(a,t,k,mk) "=" [ pre0(a,mk) & mapf(t,k,mk) ]
+* (alt) X1(a,t,k,mk) "=" [ pre1(a,mk) & mapf(t,k,mk) ]
+
+Atoms and objects in layer l > 0:
+
+Decision variables:
+* ground(k,p) = feature k is ground instance of atom p
+* ground(k,i,o) = i-th arg of feature k is object o
+* r(l,u,o) = tuple for static unary predicate u in layer l
+* s(l,b,o,o') = tuple for static binary predicate b in layer l
+
+Implied variables:
+* W(t,k,i,mo) => [ ground(k,i,o) <=> mapt(t,mo,o) ]
+
+* (enc1) gdiff(k,kp,i) = features k and kp differ in ground atom at i-th arg
+* (enc2) gdiff(k,kp,i) = features k and kp differ in ground atom at i-th arg
+* (enc3) gdiff(k,kp,p) = features k and kp both mapped to atom p
+* (enc3) gdiff(k,kp,p,i) = features k and kp mapped to atom p differ at i-th arg
+
+* U(l,u,a,mo,o) = unary(u,a,mo) & -r(l,u,o)
+* B(l,b,a,mo,mo',o,o') = binary(b,a,mo,mo') & -s(l,b,o,o')
+* ord(o,k,i,s) = ground(k,i,o) & phi(k,s) [ for ordering objects ]
+
+FULL (default) ENCODING OF GROUND ACTIONS:
+
+Decision variables:
+* gtuple(l,a,<tuple>) = there is (ground) instance of a(<tuple>)
+
+Implied variables:
+* G(t,a,<tuple>) = (ground) instance of a(<tuple>) is transition t
+* appl(a,<tuple>,s) = (ground) instance of a(<tuple>) is applicable in state s
+
+* (alt) violated0(a,<tuple>,s,k) = feature k=<some>(<tuple>) is negative precondition of a that doesn't hold in s
+* (alt) violated1(a,<tuple>,s,k) = feature k=<some>(<tuple>) is positive precondition of a that doesn't hold in s
+* (alt) pre0eq(a,<tuple>,k,mk) => pre0(a,mk) & eq(<tuple>,mk,k)
+* (alt) pre1eq(a,<tuple>,k,mk) => pre1(a,mk) & eq(<tuple>,mk,k)
+* (alt) eq(<tuple>,mk,k) = meta-feature mk and feature k both mapped to grounded atoms over same <tuple>
+
+NOTE: number of tuples is exponential in action arity (i.e. number of meta-objects)
+
+---------------------------------------------------------------------------
+
+Consistent mapping of transitions to actions:
+(24) exactly-1 { map(t,a) : a }
+
+Consistent mapping of features to meta-features in actions:
+(25) at-most-1 { mapf(t,k,mk) : mk }
+(26) at-most-1 { mapf(t,k,mk) : k }
+
+Consistency between map, mapf, labeling, and using:
+(27) map(t,a) => label(a,t.label)
+(28) map(t,a) & mapf(t,k,mk) => using(a,mk)
+(29) map(t,a) & using(a,mk) => OR { mapf(t,k,mk) : k }
+
+Definition of free(k,t,a):
+(30) map(t,a) & AND { -mapf(t,k,mk) : mk } => free(k,t,a)
+(31) map(t,a) & mapf(t,k,mk) => [ -eff0(a,mk) & -eff1(a,mk) <=> free(k,t,a) ]
+
+Transitions:
+(32) <transitions>
+(32.1) map(t,a) & mapf(t,k,mk) & pre0(a,mk) => -phi(k,t.src)
+(32.2) map(t,a) & mapf(t,k,mk) & pre1(a,mk) => phi(k,t.src)
+(32.3) map(t,a) & mapf(t,k,mk) & eff0(a,mk) => -phi(k,t.dst)
+(32.4) map(t,a) & mapf(t,k,mk) & eff1(a,mk) => phi(k,t.dst)
+
+Inertia:
+(33) map(t,a) => [ free(k,t,a) <=> [ phi(k,t.src) <=> phi(k,t.dst) ] ]
+
+Applicable actions must be applied:
+(34) (alt) appl(a,t,s) => OR { mapeq(t',a,t) : t'.src = s, t'.label = t.label } [ t.src != s ]
+(35) (alt) mapeq(t,a,t') => map(t,a) & eq(t,t') [ t.label = t'.label ]
+(36) (alt) eq(t,t') => [ mapf(t,k,mk) <=> mapf(t',k,mk) ] [ t.label = t'.label ]
+
+Definition of g(k,s,t):
+(37) <def g(k,s,t)>
+(37.1) g(k,s,t) => phi(k,s) v phi(k,t)
+(37.2) g(k,s,t) => -phi(k,s) v -phi(k,t)
+(37.3) phi(k,s) & -phi(k,t) => g(k,s,t)
+(37.4) -phi(k,s) & phi(k,t) => g(k,s,t)
+
+Separate different states using features:
+(38) OR { g(k,s,t) : k } [ s < t ]
+
+Definition of appl(a,t,s):
+(39) (alt) map(t,a) & AND { Z0(t,k,a,s) : k } & AND { Z1(t,k,a,s) : k } => appl(a,t,s)
+
+Definition of Z0(t,k,a,s): [ mapf0(t,k,a) => -phi(k,s) ] => Z0(t,k,a,s)
+(40) (alt) -phi(k,s) => Z0(t,k,a,s)
+(41) (alt) AND { -X0(a,t,k,mk) : mk } => Z0(t,k,a,s)
+(42) (alt) X0(a,t,k,mk) => pre0(a,mk) & mapf(t,k,mk)
+
+Definition of Z1(t,k,a,s): [ mapf1(t,k,a) => phi(k,s) ] => Z1(t,k,a,s)
+(43) (alt) phi(k,s) => Z1(t,k,a,s)
+(44) (alt) AND { -X1(a,t,k,mk) : mk } => Z1(t,k,a,s)
+(45) (alt) X1(a,t,k,mk) => pre1(a,mk) & mapf(t,k,mk)
+
+Mapping of features to grounded atoms:
+(46) exactly-1 { ground(k,p) : p }
+(47) at-most-1 { ground(k,i,o) : o }
+(48) ground(k,p) & ground(k,i,o) => OR { arity(p,j) : i <= j <= max-arity }
+(49) ground(k,p) & arity(p,i) => OR { ground(k,j,o) : o } [ 1 <= j <= i ]
+(50) ground(k,p) & arity(p,i) => -ground(k,j,o) [ i < j ]
+(51) -ground(k,0,o)
+
+1-1 mapping of features to grounded atoms:
+(52.1.1) (enc1) ground(k,p) & ground(kp,p) & arity(p,i) => OR { gdiff(k,kp,j) : 1 <= j <= i } [ 0 <= i <= max-arity ]
+(52.1.2) (enc1) gdiff(k,kp,i) => -ground(k,i,o) v -ground(kp,i,o)
+(52.1.3) (enc1) gdiff(k,kp,i) => OR { ground(k,i,o) : o } & OR { ground(kp,i,o) : o }
+(52.1.4) (enc1) gdiff(k,kp,i) => AND { -gdiff(k,kp,j) : 1 <= j < i }
+
+(52.2.1) (enc2) arity(p,0) => -ground(k,p) v -ground(kp,p)
+(52.2.2) (enc2) OR { gdiff(k,kp,i) : 0 <= i <= max-arity }
+(52.2.3) (enc2) gdiff(k,kp,0) => -ground(k,p) v -ground(kp,p)
+(52.2.4) (enc2) gdiff(k,kp,i) => -ground(k,i,o) v -ground(kp,i,o)
+(52.2.5) (enc2) gdiff(k,kp,i) => OR { ground(k,i,o) : o } v OR { ground(kp,i,o) : o }
+(52.2.6) (enc2) [DISABLED] at-most-1 { gdiff(k,kp,i) : 0 <= i <= max-arity }
+
+(52.3.1) (enc3) gdiff(k,kp,p) <=> ground(k,p) & ground(kp,p)
+(52.3.2) (enc3) gdiff(k,kp,p) & arity(p,i) => OR { gdiff(k,kp,p,j) : 1 <= j <= i } [ 0 <= i <= max-arity ]
+(52.3.3) (enc3) gdiff(k,kp,p,j) => gdiff(k,kp,p) & OR { arity(p,i) : j <= i <= max-arity }
+(52.3.4) (enc3) gdiff(k,kp,p,i) => -ground(k,i,o) v -ground(kp,i,o)
+
+(52.4.1) (enc4) implemented by <strict-lexicographic-ordering-features-in-layers>
+
+1-1 mapping of features to grounded atoms:
+* (!enc4) Vector for feature k is (k0, k1, ...) where ki is k-value in state s_i
+* (enc4) Vector for feature k is ground atom (ground(k,p), ..., ground(k,1,o_1), ...)
+(53.1) (!enc4) <non-strict-lexicographic-ordering-features-in-layers>
+(53.2) (enc4) <strict-lexicographic-ordering-features-in-layers>
+
+Consistent mapping between features and meta-features:
+(54) mapf(t,k,mk) => [ atom(mk,p) <=> ground(k,p) ]
+(55) mapf(t,k,mk) & atom(mk,i,mo) => OR { ground(k,i,o) : o }
+(56) mapf(t,k,mk) & ground(k,i,o) => OR { atom(mk,i,mo) : mo }
+
+Definition of U(l,u,a,mo,o) and B(l,b,a,mo,mo',o,o'):
+(57) U(l,u,a,mo,o) <=> unary(u,a,mo) & -r(l,u,o)
+(58) B(l,b,a,mo,mo',o,o') <=> binary(b,a,mo,mo') & -s(l,b,o,o')
+
+Definition of mapt(t,mo,o):
+(59) at-most-1 { mapt(t,mo,o) : o }
+(60) map(t,a) & args(a,mo) => OR { mapt(t,mo,o) : o }
+(61) map(t,a) & mapt(t,mo,o) => args(a,mo)
+
+Cross consistency between schemas and transitions:
+(62) mapf(t,k,mk) & atom(mk,i,mo) => W(t,k,i,mo)
+(63) W(t,k,i,mo) => [ ground(k,i,o) <=> mapt(t,mo,o) ]
+
+One-hot encoding of variables:
+(64) <bounds-feature-sums-layers>
+(65) (!enc4) -phi(k,s0) [ k < #features - <upper-bound> ]
+(66) (!enc4) phi(k,s0) [ k >= #features - <lower-bound> ]
+
+Explanation of existing grounded actions (common to different encodings):
+(67) map(t,a) & mapt(t,mo,o) & unary(u,a,mo) => r(t.layer,u,o)
+(68) map(t,a) & mapt(t,mo,o) & mapt(t,mo',o') & binary(b,a,mo,mo') => s(t.layer,b,o,o')
+
+(Symmetries) Ordered arities for atoms:
+(69) arity(p,i) => OR { arity(p-1,j) : 0 <= j <= i }
+
+(Symmetries) Ordered use of action arguments:
+(70) args(a,mo) => args(a,mo') [ 1 + mo' = mo ]
+
+(Symmetries) Definition of ord(o,k,i,s):
+(71) ord(o,k,i,s) <=> ground(k,i,o) & phi(k,s)
+
+(Symmetries) Ordered objects at each layer
+* Vector for object o is (ord(o,k,i,s) : k, i, s) in order s, k, i; i.e.,
+*   ord(o,k0,1,s0)
+*   ord(o,k0,2,s0)
+*   ...
+*   ord(o,k0,ma,s0)
+*   ord(o,k1,1,s0)
+*   ...
+*   ord(o,k0,1,s1)
+*   ...
+*   ord(o,km,ma,sn)
+* where ma = max-arity, m = #features, n = #states
+(72) <non-strict-lexicographic-ordering-objects-in-layers>
+NOTE: It is still unclear whether this formula preserves satisfiability
+
+FULL (default) ENCODING OF GROUND ACTIONS:
+
+Explanation of non-existing grounded actions:
+(73) -gtuple(l,a,<tuple>) => OR { -args(a,mo_i) : o_i > 0 } v
+                             OR { U(l,u,a,mo_i,o_i) : u, i } v
+                             OR { B(l,b,a,mo_i,mo_j,o_i,o_j) : b, i < j }
+
+Definition of gtuple(l,a,<tuple>) and G(t,a,<tuple>):
+(74) gtuple(l,a,<tuple>) => OR { G(t,a,<tuple>) : t.layer = l }
+(75) G(t,a,<tuple>) => gtuple(t.layer,a,<tuple>)
+(76) G(t,a,<tuple>) => map(t,a) &
+                       AND { mapt(t,mo_i,o_i) : o_i > 0 } &
+                       AND { args(a,mo_i) => mapt(t,mo_i,o_i) : o_i = 0 }
+
+Explanation of existing grounded actions:
+(77) at-most-1 { G(t,a,<tuple>) : t.src = s } [ s, a(<tuple>) ]
+(78) exactly-1 { G(t,a,<tuple>) : a, <tuple> }
+(79) [DISABLED] at-least-1 { G(t,a,<tuple>) : a, <tuple> }
+(80) [SUBSUMED BY 62] gtuple(l,a,<tuple>) & unary(u,a,moi) => r(l,u,oi)
+(81) [SUBSUMED BY 63] gtuple(l,a,<tuple>) & binary(b,a,moi,moj) => s(l,b,oi,oj)
+
+Applicable actions must be applied:
+(82) (tuples) G(t,a,<tuple>) => appl(a,<tuple>,t.src)
+(83) (tuples) appl(a,<tuple>,s) => OR { G(t,a,<tuple>) : t.src = s }
+(84) (tuples) -appl(a,<tuple>,s) => -gtuple(s.layer,a,<tuple>) v
+                                    OR { violated0(a,<tuple>,s,k) : k } v
+                                    OR { violated1(a,<tuple>,s,k) : k }
+(85) (tuples) violated0(a,<tuple>,s,k) => phi(k,s) & OR { pre0eq(a,<tuple>,k,mk) : mk }
+(86) (tuples) violated1(a,<tuple>,s,k) => -phi(k,s) & OR { pre1eq(a,<tuple>,k,mk) : mk }
+(87) (tuples) pre0eq(a,<tuple>,k,mk) => pre0(a,mk) & eq(<tuple>,mk,k)
+(88) (tuples) pre1eq(a,<tuple>,k,mk) => pre1(a,mk) & eq(<tuple>,mk,k)
+(89) (tuples) eq(<tuple>,mk,k) => [ atom(mk,p) <=> ground(k,p) ]
+(90) (tuples) eq(<tuple>,mk,k) & atom(mk,i,mo_j) => ground(k,i,o_j)
+
