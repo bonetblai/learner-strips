@@ -67,7 +67,7 @@ dfa 22 -1
 1 UNSTACK 10
 ```
 
-## Examples for Inputs
+### Examples
 
 The folder ```dfas``` contains several DFAs (labeled and directed graphs) from different domains.
 These can be used directly by the SAT-based approach for synthesis. For using the ASP-based approach,
