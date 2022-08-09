@@ -1,5 +1,5 @@
 # learner-strips
-Repo for learning STRIPS models from graph-based representation of state spaces, either complete or partial.
+Repo for learning (first-order) STRIPS models from graph-based representation of state spaces, either complete or partial.
 The graph-based representation can be obtained from observable traces of (black box) states (bb-states) and
 action labels; for example, images and action labels. The assumptions being that different bb-states correspond
 to different planning states, and different planning states correspond to different bb-states.
@@ -20,20 +20,27 @@ The repo depends on the following submodules:
 1. ``dfa-sat`` that include support for reading/writing for labeled directed graphs.
 2. ``sat-engine`` that provides C++ tools for writing SAT theories.
 
-## Input Graph (Traces)
+## Inputs
 
-The input is a labeled directed graph specified in the following format:
-1. First line contains two integers: first is number of nodes in graph, second must be ``-1``.
+The input for learning is a number of labeled directed graphs that encode (opaque) state spaces: each node in
+the graph stands for a state and directed edges by state transitions associated to *ground actions*. The edges
+are tagged with high-level action labels. These labels do not indicate arity nor object information. These labels
+are not required, yet a graph without transition labels is considered to be a completely different input from 
+the same graph with transition labels, and thus two completely different models can be expected.
+
+A labeled directed graph is described as a text file in the following format:
+1. First line contains the reserved word ``dfa`` followed by two integers: the number of nodes in graph, and the second is expected to be ``-1``.
 2. Second line specifies the set of labes; first, an integer that tells the number of labels, followed by a space-separated string labels.
 3. Third lines contains ``1 0``.
-4. Following lines, one per each node in order. Each line begins with the number of incident edges at the node, then for each edge, the label of the edge followed by the index of the node pointed by the edge.
+4. Following lines, one per each node in order. Each line begins with the number of outgoing edges at the node, then for each edge, the label of the edge followed by the index of the node pointed by the edge.
 
 For example, the following file describes a directed graph with 22 nodes
 and labels ``PUTDOWN``, ``PICK``, ``UNSTACK``, and ``STACK`` that corresponds
-to the state space of a Blocksworld problem with 3 blocks.
+to the state space of a Blocksworld problem with 4 operators and 3 blocks.
+Such a description is found in ```dfas/blocks4ops_3.dfa```.
 
 ```
-22 -1
+dfa 22 -1
 4 PUTDOWN PICK UNSTACK STACK
 1 0
 3 PICK 1 PICK 2 PICK 3
