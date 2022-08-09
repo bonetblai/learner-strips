@@ -95,12 +95,16 @@ One such usage allows for the generation of ```.dot``` (graphical) description o
 
 ### Generation of graphs for DFAs
 
-To generate a ```.dot``` file that graphically depicts a DFA as a ```.pdf``` file, execute:
+To generate a ```.pdf``` file that graphically depicts a DFA, execute:
 
 ```
 ./strips --dump-ts-dot --output <filename>.dot <filename>.dfa
 dot -Tpdf -O <filename>.dot
 ```
+
+The first command uses ```strips``` to generate a ```.dot``` file from the ```.dfa``` file, while
+the second generates the ```.pdf``` file. For this, you need to have installed ```graphviz```.
+
 
 ### Scripts
 
