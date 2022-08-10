@@ -1,0 +1,1 @@
+1 grid4ops_n4853 4 2 2 2 2 2 1 1 6 2 1 0 4 0 0 grid4ops_3x4 verify 8 grid4ops_4x4 grid4ops_5x6

@@ -1,0 +1,757 @@
+# seed=31976
+0 grid1ops_n609 1 1 2 1 1 6 0 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2544 1 1 3 2 2 2 6 2 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2516 1 3 3 1 2 2 6 1 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3267 1 1 3 1 1 2 6 3 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5443 1 2 4 0 0 2 2 6 1 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1332 1 1 2 1 2 6 3 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2514 1 1 3 1 2 2 6 1 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2905 1 2 3 0 1 1 6 0 4 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5987 1 3 4 0 1 1 1 6 3 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6021 1 1 4 0 0 0 2 6 3 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1312 1 2 2 0 2 6 3 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1669 1 2 3 1 1 1 6 0 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4624 1 2 4 0 0 2 2 6 1 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5472 1 1 4 0 0 0 1 6 1 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6277 1 2 4 0 2 2 2 6 0 4 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6855 1 1 4 0 1 1 2 6 2 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3993 1 1 4 0 1 2 2 6 0 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1993 1 2 3 1 1 1 6 1 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1663 1 2 3 0 1 1 6 0 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4494 1 1 4 0 1 2 2 6 0 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n305 1 3 1 2 6 2 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1567 1 2 3 1 1 2 6 0 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4760 1 3 4 0 0 2 2 6 1 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4324 1 2 4 1 1 2 2 6 0 2 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7526 1 3 4 0 0 1 1 6 4 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5977 1 2 4 0 0 0 2 6 3 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4369 1 2 4 1 1 2 2 6 0 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3604 1 2 4 0 0 0 0 6 0 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3587 1 3 4 0 1 2 2 6 0 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6152 1 3 4 0 0 0 0 6 3 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n94 1 2 1 2 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5735 1 3 4 1 1 2 2 6 2 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4764 1 1 4 1 1 1 1 6 1 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n246 1 1 1 1 6 0 4 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2762 1 3 3 2 2 2 6 3 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6739 1 2 4 2 2 2 2 6 1 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5258 1 3 4 0 1 1 1 6 0 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n928 1 2 2 1 1 6 1 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3129 1 1 3 0 2 2 6 2 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5125 1 2 4 0 0 2 2 6 0 3 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2889 1 1 3 1 1 2 6 0 4 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1132 1 2 2 1 2 6 0 4 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4964 1 3 4 1 2 2 2 6 2 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6693 1 1 4 2 2 2 2 6 1 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2683 1 2 3 0 0 1 6 3 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1812 1 1 3 1 2 2 6 1 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n402 1 1 2 0 1 6 0 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4421 1 3 4 2 2 2 2 6 0 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1618 1 2 3 0 2 2 6 0 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1024 1 2 2 0 2 6 3 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7264 1 2 4 0 1 1 2 6 3 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5792 1 3 4 0 0 0 1 6 2 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3866 1 3 4 0 2 2 2 6 0 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1920 1 1 3 1 2 2 6 0 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1623 1 1 3 1 2 2 6 0 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3944 1 3 4 0 1 1 2 6 0 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1875 1 1 3 0 0 2 6 0 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1837 1 2 3 1 1 2 6 1 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7030 1 2 4 0 0 1 2 6 3 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5988 1 1 4 0 0 2 2 6 3 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6646 1 2 4 1 2 2 2 6 1 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3513 1 1 4 0 0 0 0 6 0 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1632 1 1 3 0 0 2 6 0 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1092 1 1 2 0 1 6 0 4 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n643 1 2 2 1 2 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4269 1 1 4 1 1 1 2 6 1 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5853 1 1 4 0 1 1 2 6 2 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1099 1 2 2 1 1 6 0 4 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5807 1 3 4 0 0 2 2 6 2 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7548 1 1 4 0 2 2 2 6 4 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1960 1 2 3 0 1 1 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1811 1 3 3 1 1 2 6 1 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2313 1 1 3 0 1 2 6 0 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n116 1 3 1 1 6 1 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2326 1 2 3 1 2 2 6 0 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4144 1 2 4 1 2 2 2 6 1 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1266 1 1 2 0 1 6 2 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1657 1 2 3 0 0 1 6 0 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3257 1 3 3 0 1 1 6 3 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3191 1 3 3 1 2 2 6 2 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7457 1 3 4 1 1 1 2 6 4 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7172 1 3 4 0 0 2 2 6 3 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6801 1 1 4 0 0 1 2 6 2 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1997 1 3 3 0 2 2 6 1 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4998 1 1 4 1 1 1 2 6 2 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2812 1 2 3 1 2 2 6 0 4 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5412 1 1 4 0 2 2 2 6 1 2 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4599 1 1 4 1 2 2 2 6 1 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1121 1 3 2 2 2 6 0 4 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n891 1 1 2 0 1 6 1 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4100 1 3 4 1 2 2 2 6 1 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1890 1 1 3 1 1 2 6 0 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4914 1 1 4 1 1 2 2 6 2 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2040 1 1 3 0 1 1 6 1 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6998 1 3 4 0 1 2 2 6 2 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7372 1 2 4 1 1 2 2 6 4 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2695 1 2 3 1 1 1 6 3 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2943 1 1 3 1 1 2 6 1 3 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1760 1 3 3 1 2 2 6 1 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n845 1 3 2 1 2 6 0 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2709 1 1 3 0 0 1 6 3 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7224 1 1 4 0 1 2 2 6 3 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1126 1 2 2 0 2 6 0 4 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n818 1 3 2 2 2 6 0 3 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1775 1 3 3 0 1 2 6 1 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7330 1 2 4 1 2 2 2 6 4 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7456 1 2 4 1 1 1 2 6 4 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1859 1 3 3 1 1 1 6 0 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6077 1 3 4 0 1 1 1 6 3 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3756 1 1 4 0 1 1 1 6 0 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6253 1 2 4 0 0 1 1 6 0 4 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3694 1 2 4 0 0 0 0 6 0 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2741 1 3 3 0 0 2 6 3 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3212 1 3 3 0 2 2 6 3 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6833 1 3 4 2 2 2 2 6 2 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2453 1 3 3 1 1 1 6 1 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2080 1 2 3 1 1 2 6 1 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3806 1 3 4 0 0 2 2 6 0 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n296 1 3 1 1 6 2 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3600 1 1 4 2 2 2 2 6 0 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5068 1 2 4 0 0 1 1 6 2 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6030 1 1 4 0 1 1 1 6 3 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n230 1 3 1 1 6 3 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1450 1 2 3 0 1 2 6 0 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1778 1 3 3 1 1 1 6 1 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3901 1 2 4 1 1 1 1 6 0 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2076 1 1 3 0 2 2 6 1 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2611 1 2 3 0 1 2 6 2 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n999 1 1 2 1 1 6 2 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6096 1 1 4 1 1 2 2 6 3 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4701 1 1 4 0 0 0 2 6 1 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2247 1 1 3 2 2 2 6 2 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5655 1 1 4 0 0 0 1 6 2 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4225 1 2 4 1 1 1 2 6 1 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7462 1 2 4 1 1 2 2 6 4 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3196 1 2 3 0 0 1 6 3 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2384 1 3 3 2 2 2 6 0 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2387 1 3 3 0 0 1 6 1 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4067 1 3 4 0 0 0 2 6 1 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4540 1 2 4 0 1 2 2 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6556 1 2 4 1 2 2 2 6 1 3 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6931 1 2 4 0 0 0 2 6 2 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3038 1 3 3 0 0 2 6 1 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3358 1 2 3 0 0 1 6 4 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6188 1 3 4 1 1 2 2 6 3 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5314 1 2 4 0 1 2 2 6 0 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3671 1 3 4 0 1 1 2 6 0 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3053 1 3 3 1 1 2 6 1 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2330 1 3 3 2 2 2 6 0 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6438 1 1 4 0 1 1 1 6 0 4 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2243 1 3 3 1 1 2 6 2 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n588 1 1 2 0 1 6 0 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2908 1 2 3 0 1 2 6 0 4 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5707 1 2 4 0 0 1 1 6 2 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1074 1 1 2 1 2 6 3 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5112 1 1 4 0 0 0 2 6 0 3 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3422 1 3 3 0 1 2 6 4 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n819 1 1 2 0 1 6 0 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4852 1 2 4 0 0 2 2 6 2 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n273 1 1 1 2 6 1 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1714 1 2 3 0 0 2 6 1 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n515 1 3 2 2 2 6 1 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n286 1 2 1 2 6 1 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n461 1 3 2 0 1 6 0 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1407 1 1 2 2 2 6 4 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3158 1 3 3 0 2 2 6 2 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2164 1 2 3 1 2 2 6 2 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6527 1 3 4 0 0 1 1 6 1 3 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6393 1 1 4 0 1 1 1 6 0 4 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1967 1 3 3 1 1 1 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5904 1 1 4 0 1 2 2 6 2 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2111 1 3 3 1 2 2 6 1 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7070 1 3 4 0 0 0 2 6 3 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3589 1 2 4 1 1 1 2 6 0 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2955 1 1 3 0 0 2 6 1 3 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n316 1 2 1 2 6 3 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1763 1 3 3 2 2 2 6 1 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1571 1 3 3 1 2 2 6 0 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6087 1 1 4 0 1 2 2 6 3 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7123 1 2 4 0 1 1 1 6 3 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2046 1 1 3 1 1 1 6 1 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1800 1 1 3 0 1 2 6 1 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7541 1 3 4 1 1 1 1 6 4 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3060 1 1 3 0 0 1 6 2 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4539 1 1 4 0 1 2 2 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7527 1 1 4 0 0 1 2 6 4 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4814 1 3 4 0 1 2 2 6 1 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4460 1 3 4 1 1 2 2 6 0 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7236 1 1 4 1 2 2 2 6 3 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4576 1 2 4 0 1 1 1 6 1 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1874 1 3 3 0 0 1 6 0 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1468 1 2 3 0 0 1 6 0 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3318 1 1 3 0 2 2 6 3 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1487 1 3 3 1 1 2 6 0 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n28 1 2 1 2 6 0 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6736 1 2 4 1 2 2 2 6 1 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3777 1 1 4 1 1 2 2 6 0 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6676 1 2 4 1 1 1 1 6 1 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7287 1 1 4 0 0 0 0 6 4 0 0 0 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n821 1 3 2 0 1 6 0 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7007 1 3 4 1 1 2 2 6 2 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2297 1 3 3 1 1 2 6 0 3 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1314 1 1 2 1 1 6 3 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6421 1 2 4 2 2 2 2 6 0 4 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n878 1 3 2 0 1 6 1 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n789 1 1 2 2 2 6 2 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4642 1 2 4 1 1 2 2 6 1 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4800 1 1 4 0 1 1 1 6 1 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1465 1 2 3 2 2 2 6 0 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4461 1 1 4 1 2 2 2 6 0 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2479 1 2 3 1 1 1 6 1 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n265 1 2 1 2 6 1 3 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5538 1 1 4 1 1 1 1 6 1 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3521 1 3 4 0 0 0 2 6 0 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n75 1 1 1 2 6 0 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1659 1 1 3 0 0 2 6 0 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4234 1 2 4 1 2 2 2 6 1 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6993 1 1 4 1 1 1 1 6 2 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2157 1 1 3 0 2 2 6 2 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7307 1 3 4 0 1 1 1 6 4 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3849 1 1 4 0 0 2 2 6 0 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6478 1 2 4 0 0 0 2 6 1 3 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4167 1 1 4 0 0 2 2 6 1 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5752 1 2 4 0 0 1 1 6 2 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1285 1 2 2 0 2 6 2 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5802 1 1 4 0 1 1 1 6 2 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1301 1 3 2 1 1 6 3 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n681 1 1 2 1 1 6 1 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1235 1 3 2 2 2 6 2 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n309 1 1 1 2 6 2 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7504 1 2 4 0 2 2 2 6 4 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5865 1 1 4 0 2 2 2 6 2 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3926 1 3 4 0 0 0 1 6 0 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3863 1 3 4 1 1 1 2 6 0 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6901 1 2 4 0 1 1 2 6 2 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4595 1 3 4 0 2 2 2 6 1 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1178 1 3 2 2 2 6 1 3 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6966 1 1 4 2 2 2 2 6 2 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3049 1 2 3 0 2 2 6 1 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n806 1 3 2 0 1 6 0 3 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4120 1 2 4 0 1 1 1 6 1 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1880 1 3 3 0 1 1 6 0 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1003 1 2 2 1 2 6 2 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2726 1 3 3 0 2 2 6 3 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1971 1 1 3 1 1 2 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6705 1 1 4 0 0 1 1 6 1 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3025 1 2 3 1 1 2 6 1 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1713 1 1 3 0 0 2 6 1 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1965 1 1 3 1 1 1 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2543 1 3 3 1 2 2 6 2 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3795 1 1 4 0 0 1 1 6 0 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n693 1 1 2 0 2 6 1 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3821 1 3 4 0 2 2 2 6 0 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2917 1 2 3 1 1 2 6 0 4 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4548 1 1 4 1 1 2 2 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4569 1 1 4 0 0 1 1 6 1 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3087 1 1 3 0 0 1 6 2 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2178 1 1 3 0 1 2 6 2 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1087 1 2 2 1 2 6 0 4 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1813 1 2 3 1 2 2 6 1 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2969 1 3 3 0 2 2 6 1 3 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3735 1 1 4 2 2 2 2 6 0 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7494 1 1 4 1 1 1 1 6 4 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3005 1 3 3 2 2 2 6 1 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n825 1 1 2 1 1 6 0 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5770 1 2 4 0 1 2 2 6 2 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1200 1 1 2 1 1 6 1 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3229 1 2 3 0 1 1 6 3 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3606 1 1 4 0 0 0 1 6 0 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4879 1 2 4 0 0 0 0 6 2 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n810 1 1 2 1 1 6 0 3 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n485 1 3 2 1 2 6 0 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5569 1 2 4 0 0 1 1 6 1 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n839 1 3 2 0 2 6 0 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2736 1 1 3 0 0 1 6 3 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1386 1 1 2 1 1 6 4 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6834 1 1 4 0 0 0 0 6 2 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7191 1 1 4 1 2 2 2 6 3 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n537 1 1 2 1 1 6 1 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1680 1 1 3 2 2 2 6 0 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3514 1 2 4 0 0 0 0 6 0 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2870 1 3 3 2 2 2 6 0 4 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1190 1 3 2 1 2 6 1 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1606 1 2 3 0 0 2 6 0 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1806 1 1 3 0 2 2 6 1 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1706 1 3 3 1 2 2 6 0 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3370 1 2 3 1 1 1 6 4 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5863 1 2 4 1 1 1 2 6 2 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6440 1 3 4 0 1 1 1 6 0 4 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n453 1 1 2 1 2 6 0 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2028 1 1 3 1 2 2 6 1 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4009 1 2 4 2 2 2 2 6 0 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6751 1 2 4 0 0 0 2 6 2 2 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5949 1 1 4 1 1 1 1 6 3 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5428 1 2 4 0 0 0 1 6 1 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n73 1 2 1 2 6 0 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6279 1 1 4 1 1 2 2 6 0 4 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6014 1 3 4 2 2 2 2 6 3 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2349 1 1 3 1 1 2 6 0 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3284 1 3 3 0 1 1 6 3 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4610 1 3 4 0 0 0 1 6 1 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n113 1 3 1 2 6 1 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3987 1 1 4 0 1 1 2 6 0 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5836 1 2 4 0 0 0 1 6 2 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7283 1 3 4 1 2 2 2 6 3 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5740 1 2 4 2 2 2 2 6 2 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1337 1 3 2 2 2 6 3 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6240 1 1 4 2 2 2 2 6 0 4 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4072 1 2 4 0 0 1 2 6 1 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n158 1 3 1 1 6 0 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1926 1 1 3 0 0 1 6 0 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1116 1 1 2 1 2 6 0 4 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n432 1 1 2 0 2 6 0 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1053 1 1 2 0 2 6 3 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5054 1 3 4 1 2 2 2 6 2 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4955 1 3 4 1 1 1 2 6 2 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2301 1 1 3 2 2 2 6 0 3 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1552 1 2 3 0 0 2 6 0 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4433 1 3 4 0 0 1 1 6 0 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3878 1 3 4 0 0 0 0 6 0 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6780 1 1 4 1 1 2 2 6 2 2 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7446 1 1 4 0 1 1 2 6 4 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5061 1 1 4 0 0 0 1 6 2 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n403 1 2 2 0 1 6 0 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1293 1 1 2 2 2 6 2 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1792 1 2 3 0 0 1 6 1 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n232 1 2 1 2 6 3 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5810 1 3 4 0 1 1 2 6 2 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2704 1 2 3 1 2 2 6 3 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6819 1 1 4 1 1 1 2 6 2 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6962 1 3 4 1 1 2 2 6 2 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n777 1 1 2 0 1 6 2 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3468 1 1 4 0 0 0 0 6 0 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2968 1 2 3 0 2 2 6 1 3 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6591 1 1 4 1 1 1 2 6 1 3 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4535 1 3 4 0 1 1 2 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5271 1 1 4 1 1 1 2 6 0 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1790 1 3 3 2 2 2 6 1 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1160 1 3 2 1 2 6 1 3 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2520 1 1 3 0 0 1 6 2 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4918 1 2 4 1 2 2 2 6 2 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2441 1 3 3 0 0 1 6 1 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6575 1 3 4 0 0 1 2 6 1 3 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6894 1 1 4 0 1 1 1 6 2 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5759 1 3 4 0 1 1 1 6 2 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4578 1 1 4 0 0 2 2 6 1 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3989 1 3 4 0 1 1 2 6 0 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n412 1 2 2 1 2 6 0 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3041 1 3 3 0 1 1 6 1 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n173 1 3 1 2 6 1 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1697 1 3 3 1 1 1 6 0 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5937 1 1 4 0 0 1 2 6 3 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6387 1 1 4 0 0 1 1 6 0 4 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5144 1 3 4 1 1 2 2 6 0 3 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2049 1 1 3 0 2 2 6 1 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3115 1 2 3 0 0 1 6 2 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1977 1 1 3 2 2 2 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4114 1 2 4 0 0 1 1 6 1 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3990 1 1 4 1 1 1 1 6 0 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3217 1 2 3 1 2 2 6 3 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5943 1 1 4 0 0 2 2 6 3 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n178 1 2 1 2 6 1 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7455 1 1 4 1 1 1 2 6 4 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5506 1 2 4 1 1 2 2 6 1 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5580 1 1 4 0 1 1 2 6 1 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3469 1 2 4 0 0 0 0 6 0 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n31 1 2 1 1 6 0 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1750 1 2 3 1 1 1 6 1 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n14 1 3 1 1 6 0 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3341 1 3 3 0 1 2 6 4 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2444 1 3 3 0 0 2 6 1 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1505 1 3 3 0 1 2 6 0 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3854 1 3 4 0 1 1 2 6 0 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5985 1 1 4 0 1 1 1 6 3 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3793 1 2 4 0 0 0 2 6 0 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6234 1 1 4 1 1 2 2 6 0 4 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n58 1 2 1 2 6 1 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6766 1 2 4 0 1 1 2 6 2 2 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n399 1 1 2 2 2 6 0 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n352 1 2 1 2 6 4 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2089 1 2 3 0 0 1 6 1 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2815 1 2 3 2 2 2 6 0 4 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5142 1 1 4 1 1 2 2 6 0 3 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5316 1 1 4 1 1 1 2 6 0 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4809 1 1 4 1 1 1 1 6 1 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3107 1 3 3 1 1 2 6 2 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4103 1 3 4 2 2 2 2 6 1 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6990 1 1 4 0 1 1 2 6 2 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6720 1 1 4 1 1 1 1 6 1 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n703 1 2 2 2 2 6 1 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1660 1 2 3 0 0 2 6 0 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2144 1 3 3 0 0 1 6 2 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7288 1 2 4 0 0 0 0 6 4 0 0 0 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3826 1 2 4 1 2 2 2 6 0 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7099 1 2 4 1 1 2 2 6 3 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2780 1 3 3 0 2 2 6 3 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2722 1 2 3 1 1 1 6 3 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7022 1 3 4 0 0 0 1 6 3 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6268 1 2 4 1 1 1 1 6 0 4 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3013 1 2 3 0 1 1 6 1 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6255 1 1 4 0 0 1 2 6 0 4 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2749 1 2 3 1 1 1 6 3 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2210 1 3 3 1 1 1 6 2 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1191 1 1 2 2 2 6 1 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5958 1 1 4 0 2 2 2 6 3 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5048 1 3 4 0 2 2 2 6 2 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n637 1 2 2 0 2 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4541 1 3 4 0 1 2 2 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6509 1 3 4 1 1 2 2 6 1 3 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2081 1 3 3 1 1 2 6 1 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3715 1 2 4 0 1 1 2 6 0 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4240 1 2 4 0 0 0 0 6 1 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7375 1 2 4 1 2 2 2 6 4 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4937 1 3 4 0 0 1 2 6 2 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6525 1 1 4 0 0 1 1 6 1 3 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3098 1 3 3 0 1 2 6 2 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6337 1 2 4 0 0 0 1 6 0 4 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n479 1 3 2 0 2 6 0 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5461 1 2 4 1 1 2 2 6 1 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2321 1 3 3 0 2 2 6 0 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2437 1 2 3 2 2 2 6 1 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5435 1 3 4 0 0 1 1 6 1 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4027 1 2 4 0 0 1 2 6 1 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1110 1 1 2 0 2 6 0 4 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5143 1 2 4 1 1 2 2 6 0 3 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5377 1 2 4 0 0 0 0 6 1 2 0 0 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7225 1 2 4 0 1 2 2 6 3 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n473 1 3 2 2 2 6 0 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3701 1 3 4 0 0 0 2 6 0 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1384 1 2 2 0 2 6 4 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n346 1 2 1 2 6 4 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2627 1 3 3 2 2 2 6 2 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n307 1 2 1 1 6 2 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7097 1 3 4 0 2 2 2 6 3 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5878 1 2 4 0 0 0 0 6 2 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6490 1 2 4 0 0 2 2 6 1 3 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n985 1 2 2 1 1 6 2 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4625 1 3 4 0 0 2 2 6 1 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3482 1 3 4 0 0 1 2 6 0 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4503 1 1 4 1 1 2 2 6 0 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5594 1 3 4 0 2 2 2 6 1 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3403 1 2 3 1 1 2 6 4 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5772 1 1 4 1 1 1 2 6 2 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3774 1 1 4 0 2 2 2 6 0 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n779 1 3 2 0 1 6 2 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6467 1 3 4 2 2 2 2 6 0 4 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4617 1 1 4 0 0 1 2 6 1 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4178 1 3 4 0 1 2 2 6 1 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3784 1 2 4 2 2 2 2 6 0 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4893 1 1 4 0 1 1 1 6 2 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1939 1 2 3 1 1 1 6 0 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5679 1 1 4 0 1 2 2 6 2 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3336 1 1 3 0 1 1 6 4 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3180 1 1 3 1 1 1 6 2 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5211 1 1 4 0 1 1 1 6 0 3 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1734 1 1 3 2 2 2 6 1 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3689 1 3 4 1 2 2 2 6 0 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5570 1 3 4 0 0 1 1 6 1 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1376 1 3 2 1 2 6 4 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6166 1 2 4 0 1 1 1 6 3 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n887 1 3 2 1 2 6 1 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6604 1 2 4 2 2 2 2 6 1 3 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4021 1 2 4 0 0 0 2 6 1 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4733 1 3 4 1 1 2 2 6 1 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2041 1 2 3 0 1 1 6 1 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2481 1 1 3 0 2 2 6 1 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6600 1 1 4 1 2 2 2 6 1 3 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5187 1 1 4 1 1 2 2 6 0 3 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2526 1 1 3 0 1 1 6 2 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6018 1 1 4 0 0 0 1 6 3 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3014 1 3 3 0 1 1 6 1 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5354 1 3 4 0 1 1 2 6 0 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7403 1 3 4 0 1 1 2 6 4 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2476 1 2 3 0 1 2 6 1 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3864 1 1 4 0 2 2 2 6 0 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n918 1 1 2 2 2 6 1 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1042 1 2 2 1 1 6 3 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6294 1 1 4 0 0 0 2 6 0 4 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2793 1 1 3 0 0 2 6 0 4 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7487 1 3 4 0 1 1 1 6 4 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1317 1 1 2 1 2 6 3 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3471 1 1 4 0 0 0 1 6 0 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2322 1 1 3 1 1 2 6 0 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4756 1 2 4 0 1 1 1 6 1 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n176 1 3 1 1 6 1 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5896 1 2 4 0 0 2 2 6 2 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1185 1 1 2 1 1 6 1 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5003 1 3 4 0 2 2 2 6 2 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5676 1 1 4 1 1 1 1 6 2 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1932 1 1 3 0 1 1 6 0 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5267 1 3 4 1 1 1 1 6 0 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4587 1 1 4 0 1 2 2 6 1 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2622 1 1 3 1 2 2 6 2 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3739 1 2 4 0 0 0 0 6 0 1 0 0 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2777 1 3 3 1 1 1 6 3 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6890 1 3 4 0 0 1 1 6 2 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3559 1 2 4 0 0 0 0 6 0 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5641 1 2 4 1 1 2 2 6 1 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6946 1 2 4 0 1 1 2 6 2 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n77 1 3 1 2 6 0 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1548 1 1 3 0 0 1 6 0 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7352 1 3 4 0 1 1 1 6 4 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1309 1 2 2 0 1 6 3 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6831 1 1 4 2 2 2 2 6 2 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1137 1 1 2 0 1 6 0 4 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6846 1 1 4 0 0 1 2 6 2 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n977 1 3 2 2 2 6 2 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5256 1 1 4 0 1 1 1 6 0 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6244 1 2 4 0 0 0 0 6 0 4 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6027 1 1 4 0 0 1 2 6 3 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2668 1 2 3 1 1 1 6 3 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n275 1 3 1 2 6 1 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n618 1 1 2 0 1 6 0 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7230 1 1 4 0 2 2 2 6 3 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5567 1 3 4 0 0 0 2 6 1 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1475 1 3 3 0 1 1 6 0 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n195 1 1 1 2 6 2 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6083 1 3 4 0 1 1 2 6 3 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4035 1 1 4 0 1 1 2 6 1 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2282 1 3 3 0 0 2 6 0 3 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1674 1 1 3 1 1 2 6 0 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1209 1 1 2 0 1 6 1 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7121 1 3 4 0 0 1 2 6 3 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7349 1 3 4 0 0 1 2 6 4 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6379 1 2 4 0 0 0 0 6 0 4 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1615 1 2 3 1 1 1 6 0 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5302 1 2 4 0 1 1 1 6 0 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n193 1 2 1 2 6 2 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7041 1 1 4 1 1 1 1 6 3 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7341 1 1 4 0 0 0 2 6 4 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3530 1 3 4 0 1 1 1 6 0 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2376 1 1 3 1 1 2 6 0 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4078 1 2 4 0 0 2 2 6 1 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1560 1 1 3 1 1 1 6 0 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n406 1 2 2 0 2 6 0 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3839 1 3 4 0 0 0 2 6 0 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2750 1 3 3 1 1 1 6 3 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5458 1 2 4 0 2 2 2 6 1 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3541 1 2 4 0 1 2 2 6 0 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1152 1 1 2 0 2 6 1 3 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4959 1 1 4 1 1 2 2 6 2 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2409 1 1 3 2 2 2 6 1 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5546 1 3 4 1 1 1 2 6 1 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6523 1 2 4 0 0 0 2 6 1 3 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6856 1 2 4 0 1 1 2 6 2 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3936 1 1 4 0 1 1 1 6 0 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n910 1 2 2 0 2 6 1 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2192 1 3 3 1 2 2 6 2 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4442 1 3 4 0 0 2 2 6 0 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2473 1 2 3 0 1 1 6 1 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5312 1 3 4 1 1 1 1 6 0 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n712 1 2 2 1 1 6 1 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1201 1 2 2 1 1 6 1 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4466 1 3 4 2 2 2 2 6 0 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2198 1 3 3 0 0 1 6 2 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2353 1 2 3 1 2 2 6 0 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3127 1 2 3 1 1 1 6 2 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4780 1 2 4 1 2 2 2 6 1 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n341 1 3 1 2 6 4 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4361 1 3 4 0 1 2 2 6 0 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1868 1 3 3 1 2 2 6 0 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4783 1 2 4 2 2 2 2 6 1 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n831 1 1 2 2 2 6 0 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6338 1 3 4 0 0 0 1 6 0 4 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6493 1 2 4 0 1 1 2 6 1 3 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n915 1 1 2 1 2 6 1 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1481 1 3 3 1 1 1 6 0 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1295 1 3 2 2 2 6 2 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3508 1 2 4 1 2 2 2 6 0 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4479 1 1 4 0 0 1 2 6 0 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1809 1 1 3 1 1 2 6 1 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6192 1 1 4 2 2 2 2 6 3 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4789 1 2 4 0 0 0 1 6 1 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2926 1 2 3 0 0 1 6 1 3 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1072 1 2 2 1 1 6 3 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2563 1 2 3 0 2 2 6 2 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3026 1 3 3 1 1 2 6 1 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4976 1 3 4 0 0 0 2 6 2 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n554 1 3 2 1 1 6 1 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6302 1 3 4 0 0 1 2 6 0 4 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n91 1 2 1 1 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n654 1 1 2 1 2 6 1 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1794 1 1 3 0 0 2 6 1 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3476 1 3 4 0 0 0 2 6 0 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3237 1 1 3 0 2 2 6 3 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n632 1 3 2 2 2 6 0 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n952 1 2 2 0 2 6 2 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2393 1 3 3 0 1 1 6 1 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n13 1 2 1 1 6 0 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5632 1 2 4 0 1 2 2 6 1 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n328 1 2 1 2 6 3 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5992 1 2 4 0 1 1 2 6 3 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2119 1 2 3 0 0 2 6 2 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6251 1 3 4 0 0 0 2 6 0 4 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6111 1 1 4 0 0 0 2 6 3 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7383 1 1 4 0 0 0 1 6 4 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5710 1 2 4 0 0 1 2 6 2 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5145 1 1 4 1 2 2 2 6 0 3 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7433 1 3 4 0 0 0 2 6 4 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6066 1 1 4 0 0 0 2 6 3 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5043 1 1 4 1 1 1 2 6 2 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1119 1 1 2 2 2 6 0 4 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1882 1 2 3 0 1 2 6 0 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6513 1 1 4 2 2 2 2 6 1 3 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3794 1 3 4 0 0 0 2 6 0 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1306 1 2 2 2 2 6 3 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6081 1 1 4 0 1 1 2 6 3 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6212 1 3 4 0 0 1 2 6 0 4 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n939 1 1 2 1 1 6 2 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5981 1 3 4 0 0 1 1 6 3 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6621 1 1 4 0 1 1 1 6 1 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6729 1 1 4 0 2 2 2 6 1 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2606 1 3 3 0 0 2 6 2 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5843 1 3 4 0 0 1 1 6 2 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4963 1 2 4 1 2 2 2 6 2 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1249 1 2 2 2 2 6 2 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7515 1 1 4 0 0 0 0 6 4 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4453 1 2 4 1 1 1 2 6 0 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2850 1 1 3 0 1 1 6 0 4 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2276 1 3 3 2 2 2 6 0 3 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5328 1 1 4 2 2 2 2 6 0 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3193 1 2 3 2 2 2 6 2 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6996 1 1 4 0 1 2 2 6 2 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5622 1 1 4 0 0 2 2 6 1 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1144 1 2 2 1 1 6 0 4 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2448 1 1 3 0 1 2 6 1 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6917 1 3 4 1 1 2 2 6 2 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n418 1 2 2 0 1 6 0 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2652 1 1 3 2 2 2 6 2 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7525 1 2 4 0 0 1 1 6 4 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n125 1 3 1 2 6 2 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n701 1 3 2 1 2 6 1 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n661 1 2 2 0 1 6 1 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3524 1 3 4 0 0 1 1 6 0 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5793 1 1 4 0 0 0 2 6 2 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1525 1 2 3 0 0 2 6 0 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1323 1 1 2 0 1 6 3 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5859 1 1 4 0 1 2 2 6 2 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4192 1 2 4 2 2 2 2 6 1 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4686 1 1 4 1 1 2 2 6 1 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n223 1 2 1 1 6 3 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1844 1 3 3 2 2 2 6 1 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5754 1 1 4 0 0 1 2 6 2 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1798 1 2 3 0 1 1 6 1 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4227 1 1 4 0 2 2 2 6 1 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n415 1 2 2 2 2 6 0 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6315 1 1 4 0 1 2 2 6 0 4 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3178 1 2 3 0 1 2 6 2 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3754 1 2 4 0 0 1 2 6 0 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5469 1 1 4 0 0 0 0 6 1 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4519 1 2 4 0 0 0 2 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4594 1 2 4 0 2 2 2 6 1 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1183 1 2 2 0 2 6 1 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5543 1 3 4 0 1 2 2 6 1 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4392 1 1 4 0 1 1 1 6 0 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4142 1 3 4 1 1 2 2 6 1 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6067 1 2 4 0 0 0 2 6 3 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n962 1 3 2 2 2 6 2 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4885 1 2 4 0 0 0 2 6 2 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4388 1 3 4 0 0 1 1 6 0 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1219 1 2 2 1 2 6 1 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7391 1 3 4 0 0 1 1 6 4 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3164 1 3 3 1 2 2 6 2 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2655 1 1 3 0 0 1 6 3 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5805 1 1 4 0 0 2 2 6 2 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5596 1 2 4 1 1 2 2 6 1 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6550 1 2 4 0 2 2 2 6 1 3 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n499 1 2 2 1 2 6 0 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2883 1 1 3 1 1 1 6 0 4 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1066 1 2 2 0 1 6 3 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7325 1 3 4 0 2 2 2 6 4 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6348 1 1 4 0 1 1 1 6 0 4 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5889 1 1 4 0 0 1 2 6 2 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3674 1 3 4 1 1 1 1 6 0 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6502 1 2 4 1 1 1 2 6 1 3 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2609 1 3 3 0 1 1 6 2 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4337 1 3 4 0 0 0 1 6 0 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3021 1 1 3 0 2 2 6 1 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1701 1 1 3 1 1 2 6 0 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4533 1 1 4 0 1 1 2 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n219 1 1 1 2 6 3 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4525 1 2 4 0 0 1 2 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5047 1 2 4 0 2 2 2 6 2 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6942 1 1 4 0 0 2 2 6 2 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n867 1 1 2 1 1 6 1 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6808 1 2 4 0 0 2 2 6 2 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5934 1 1 4 0 0 1 1 6 3 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2578 1 2 3 0 0 2 6 2 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4158 1 1 4 0 0 1 1 6 1 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3867 1 1 4 1 1 2 2 6 0 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5475 1 1 4 0 0 0 2 6 1 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1848 1 1 3 0 0 2 6 0 2 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7111 1 2 4 0 0 0 1 6 3 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5091 1 1 4 0 2 2 2 6 2 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3294 1 1 3 1 1 2 6 3 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5697 1 1 4 0 0 0 0 6 2 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4097 1 3 4 1 1 2 2 6 1 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2757 1 1 3 1 2 2 6 3 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4251 1 1 4 0 0 1 2 6 1 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2921 1 3 3 1 2 2 6 0 4 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n702 1 1 2 2 2 6 1 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4206 1 1 4 0 0 1 2 6 1 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3465 1 1 4 0 0 0 0 6 0 0 0 0 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6429 1 1 4 0 0 0 2 6 0 4 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n363 1 1 2 1 1 6 0 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6402 1 1 4 1 1 1 1 6 0 4 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6369 1 1 4 1 1 2 2 6 0 4 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3157 1 2 3 0 2 2 6 2 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5767 1 2 4 1 1 1 1 6 2 1 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3894 1 1 4 0 0 2 2 6 0 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n979 1 2 2 0 1 6 2 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4529 1 3 4 0 1 1 1 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5591 1 3 4 1 1 1 2 6 1 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4894 1 2 4 0 1 1 1 6 2 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n347 1 3 1 2 6 4 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5856 1 1 4 1 1 1 1 6 2 1 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6722 1 3 4 1 1 1 1 6 1 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n594 1 1 2 1 1 6 0 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6673 1 2 4 0 1 1 2 6 1 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2134 1 2 3 1 1 2 6 2 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6038 1 3 4 0 1 1 2 6 3 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7546 1 2 4 1 1 1 2 6 4 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4791 1 1 4 0 0 0 2 6 1 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4572 1 1 4 0 0 1 2 6 1 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6258 1 1 4 0 1 1 1 6 0 4 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n6848 1 3 4 0 0 1 2 6 2 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n492 1 1 2 0 2 6 0 1 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1275 1 1 2 1 2 6 2 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3449 1 3 3 0 1 2 6 4 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n7555 1 2 4 1 2 2 2 6 4 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2505 1 1 3 1 1 1 6 1 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4282 1 2 4 2 2 2 2 6 1 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3150 1 1 3 0 1 2 6 2 2 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1821 1 1 3 0 0 2 6 1 0 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2697 1 1 3 0 2 2 6 3 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3601 1 2 4 2 2 2 2 6 0 0 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n10 1 2 1 2 6 0 0 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3813 1 1 4 0 1 2 2 6 0 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4403 1 3 4 1 1 1 1 6 0 2 0 3 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5195 1 3 4 2 2 2 2 6 0 3 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n351 1 1 1 2 6 4 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5313 1 1 4 0 1 2 2 6 0 3 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2536 1 2 3 0 2 2 6 2 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n2380 1 2 3 1 2 2 6 0 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5535 1 1 4 0 1 1 2 6 1 2 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4705 1 2 4 0 0 1 1 6 1 1 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1 1 2 1 2 6 0 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n1990 1 2 3 0 1 2 6 1 1 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n3004 1 2 3 2 2 2 6 1 3 0 4 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5334 1 1 4 0 0 0 1 6 0 3 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4037 1 3 4 0 1 1 2 6 1 0 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n405 1 1 2 0 2 6 0 0 0 5 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n644 1 3 2 1 2 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n368 1 3 2 1 2 6 0 0 0 2 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n4545 1 1 4 0 2 2 2 6 0 2 0 6 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
+0 grid1ops_n5669 1 3 4 0 1 1 1 6 2 1 0 1 0 0 grid1ops_3x4 verify 8 grid1ops_4x4 grid1ops_5x6
