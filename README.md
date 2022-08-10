@@ -78,7 +78,7 @@ These can be used directly by the SAT-based approach for synthesis. For using th
 these must be processed to generate a ```.lp``` description of the corresponding DFA.
 
 
-## SAT-Based Approach
+## SAT-based approach
 
 The SAT-based approach mainly consists of a C++ program that generates a SAT theory from given inputs and
 values for the hyperparameters. Although this program can be called directly and then the SAT solver, we
@@ -93,7 +93,7 @@ Directly executing ```src/strips``` gives a description of the different options
 One such usage allows for the generation of ```.dot``` (graphical) description of an input DFA.
 
 
-### Generation of graphs for DFAs
+### Generation of graphs from DFAs
 
 To generate a ```.pdf``` file that graphically depicts a DFA, execute:
 
@@ -106,26 +106,48 @@ The first command uses ```strips``` to generate a ```.dot``` file from the ```.d
 the second generates the ```.pdf``` file. For this, you need to have installed ```graphviz```.
 
 
-### Scripts
+### Python scripts
+
+The folder ```sat/scripts``` contains the python script ```experiment.py``` that implements a complete
+pipeline for solving and verifying. The script reads a *record* from a *benchmarks* file, construct
+the SAT theory according to the values of the hyperparameters specified in the records, and, if successful,
+verify the obtained STRIPS model on a number of input graphs, also specified in the record.
+
+Several benchmarks files are provided in the folder ```sat/scripts/benchmarks```. Each such file contains
+one record per line. As an example, let us consider the file ```sat/scripts/benchmarks/benchmarks_grid4ops_1r.txt```
+that contains the single record:
+
+```
+1 grid4ops_n4853  4 2 2 2 2  2 1 1  6 2 1  0 4 0 0 grid4ops_3x4   verify 8 grid4ops_4x4 grid4ops_5x6
+```
+
+The first integer (0 or 1) is for debugging purposes and indicates whether the record provides a solution
+that yields a model that verifies. The second field is the name of the "experiment". The next integer
+tells how many action schemas to synthesize together with the maximum arity for each one; in the example,
+we instruct to do synthesis of 4 action schemas, each of maximum arity 2. The next integer tells how many
+first-order predicates to include in the model together with their maximum arities; in the example, we
+instruct to use 2 predicates of maximum arity 1. The following 3 integers indicate the total number
+of different *first-order atoms*, and the number of *static* unary nd binary predicates; in the example,
+the record tells to use 7 meta feature, 2 static unary predicates, and 1 binary predicate.
+
+The record then contains one DFA accompanied by 4 integers: number of different ground atoms,
+number of objects, and lower and upper bounds on the number of true atoms per state. Typically,
+the all these integers are equal to 0 except the number of objects which must be a positive
+integer. Zero values for the others tell the solver to construct a theory that is not constraint
+on such dimensions. The name of the DFA appears after the 4 integers. At least one DFA should be
+provided, but more than one is also supported.
+
+Finally, the record specified the DFAs on which to *verify* an obtained model. In the example, if some
+model is found, it should be verified in ```grid4ops_4x4``` and ```grid4ops_5x6``` using at most 8 objects.
+
+In order to use the script, execute the following command from the ```sat/scripts``` folder:
+```
+python experiment.py --remove_dir --dfas_path ../../dfas --verbose 1 benchmarks/benchmarks_grid4ops_1r.txt 0
+```
+This tell the script to use record number 0 from the provided file, together with the options
+```--remove_dir``` that remove any existing folder with the name ```grid4ops_n4853```,
+```--dfas_path``` to indicate where to find the DFAs, and ```--verbose 1``` to obtain interesting
+information. However, all the resulting files together with a log are stored in the folder ```grid4ops_n4853```.
+Running ```experiment.py``` with the option ```--help``` provides information about additional flags.
 
 
-
-The learning task is expressed as a SAT-
-
-A SAT theory whose models (if any) are in correspondence with the STRIPS models compatible with the input graph for a given set of *hyperparameters*
-is obtained with the executable ``src/strips``. The argumens are:
-
-1. The number of action schemas ``<num-action-schemas>``.
-2. The max arity of each action schema, in order: ``<max-arity-first-action> ... <max-arity-last-action>``.
-3. The number of atom schemas: ``<num-atom-schemas>``.
-4. The max arity of each atom schema, in order: ``<max-arity-first-atom> ... <max-arity-last-atom>``.
-5. The number of ''first-order atoms'' (called meta-features) in the STRIPS model: ``<num-meta-features>``.
-6. The number of *static* unary and binary predicates: ``<num-static-unary-predicates> <num-static-binary-predicates>``.
-7. For each input graph, the number of ''features'', number of objects, lower and upper bounds of number of feature per state, and prefix for graph name: ``[<num-features> <num-objects> <LB-on-sum-features-per-state> <UB-on-sum-features-per-state> <prefix>]``.
-
-Typically, ``<num-features>``, ``<LB-on-sum-features-per-state>``, and ``<UB-on-sum-features-per-state>`` are zero.
-The executable ``src/strips`` allows for a number of options, use ``--help`` to see a full description.
-
-## Scripts to Run Experiments
-
-Scripts in folder ``aws/`` can be used to run experiments without the need to run ``src/strips`` directly.
