@@ -33,10 +33,10 @@ are not required, yet a graph without transition labels is considered to be a co
 the same graph with transition labels, and thus two completely different models can be expected.
 
 A labeled directed graph is described as a text file in the following format:
-1. First line contains the reserved word ``dfa`` followed by two integers: the number of nodes in graph, and the second is expected to be ``-1``.
-2. Second line specifies the set of labels; first, an integer that tells the number of labels, followed by a space-separated string labels.
-3. Third lines contains ``1 0``.
-4. Following lines, one per each node in order. Each line begins with the number of outgoing edges at the node, then for each edge, the label of the edge followed by the index of the node pointed by the edge.
+1. The first line contains the reserved word ``dfa`` followed by two integers: the number of nodes in graph, and the second is expected to be ``-1``.
+2. The second line specifies the set of labels; first, an integer that tells the number of labels, followed by a space-separated string labels.
+3. The third line contains ``1 0``.
+4. The following lines, one per each node in order. Each line begins with the number of outgoing edges at the node, then for each edge, the label of the edge followed by the index of the node pointed by the edge.
 
 For example, the following file describes a directed graph with 22 nodes
 and labels ``PUTDOWN``, ``PICK``, ``UNSTACK``, and ``STACK`` that corresponds
@@ -112,6 +112,7 @@ The folder ```sat/scripts``` contains the python script ```experiment.py``` that
 pipeline for solving and verifying. The script reads a *record* from a *benchmarks* file, construct
 the SAT theory according to the values of the hyperparameters specified in the records, and, if successful,
 verify the obtained STRIPS model on a number of input graphs, also specified in the record.
+It is assumed that the SAT solver ```glucose``` is in the path.
 
 Several benchmarks files are provided in the folder ```sat/scripts/benchmarks```. Each such file contains
 one record per line. As an example, let us consider the file ```sat/scripts/benchmarks/benchmarks_grid4ops_1r.txt```
@@ -149,5 +150,7 @@ This tell the script to use record number 0 from the provided file, together wit
 ```--dfas_path``` to indicate where to find the DFAs, and ```--verbose 1``` to obtain interesting
 information. However, all the resulting files together with a log are stored in the folder ```grid4ops_n4853```.
 Running ```experiment.py``` with the option ```--help``` provides information about additional flags.
+
+## ASP-based approach
 
 
