@@ -102,7 +102,7 @@ def get_args():
     parser.add_argument('--recover', help='Try to recover incomplete experiments; overrides --remove_dir', action='store_true')
     parser.add_argument('--remove_dir', help='Remove folder contents if exists', action='store_true')
     parser.add_argument('--time_bound', type=int, default=0, help='Set time bound')
-    parser.add_argument('--verbose', type=int, default=0, help='Set verbosity level')
+    parser.add_argument('--verbose', type=int, default=0, help='Set verbosity level (meaningful values in [0..3])')
     parser.add_argument('benchmarks', type=Path, help='Filename of file containing benchmarks')
     parser.add_argument('record', type=int, help='Record index into benchmarks file')
 
@@ -279,7 +279,7 @@ def main(args: dict):
                 print(colored(f"Skipping benchmark '{dirpath}' because folder with same name exists (use either --recover or --remove_dir to force)  ...", 'magenta'))
                 continue
         else:
-            print(colored("Folder '{dirpath}' created", 'green'))
+            print(colored(f"Folder '{dirpath}' created", 'green'))
             dirpath.mkdir()
             create_marker(dirpath)
 
