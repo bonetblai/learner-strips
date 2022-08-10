@@ -92,6 +92,11 @@ command ```git sumodule update --init```.
 Directly executing ```src/strips``` gives a description of the different options and usages provided.
 One such usage allows for the generation of ```.dot``` (graphical) description of an input DFA.
 
+In the first paper described above, we solve a model learning problem by solving many (hundreds or thousands)
+SAT theories using a computation cluster, and then selecting the solutions that verify over more bigger
+instances and that are simpler in terms of number of actions and predicates, their arities, etc. For this,
+we make use of the python script described below.
+
 
 ### Generation of graphs from DFAs
 
@@ -150,6 +155,7 @@ This tell the script to use record number 0 from the provided file, together wit
 ```--dfas_path``` to indicate where to find the DFAs, and ```--verbose 1``` to obtain interesting
 information. However, all the resulting files together with a log are stored in the folder ```grid4ops_n4853```.
 Running ```experiment.py``` with the option ```--help``` provides information about additional flags.
+
 
 ## ASP-based approach
 
