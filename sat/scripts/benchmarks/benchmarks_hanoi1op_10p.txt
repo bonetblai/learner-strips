@@ -1,0 +1,640 @@
+# seed=26210
+0 hanoi1op_n2100 1 1 3 2 2 2 6 0 3 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4028 1 3 4 0 2 2 2 6 0 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2751 1 1 3 0 2 2 6 1 3 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5340 1 1 4 0 0 0 1 6 0 4 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1526 1 3 3 0 0 2 6 1 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n321 1 1 2 0 1 6 0 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n714 1 1 2 2 2 6 0 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4600 1 2 4 0 0 2 2 6 0 3 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n433 1 2 2 1 2 6 1 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n63 1 1 1 2 6 0 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n163 1 2 1 2 6 3 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1316 1 3 3 0 0 2 6 0 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2091 1 1 3 0 2 2 6 0 3 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2947 1 2 3 2 2 2 6 2 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5959 1 2 4 0 2 2 2 6 2 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1650 1 1 3 1 2 2 6 1 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2900 1 3 3 0 0 2 6 2 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6180 1 1 4 0 0 0 1 6 4 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n547 1 2 2 1 1 6 1 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4058 1 3 4 0 1 1 2 6 0 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2604 1 1 3 0 0 1 6 0 4 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5908 1 2 4 1 1 1 1 6 2 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1368 1 1 3 0 0 2 6 0 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2837 1 3 3 1 1 2 6 1 3 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5358 1 1 4 0 1 1 2 6 0 4 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6351 1 1 4 0 0 0 2 6 4 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3300 1 1 4 0 1 1 2 6 0 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2519 1 3 3 1 1 2 6 3 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5032 1 2 4 1 1 1 2 6 2 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4319 1 3 4 1 1 1 2 6 2 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5272 1 2 4 0 0 2 2 6 3 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1248 1 1 2 0 2 6 4 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n948 1 1 2 2 2 6 0 4 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1105 1 2 2 1 1 6 2 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4212 1 1 4 0 0 1 1 6 1 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4447 1 2 4 0 2 2 2 6 2 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2829 1 1 3 1 1 1 6 1 3 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3721 1 2 4 0 1 1 2 6 1 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5137 1 2 4 0 0 1 1 6 3 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n273 1 1 2 1 2 6 0 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6107 1 3 4 0 0 1 2 6 3 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2800 1 2 3 0 1 2 6 1 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n386 1 3 2 2 2 6 0 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5624 1 3 4 0 2 2 2 6 1 3 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5208 1 1 4 1 2 2 2 6 3 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3024 1 1 3 2 2 2 6 3 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2601 1 1 3 2 2 2 6 0 4 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3515 1 3 4 1 1 1 1 6 0 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n315 1 1 2 1 2 6 0 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3447 1 1 4 2 2 2 2 6 0 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4183 1 2 4 0 1 1 2 6 1 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4403 1 3 4 1 1 1 2 6 2 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n147 1 1 1 2 6 2 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n855 1 1 2 1 1 6 2 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n383 1 3 2 1 2 6 0 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6085 1 2 4 0 2 2 2 6 3 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2352 1 1 3 1 1 1 6 2 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2484 1 1 3 1 1 1 6 3 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4879 1 2 4 0 0 0 1 6 1 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6127 1 2 4 0 2 2 2 6 3 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1961 1 3 3 0 2 2 6 2 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1974 1 1 3 0 0 2 6 2 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1155 1 1 2 1 1 6 3 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2861 1 3 3 1 1 2 6 2 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2747 1 3 3 0 1 2 6 1 3 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6313 1 2 4 0 0 1 1 6 4 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2395 1 2 3 0 0 1 6 2 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6197 1 3 4 0 0 2 2 6 4 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3128 1 3 3 1 2 2 6 4 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1148 1 3 2 2 2 6 3 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n452 1 3 2 2 2 6 1 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n888 1 1 2 0 2 6 3 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6239 1 3 4 0 0 2 2 6 4 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6294 1 1 4 0 2 2 2 6 4 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1941 1 1 3 2 2 2 6 2 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6223 1 2 4 0 0 0 1 6 4 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n107 1 3 1 2 6 2 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3451 1 2 4 0 0 0 1 6 0 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n627 1 1 2 1 1 6 2 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2090 1 3 3 1 1 1 6 0 3 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2085 1 1 3 0 1 2 6 0 3 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2129 1 3 3 2 2 2 6 0 3 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4977 1 1 4 0 0 2 2 6 2 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5893 1 2 4 0 0 1 1 6 2 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1356 1 1 3 1 1 2 6 0 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1224 1 1 2 1 2 6 4 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4636 1 2 4 0 0 1 2 6 0 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2788 1 2 3 2 2 2 6 1 3 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6163 1 2 4 0 1 2 2 6 3 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n166 1 2 1 2 6 3 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n700 1 2 2 2 2 6 0 3 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2383 1 2 3 0 2 2 6 2 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5118 1 1 4 0 2 2 2 6 2 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6353 1 3 4 0 0 0 2 6 4 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1135 1 2 2 2 2 6 3 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5572 1 2 4 1 1 1 1 6 1 3 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4675 1 2 4 0 0 1 1 6 0 3 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4647 1 1 4 1 1 1 1 6 0 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4669 1 2 4 0 0 0 1 6 0 3 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5526 1 1 4 0 1 1 2 6 0 4 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3506 1 3 4 0 1 1 1 6 0 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5393 1 3 4 0 0 1 2 6 0 4 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2634 1 1 3 0 0 2 6 0 4 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3637 1 2 4 0 1 1 2 6 0 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4344 1 1 4 0 1 1 1 6 2 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1038 1 1 2 1 1 6 1 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4665 1 1 4 2 2 2 2 6 0 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4294 1 2 4 0 0 0 2 6 2 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4893 1 1 4 0 0 2 2 6 1 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5068 1 2 4 1 1 1 1 6 2 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1804 1 2 3 1 1 2 6 1 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6316 1 2 4 0 0 1 2 6 4 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3843 1 1 4 0 0 2 2 6 1 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3839 1 3 4 0 0 1 2 6 1 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n898 1 2 2 2 2 6 3 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1076 1 3 2 1 1 6 2 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n648 1 1 2 2 2 6 2 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1003 1 2 2 2 2 6 1 3 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3608 1 3 4 0 2 2 2 6 0 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5316 1 1 4 0 1 1 2 6 3 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5917 1 2 4 0 2 2 2 6 2 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1089 1 1 2 1 1 6 2 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5953 1 2 4 0 1 2 2 6 2 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n439 1 2 2 0 1 6 1 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2099 1 3 3 1 2 2 6 0 3 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2662 1 2 3 0 0 2 6 0 4 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3881 1 3 4 0 0 1 2 6 0 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2844 1 1 3 0 0 2 6 2 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n95 1 3 1 2 6 2 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3650 1 3 4 0 2 2 2 6 0 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n168 1 1 1 1 6 3 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n850 1 2 2 0 1 6 2 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4689 1 1 4 1 1 1 1 6 0 3 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3810 1 1 4 0 1 2 2 6 1 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4026 1 1 4 0 2 2 2 6 0 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2644 1 2 3 1 1 1 6 0 4 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4717 1 2 4 0 0 1 1 6 1 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4666 1 2 4 2 2 2 2 6 0 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2801 1 3 3 0 1 2 6 1 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4122 1 1 4 0 0 0 1 6 1 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3229 1 2 3 0 2 2 6 4 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6081 1 1 4 1 1 1 2 6 3 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3790 1 2 4 0 0 0 2 6 1 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5090 1 3 4 0 0 0 1 6 2 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5191 1 2 4 0 1 1 2 6 3 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1212 1 1 2 2 2 6 4 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3083 1 3 3 0 0 1 6 3 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2590 1 2 3 1 1 1 6 0 4 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6060 1 1 4 0 0 1 1 6 3 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2855 1 3 3 1 1 1 6 2 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2694 1 1 3 0 1 2 6 0 4 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2319 1 1 3 0 1 1 6 2 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1613 1 3 3 0 1 2 6 1 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4312 1 2 4 1 1 1 1 6 2 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n285 1 1 2 1 2 6 0 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3099 1 1 3 1 1 2 6 3 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3408 1 1 4 0 0 0 1 6 0 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4909 1 2 4 0 2 2 2 6 1 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5107 1 2 4 0 1 1 2 6 2 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n244 1 2 1 2 6 3 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2696 1 3 3 0 1 2 6 0 4 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n647 1 3 2 1 2 6 2 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n844 1 2 2 1 2 6 2 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3831 1 1 4 0 0 0 2 6 1 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3710 1 3 4 0 0 1 1 6 1 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1121 1 3 2 1 1 6 2 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n117 1 1 1 2 6 0 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4068 1 1 4 0 2 2 2 6 0 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n461 1 3 2 1 1 6 1 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5597 1 3 4 0 0 0 2 6 1 3 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6024 1 1 4 0 1 1 1 6 3 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3880 1 2 4 0 0 1 2 6 0 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1914 1 1 3 1 2 2 6 1 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1468 1 2 3 2 2 2 6 0 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5546 1 3 4 1 2 2 2 6 0 4 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1183 1 2 2 0 2 6 3 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3826 1 2 4 2 2 2 2 6 1 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2636 1 3 3 0 0 2 6 0 4 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2105 1 3 3 0 0 1 6 0 3 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3494 1 3 4 0 0 0 1 6 0 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2438 1 3 3 0 2 2 6 2 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1478 1 3 3 0 1 1 6 0 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3638 1 3 4 0 1 1 2 6 0 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2423 1 3 3 0 0 1 6 2 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2195 1 3 3 1 1 1 6 1 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3455 1 3 4 0 0 0 2 6 0 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5649 1 1 4 0 0 2 2 6 1 3 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5277 1 1 4 1 1 1 1 6 3 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n836 1 3 2 0 1 6 2 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4075 1 2 4 1 2 2 2 6 0 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5308 1 2 4 0 0 1 2 6 3 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6372 1 1 4 0 1 2 2 6 4 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n389 1 3 2 0 1 6 0 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n103 1 2 1 1 6 2 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5790 1 1 4 0 2 2 2 6 2 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n307 1 2 2 0 1 6 0 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1510 1 2 3 1 1 1 6 0 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1408 1 2 3 1 1 2 6 0 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3361 1 2 4 1 2 2 2 6 0 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n974 1 3 2 1 1 6 0 4 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n849 1 1 2 0 1 6 2 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2671 1 2 3 1 1 1 6 0 4 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1902 1 1 3 0 1 2 6 1 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3289 1 2 4 0 0 1 1 6 0 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3815 1 3 4 1 1 1 2 6 1 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5952 1 1 4 0 1 2 2 6 2 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5519 1 3 4 0 0 1 2 6 0 4 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4431 1 1 4 0 0 2 2 6 2 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5182 1 2 4 0 0 1 2 6 3 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5672 1 3 4 1 2 2 2 6 1 3 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2521 1 2 3 1 2 2 6 3 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3944 1 3 4 0 2 2 2 6 0 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2454 1 1 3 0 1 2 6 3 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1220 1 3 2 0 2 6 4 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3431 1 3 4 1 1 1 1 6 0 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5937 1 1 4 0 0 1 2 6 2 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4095 1 1 4 0 0 2 2 6 1 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n527 1 3 2 1 1 6 0 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1438 1 2 3 1 2 2 6 0 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5989 1 2 4 0 1 1 2 6 3 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1742 1 3 3 0 1 1 6 0 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n845 1 3 2 1 2 6 2 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3 1 1 1 2 6 0 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6179 1 3 4 2 2 2 2 6 3 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2329 1 2 3 0 2 2 6 2 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3140 1 3 3 0 1 1 6 4 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n526 1 2 2 1 1 6 0 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3961 1 2 4 0 0 1 1 6 0 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n92 1 3 1 2 6 2 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2943 1 1 3 1 2 2 6 2 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2485 1 2 3 1 1 1 6 3 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1544 1 3 3 1 2 2 6 1 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4686 1 1 4 0 1 1 2 6 0 3 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3302 1 3 4 0 1 1 2 6 0 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3800 1 3 4 0 1 1 1 6 1 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2795 1 3 3 0 0 2 6 1 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3046 1 2 3 1 1 2 6 3 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2432 1 3 3 0 1 2 6 2 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n387 1 1 2 0 1 6 0 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n522 1 1 2 0 2 6 0 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3913 1 2 4 0 0 0 1 6 0 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4836 1 1 4 0 0 0 1 6 1 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2731 1 2 3 1 2 2 6 1 3 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3865 1 2 4 1 2 2 2 6 1 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1396 1 2 3 0 1 1 6 0 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2332 1 2 3 1 1 2 6 2 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4066 1 2 4 1 1 1 2 6 0 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n284 1 3 2 1 1 6 0 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4573 1 2 4 0 2 2 2 6 0 3 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n568 1 2 2 2 2 6 1 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5984 1 3 4 0 1 1 1 6 3 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1413 1 1 3 2 2 2 6 0 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n135 1 1 1 2 6 1 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4356 1 1 4 0 1 2 2 6 2 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3124 1 2 3 1 1 2 6 4 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3385 1 2 4 0 1 1 2 6 0 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4732 1 2 4 1 1 1 1 6 1 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n274 1 2 2 1 2 6 0 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2564 1 3 3 0 1 2 6 3 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5901 1 1 4 0 0 2 2 6 2 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6042 1 1 4 0 2 2 2 6 3 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5905 1 2 4 0 1 1 2 6 2 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4746 1 1 4 1 2 2 2 6 1 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1690 1 2 3 0 1 2 6 0 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6356 1 3 4 0 0 1 1 6 4 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4041 1 1 4 0 0 0 2 6 0 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5253 1 1 4 2 2 2 2 6 3 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6246 1 1 4 0 1 2 2 6 4 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5009 1 3 4 0 0 0 2 6 2 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2209 1 2 3 0 0 1 6 1 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5679 1 1 4 0 0 0 2 6 1 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1759 1 2 3 2 2 2 6 0 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5784 1 1 4 0 1 2 2 6 2 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1681 1 2 3 0 0 1 6 0 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1801 1 2 3 0 2 2 6 1 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1897 1 2 3 0 0 2 6 1 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2264 1 3 3 0 0 1 6 1 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2650 1 2 3 1 1 2 6 0 4 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6296 1 3 4 0 2 2 2 6 4 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4494 1 1 4 1 2 2 2 6 2 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3342 1 1 4 0 1 1 2 6 0 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1575 1 1 3 0 0 1 6 1 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4382 1 3 4 0 0 1 1 6 2 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6273 1 1 4 0 0 1 2 6 4 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3621 1 1 4 0 0 0 2 6 0 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n525 1 1 2 1 1 6 0 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n895 1 2 2 1 2 6 3 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2505 1 1 3 0 1 1 6 3 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1732 1 2 3 2 2 2 6 0 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1903 1 2 3 0 1 2 6 1 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1234 1 2 2 0 2 6 4 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2729 1 3 3 1 1 2 6 1 3 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5774 1 3 4 0 1 1 1 6 2 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2794 1 2 3 0 0 2 6 1 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1994 1 3 3 1 2 2 6 2 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2570 1 3 3 0 2 2 6 3 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1444 1 2 3 0 0 1 6 0 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5329 1 2 4 0 2 2 2 6 3 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n403 1 2 2 0 2 6 1 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5140 1 2 4 0 0 1 2 6 3 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2277 1 1 3 0 2 2 6 1 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2613 1 1 3 0 1 2 6 0 4 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4232 1 3 4 0 1 2 2 6 1 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5287 1 2 4 0 2 2 2 6 3 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6350 1 3 4 0 0 0 1 6 4 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3862 1 2 4 1 1 2 2 6 1 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3426 1 1 4 0 1 1 2 6 0 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6195 1 1 4 0 0 2 2 6 4 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4731 1 1 4 1 1 1 1 6 1 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5677 1 2 4 0 0 0 1 6 1 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n326 1 3 2 0 2 6 0 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4302 1 1 4 0 1 1 1 6 2 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1676 1 3 3 1 2 2 6 0 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1389 1 1 3 2 2 2 6 0 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1604 1 3 3 0 0 1 6 1 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1589 1 3 3 1 1 1 6 1 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4370 1 3 4 1 2 2 2 6 2 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1091 1 3 2 1 1 6 2 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3273 1 1 4 1 1 2 2 6 0 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n957 1 1 2 1 1 6 0 4 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5585 1 3 4 1 1 2 2 6 1 3 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1331 1 3 3 1 1 2 6 0 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2016 1 1 3 1 1 2 6 2 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6207 1 1 4 1 1 1 2 6 4 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3931 1 2 4 0 1 1 2 6 0 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n567 1 1 2 2 2 6 1 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5502 1 1 4 1 2 2 2 6 0 4 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n569 1 3 2 2 2 6 1 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1055 1 3 2 1 1 6 1 3 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4363 1 2 4 0 2 2 2 6 2 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3539 1 3 4 0 0 0 2 6 0 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2663 1 3 3 0 0 2 6 0 4 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n914 1 3 2 2 2 6 3 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4724 1 3 4 0 1 1 1 6 1 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2379 1 1 3 1 1 1 6 2 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n775 1 2 2 1 1 6 1 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2605 1 2 3 0 0 1 6 0 4 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2435 1 3 3 1 1 1 6 2 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4393 1 2 4 0 1 1 2 6 2 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2401 1 2 3 0 1 1 6 2 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5128 1 2 4 2 2 2 2 6 2 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2191 1 2 3 0 1 2 6 1 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4820 1 3 4 0 1 2 2 6 1 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n548 1 3 2 1 1 6 1 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1236 1 1 2 1 1 6 4 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3938 1 3 4 0 1 2 2 6 0 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1339 1 2 3 0 0 1 6 0 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2007 1 1 3 0 1 2 6 2 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n445 1 2 2 1 1 6 1 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5166 1 1 4 1 2 2 2 6 3 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4671 1 1 4 0 0 0 2 6 0 3 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4712 1 3 4 0 0 0 1 6 1 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n993 1 1 2 2 2 6 0 4 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2203 1 2 3 1 2 2 6 1 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6126 1 1 4 0 2 2 2 6 3 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2362 1 2 3 1 2 2 6 2 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3406 1 2 4 2 2 2 2 6 0 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1411 1 2 3 1 2 2 6 0 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3203 1 3 3 0 2 2 6 4 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4361 1 3 4 1 1 1 2 6 2 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1940 1 3 3 1 2 2 6 2 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4033 1 2 4 1 2 2 2 6 0 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4866 1 1 4 0 2 2 2 6 1 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4807 1 2 4 0 1 1 1 6 1 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2995 1 2 3 1 2 2 6 3 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2732 1 3 3 1 2 2 6 1 3 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n616 1 2 2 1 2 6 2 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n644 1 3 2 1 1 6 2 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6137 1 3 4 2 2 2 2 6 3 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n476 1 3 2 2 2 6 0 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5941 1 2 4 0 1 1 1 6 2 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5745 1 1 4 1 1 1 2 6 1 3 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5048 1 3 4 0 0 0 1 6 2 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5040 1 1 4 1 2 2 2 6 2 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4210 1 2 4 0 0 0 2 6 1 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2373 1 1 3 0 1 1 6 2 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3782 1 3 4 1 2 2 2 6 1 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3914 1 3 4 0 0 0 1 6 0 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n813 1 1 2 1 2 6 2 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2643 1 1 3 1 1 1 6 0 4 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n447 1 1 2 1 2 6 1 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3480 1 1 4 0 2 2 2 6 0 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3984 1 1 4 0 2 2 2 6 0 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4722 1 1 4 0 1 1 1 6 1 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4635 1 1 4 0 0 1 2 6 0 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3183 1 1 3 2 2 2 6 4 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n603 1 1 2 1 2 6 2 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1921 1 2 3 0 0 2 6 2 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n201 1 1 1 2 6 1 3 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4126 1 2 4 0 0 0 2 6 1 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5739 1 1 4 1 1 1 1 6 1 3 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2722 1 2 3 1 1 1 6 1 3 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1266 1 1 3 0 1 2 6 0 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2132 1 3 3 0 0 1 6 0 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2305 1 2 3 0 2 2 6 1 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4281 1 1 4 1 1 2 2 6 1 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6202 1 2 4 1 1 1 1 6 4 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2533 1 2 3 0 1 1 6 3 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5336 1 3 4 1 2 2 2 6 3 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n179 1 3 1 2 6 3 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4883 1 3 4 0 0 0 2 6 1 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4144 1 2 4 1 1 1 1 6 1 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5248 1 2 4 1 1 2 2 6 3 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3132 1 1 3 0 0 1 6 4 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2707 1 2 3 1 2 2 6 0 4 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3733 1 2 4 0 2 2 2 6 1 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1363 1 2 3 2 2 2 6 0 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5378 1 3 4 1 2 2 2 6 0 4 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5284 1 2 4 1 1 1 2 6 3 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3245 1 3 4 0 0 0 2 6 0 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n938 1 3 2 2 2 6 0 4 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3619 1 2 4 0 0 0 1 6 0 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6247 1 2 4 0 1 2 2 6 4 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5801 1 3 4 2 2 2 2 6 2 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4010 1 3 4 0 1 1 1 6 0 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5059 1 2 4 0 1 1 1 6 2 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1997 1 3 3 2 2 2 6 2 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2659 1 2 3 0 0 1 6 0 4 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5266 1 2 4 0 0 1 2 6 3 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1715 1 3 3 0 1 1 6 0 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2469 1 1 3 2 2 2 6 3 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n817 1 2 2 2 2 6 2 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1330 1 2 3 1 1 2 6 0 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2131 1 2 3 0 0 1 6 0 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2702 1 3 3 0 2 2 6 0 4 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2448 1 1 3 0 0 2 6 3 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5525 1 3 4 0 0 2 2 6 0 4 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3527 1 3 4 1 1 2 2 6 0 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5005 1 2 4 0 0 0 1 6 2 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4844 1 3 4 0 0 1 1 6 1 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1731 1 1 3 2 2 2 6 0 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3224 1 3 3 0 1 2 6 4 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6196 1 2 4 0 0 2 2 6 4 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1661 1 3 3 0 1 1 6 0 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6139 1 2 4 0 0 0 1 6 3 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4590 1 1 4 0 0 1 1 6 0 3 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5179 1 2 4 0 0 1 1 6 3 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n126 1 1 1 2 6 1 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2255 1 3 3 1 1 2 6 1 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3886 1 2 4 0 0 2 2 6 0 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1346 1 3 3 0 1 1 6 0 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4797 1 1 4 0 0 0 2 6 1 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n940 1 2 2 0 2 6 0 4 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3436 1 2 4 1 1 1 2 6 0 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6245 1 3 4 1 1 1 1 6 4 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2649 1 1 3 1 1 2 6 0 4 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2665 1 2 3 0 1 1 6 0 4 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6153 1 1 4 0 0 2 2 6 3 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5735 1 3 4 0 0 2 2 6 1 3 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5704 1 2 4 1 1 1 2 6 1 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n632 1 3 2 1 2 6 2 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4299 1 1 4 0 0 1 2 6 2 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5803 1 2 4 0 0 0 1 6 2 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6373 1 2 4 0 1 2 2 6 4 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1612 1 2 3 0 1 2 6 1 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2589 1 1 3 1 1 1 6 0 4 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4251 1 1 4 0 0 0 2 6 1 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2612 1 3 3 0 1 1 6 0 4 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5776 1 2 4 0 0 2 2 6 2 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2673 1 1 3 0 2 2 6 0 4 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1270 1 2 3 1 1 1 6 0 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1295 1 3 3 0 1 2 6 0 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2825 1 3 3 0 1 1 6 1 3 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n641 1 3 2 0 2 6 2 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1925 1 3 3 0 1 1 6 2 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2359 1 2 3 1 1 2 6 2 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2142 1 1 3 1 1 1 6 0 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3906 1 1 4 1 2 2 2 6 0 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1754 1 3 3 1 1 2 6 0 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2635 1 2 3 0 0 2 6 0 4 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3520 1 2 4 1 1 1 2 6 0 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3528 1 1 4 1 2 2 2 6 0 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4440 1 1 4 0 1 2 2 6 2 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3842 1 3 4 0 1 1 1 6 1 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1684 1 2 3 0 0 2 6 0 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3942 1 1 4 0 2 2 2 6 0 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2076 1 1 3 0 0 1 6 0 3 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3395 1 3 4 1 1 1 2 6 0 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3845 1 3 4 0 0 2 2 6 1 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5238 1 1 4 0 1 2 2 6 3 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1475 1 3 3 0 0 2 6 0 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5352 1 1 4 0 1 1 1 6 0 4 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3971 1 3 4 0 0 2 2 6 0 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4621 1 2 4 1 2 2 2 6 0 3 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2185 1 2 3 0 0 2 6 1 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4481 1 3 4 1 1 1 1 6 2 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n667 1 2 2 0 2 6 0 3 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1546 1 2 3 2 2 2 6 1 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2628 1 1 3 2 2 2 6 0 4 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5198 1 3 4 0 1 2 2 6 3 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1957 1 2 3 1 1 1 6 2 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4873 1 2 4 1 2 2 2 6 1 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n541 1 2 2 2 2 6 1 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1943 1 3 3 2 2 2 6 2 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3460 1 2 4 0 0 1 2 6 0 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5660 1 3 4 0 1 2 2 6 1 3 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3487 1 2 4 1 2 2 2 6 0 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5903 1 3 4 0 0 2 2 6 2 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6056 1 3 4 0 0 0 1 6 3 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n765 1 1 2 2 2 6 1 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4381 1 2 4 0 0 1 1 6 2 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5160 1 1 4 0 2 2 2 6 3 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5817 1 1 4 0 0 2 2 6 2 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1278 1 1 3 1 2 2 6 0 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2915 1 3 3 1 1 2 6 2 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5390 1 3 4 0 0 1 1 6 0 4 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4531 1 2 4 0 2 2 2 6 0 3 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5707 1 2 4 0 2 2 2 6 1 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1131 1 1 2 1 2 6 3 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4624 1 2 4 2 2 2 2 6 0 3 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1255 1 2 2 1 2 6 4 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4628 1 3 4 0 0 0 1 6 0 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1859 1 3 3 1 1 2 6 1 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4471 1 2 4 0 1 1 1 6 2 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1287 1 1 3 0 0 2 6 0 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1430 1 3 3 1 1 1 6 0 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n169 1 2 1 1 6 3 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2001 1 1 3 0 0 2 6 2 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1830 1 1 3 1 1 2 6 1 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1233 1 1 2 0 2 6 4 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+1 hanoi1op_n530 1 3 2 1 2 6 0 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2211 1 1 3 0 0 2 6 1 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n357 1 1 2 0 1 6 0 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3042 1 1 3 0 2 2 6 3 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2836 1 2 3 1 1 2 6 1 3 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5495 1 3 4 1 1 1 2 6 0 4 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2978 1 3 3 0 0 2 6 3 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6203 1 3 4 1 1 1 1 6 4 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6361 1 2 4 0 1 1 1 6 4 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4086 1 1 4 0 0 1 1 6 1 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1966 1 2 3 1 2 2 6 2 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3155 1 3 3 1 2 2 6 4 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1927 1 2 3 0 1 2 6 2 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1670 1 3 3 0 2 2 6 0 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2815 1 2 3 2 2 2 6 1 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5857 1 2 4 0 1 1 1 6 2 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n39 1 1 1 2 6 1 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n279 1 1 2 0 2 6 0 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3111 1 1 3 0 1 1 6 4 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1812 1 1 3 0 0 1 6 1 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4641 1 1 4 0 0 2 2 6 0 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1067 1 3 2 1 2 6 2 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3429 1 1 4 1 1 1 1 6 0 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5043 1 1 4 2 2 2 2 6 2 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1375 1 2 3 0 1 2 6 0 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5834 1 3 4 0 2 2 2 6 2 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4658 1 3 4 0 2 2 2 6 0 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2866 1 2 3 2 2 2 6 2 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2335 1 2 3 1 2 2 6 2 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3446 1 3 4 1 2 2 2 6 0 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3714 1 1 4 0 1 1 1 6 1 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n577 1 2 2 1 1 6 1 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5897 1 3 4 0 0 1 2 6 2 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1787 1 3 3 2 2 2 6 0 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6087 1 1 4 1 1 2 2 6 3 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4915 1 2 4 1 2 2 2 6 1 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4805 1 3 4 0 0 1 2 6 1 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5697 1 1 4 1 1 1 1 6 1 3 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5532 1 1 4 0 1 2 2 6 0 4 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5154 1 1 4 0 1 2 2 6 3 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2028 1 1 3 0 0 2 6 2 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1205 1 3 2 0 2 6 4 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6363 1 1 4 0 0 2 2 6 4 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4132 1 2 4 0 0 1 2 6 1 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4521 1 1 4 1 1 1 1 6 0 3 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6259 1 2 4 1 2 2 2 6 4 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3056 1 3 3 0 0 1 6 3 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n399 1 1 2 2 2 6 0 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4552 1 2 4 0 0 1 2 6 0 3 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6078 1 1 4 0 1 2 2 6 3 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3439 1 2 4 0 2 2 2 6 0 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3872 1 3 4 0 0 0 1 6 0 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1259 1 3 2 2 2 6 4 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n607 1 2 2 2 2 6 2 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1558 1 2 3 0 1 2 6 1 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n27 1 1 1 2 6 0 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2651 1 3 3 1 1 2 6 0 4 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2958 1 1 3 0 1 2 6 2 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5432 1 3 4 0 0 1 1 6 0 4 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1027 1 2 2 1 2 6 1 3 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5328 1 1 4 0 2 2 2 6 3 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3684 1 1 4 0 1 2 2 6 1 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2497 1 2 3 2 2 2 6 3 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5296 1 2 4 2 2 2 2 6 3 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n742 1 2 2 0 2 6 1 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4113 1 1 4 1 1 2 2 6 1 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5303 1 3 4 0 0 0 2 6 3 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5363 1 3 4 1 1 1 1 6 0 4 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6354 1 1 4 0 0 1 1 6 4 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2487 1 1 3 0 2 2 6 3 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5221 1 2 4 0 0 1 1 6 3 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2158 1 2 3 0 0 1 6 0 3 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5552 1 3 4 0 0 0 1 6 1 3 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1674 1 1 3 1 2 2 6 0 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n231 1 1 1 2 6 2 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2399 1 3 3 0 0 2 6 2 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5659 1 2 4 0 1 2 2 6 1 3 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2630 1 3 3 2 2 2 6 0 4 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3890 1 3 4 0 1 1 2 6 0 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2556 1 1 3 0 0 2 6 3 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2071 1 2 3 1 2 2 6 0 3 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n6020 1 3 4 0 0 1 1 6 3 1 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n999 1 1 2 1 2 6 1 3 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n167 1 3 1 2 6 3 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1697 1 3 3 0 2 2 6 0 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1655 1 3 3 2 2 2 6 1 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2382 1 1 3 0 2 2 6 2 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1109 1 3 2 1 2 6 2 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5094 1 1 4 0 0 1 1 6 2 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1272 1 1 3 0 2 2 6 0 0 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n61 1 2 1 1 6 0 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4373 1 3 4 2 2 2 2 6 2 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4917 1 1 4 2 2 2 2 6 1 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4032 1 1 4 1 2 2 2 6 0 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4229 1 3 4 1 1 1 1 6 1 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3812 1 3 4 0 1 2 2 6 1 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2826 1 1 3 0 1 2 6 1 3 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3044 1 3 3 0 2 2 6 3 1 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n633 1 1 2 2 2 6 2 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2310 1 1 3 1 2 2 6 1 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3073 1 2 3 1 1 2 6 3 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4378 1 2 4 0 0 0 2 6 2 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4074 1 1 4 1 2 2 2 6 0 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5073 1 1 4 1 1 1 2 6 2 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1603 1 2 3 0 0 1 6 1 0 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3437 1 3 4 1 1 1 2 6 0 0 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3282 1 1 4 0 0 0 1 6 0 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4727 1 3 4 0 0 2 2 6 1 2 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n5596 1 2 4 0 0 0 2 6 1 3 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3093 1 1 3 1 1 1 6 3 1 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n894 1 1 2 1 2 6 3 0 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2911 1 2 3 0 2 2 6 2 2 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2875 1 2 3 0 1 1 6 2 2 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3298 1 2 4 0 0 2 2 6 0 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n1021 1 2 2 0 2 6 1 3 0 4 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n2923 1 2 3 0 0 1 6 2 2 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4334 1 3 4 0 0 0 1 6 2 0 0 3 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n4950 1 1 4 0 2 2 2 6 2 1 0 2 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
+0 hanoi1op_n3584 1 3 4 0 0 1 1 6 0 1 0 5 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3

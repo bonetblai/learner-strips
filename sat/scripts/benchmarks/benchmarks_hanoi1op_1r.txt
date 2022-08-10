@@ -1,0 +1,1 @@
+1 hanoi1op_n530 1 3 2 1 2 6 0 2 0 6 0 0 hanoi1op_3x3 verify 8 hanoi1op_3x4 hanoi1op_4x3
