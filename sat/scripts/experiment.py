@@ -1,6 +1,7 @@
 import sys, os, shutil, signal, subprocess, resource, subprocess, argparse
 from termcolor import colored
 from pathlib import Path
+from typing import List
 import logging
 
 class Benchmark:
@@ -270,17 +271,17 @@ def main(args: dict):
                 print(colored(f"Folder '{dirpath}' removed", 'magenta'))
                 shutil.rmtree(dirpath)
                 print(colored(f"Folder '{dirpath}' created", 'green'))
-                dirpath.mkdir()
+                dirpath.mkdir(parents=True)
                 create_marker(dirpath)
             elif existing_marker(dirpath) and args.recover:
                 print(colored(f"Found marker in '{dirpath}'; entering recovery mode...", 'magenta'))
                 recovery_mode = True
             else:
-                print(colored(f"Skipping benchmark '{dirpath}' because folder with same name exists (use either --recover or --remove_dir to force)  ...", 'magenta'))
+                print(colored(f"Skipping benchmark '{dirpath}' because folder with same name exists (use either --recover or --remove_dir to force) ...", 'magenta'))
                 continue
         else:
             print(colored(f"Folder '{dirpath}' created", 'green'))
-            dirpath.mkdir()
+            dirpath.mkdir(parents=True)
             create_marker(dirpath)
 
         assert dirpath.exists() and dirpath.is_dir()
@@ -300,6 +301,7 @@ def main(args: dict):
         log_level = logging.INFO if args.debug_level == 0 else logging.DEBUG
         logger = get_logger('solve', parameters['log'], log_level)
         logger.info(colored(f"Log file '{parameters['log']}' created", 'green'))
+        logger.info(f'call=|{" ".join(sys.argv)}|')
         if recovery_mode: logger.info('Recovery mode is TRUE')
 
         # parameters for dfas
