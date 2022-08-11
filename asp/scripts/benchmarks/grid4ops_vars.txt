@@ -1,0 +1,10 @@
+# TEST SUITE
+# grid4ops_2x3.lp grid4ops_3x3.lp grid4ops_3x4.lp grid4ops_4x4.lp grid4ops_4x5.lp grid4ops_5x5.lp grid4ops_5x6.lp grid4ops_6x6.lp
+
+grid4ops_2x3.lp 1 10 -c req_prec=1 -c osym=2 -c asym=2  -c max_num_invariants=2  -c max_predicates=4 -c static=3 --configuration=frumpy VERIFY 8 0 grid4ops_2x3.lp grid4ops_3x3.lp grid4ops_3x4.lp grid4ops_4x4.lp grid4ops_4x5.lp grid4ops_5x5.lp grid4ops_5x6.lp grid4ops_6x6.lp
+grid4ops_2x3.lp 2 10 -c req_prec=1 -c osym=2 -c asym=2  -c max_num_invariants=2  -c max_predicates=4 -c static=3 --configuration=frumpy VERIFY 8 0 grid4ops_2x3.lp grid4ops_3x3.lp grid4ops_3x4.lp grid4ops_4x4.lp grid4ops_4x5.lp grid4ops_5x5.lp grid4ops_5x6.lp grid4ops_6x6.lp
+grid4ops_2x3.lp 3 10 -c req_prec=1 -c osym=2 -c asym=2  -c max_num_invariants=2  -c max_predicates=4 -c static=3 --configuration=frumpy VERIFY 8 0 grid4ops_2x3.lp grid4ops_3x3.lp grid4ops_3x4.lp grid4ops_4x4.lp grid4ops_4x5.lp grid4ops_5x5.lp grid4ops_5x6.lp grid4ops_6x6.lp
+
+grid4ops_3x3.lp 1 10 -c req_prec=1 -c osym=2 -c asym=2  -c max_num_invariants=2  -c max_predicates=4 -c static=3 --configuration=frumpy VERIFY 8 0 grid4ops_2x3.lp grid4ops_3x3.lp grid4ops_3x4.lp grid4ops_4x4.lp grid4ops_4x5.lp grid4ops_5x5.lp grid4ops_5x6.lp grid4ops_6x6.lp
+grid4ops_3x3.lp 2 10 -c req_prec=1 -c osym=2 -c asym=2  -c max_num_invariants=2  -c max_predicates=4 -c static=3 --configuration=frumpy VERIFY 8 0 grid4ops_2x3.lp grid4ops_3x3.lp grid4ops_3x4.lp grid4ops_4x4.lp grid4ops_4x5.lp grid4ops_5x5.lp grid4ops_5x6.lp grid4ops_6x6.lp
+grid4ops_3x3.lp 3 10 -c req_prec=1 -c osym=2 -c asym=2  -c max_num_invariants=2  -c max_predicates=4 -c static=3 --configuration=frumpy VERIFY 8 0 grid4ops_2x3.lp grid4ops_3x3.lp grid4ops_3x4.lp grid4ops_4x4.lp grid4ops_4x5.lp grid4ops_5x5.lp grid4ops_5x6.lp grid4ops_6x6.lp
