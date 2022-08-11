@@ -181,7 +181,7 @@ def copy_files(filenames: List[Path], target_dir: Path, logger):
 def create_instances_in_destination_folder(sample_path: Path, samples: List, samples_catalog: dict, target_dir: Path, version: str, logger):
     assert version in [ 'orig', 'mf' ]
     actions = set()
-    target_dir.mkdir(exist_ok=True)
+    target_dir.mkdir(parents=True, exist_ok=True)
     for index, sample in enumerate(samples):
         num_nodes, num_edges = 0, 0
         if samples_catalog is not None:
