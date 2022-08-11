@@ -1,0 +1,665 @@
+import sys, os, shutil, signal, subprocess, resource, subprocess, argparse
+from termcolor import colored
+from pathlib import Path
+from typing import List
+import logging
+import re
+
+from dfa import DFA
+from learnasp.names     import SAT, VARIABLES, CONSTRAINTS, SYMBOLS, RULES, SOLVING, CONFLICTS, CHOICES, TIME, MODEL1st
+from learnasp.output_mf import parse_clingo_out, STRIPSSchema
+
+class Benchmark:
+    def __init__(self, fields):
+        index = 0
+
+        self.samples = []
+        while fields[index].endswith('.lp'):
+            self.samples.append(fields[index])
+            index += 1
+
+        self.num_objs_learn = int(fields[index]); index += 1
+        self.max_atoms_learn = int(fields[index]); index += 1
+        self.options = []
+        while fields[index].upper() != 'VERIFY':
+            self.options.append(fields[index]); index += 1
+
+        index += 1
+        self.max_num_objs_ver = int(fields[index]); index += 1
+        self.max_atoms_ver = int(fields[index]); index += 1
+        self.verify = []
+        while index < len(fields) and fields[index] != 'partial':
+            self.verify.append(fields[index]); index += 1
+        self.partial = None
+        if index < len(fields) and fields[index] == 'partial':
+            index += 1
+            self.partial = int(fields[index])
+
+    def get_options(self):
+        opts = self.options
+        if self.partial != None:
+            opts.append('-c perc={} -c perc_nodes=1'.format(self.partial))
+        return ' '.join(opts)
+
+class Stats:
+    def __init__(self, samples):
+        self.data = dict(samples = '_'.join(samples))
+    def __str__(self):
+        str_template = '{samples} {objs} {num_rules} {num_variables} {num_constraints} {num_choices} {num_conflicts} {total_time} {solve_time} {first} {solve_memory} {satisfiable}'
+        str_subtemplate = '{instance} {objs} {num_rules} {num_variables} {num_constraints} {num_choices} {num_conflicts} {total_time} {solve_time} {solve_memory} {satisfiable}'
+        if 'num_rules' in self.data:
+            # if only verification, self.data does not contain info about solving theory
+            as_str = str_template.format(**self.data)
+        else:
+            as_str = '{samples}'.format(**self.data)
+        if self.data['satisfiable']:
+            for ver in self.data.get('verify', []):
+                if ver['satisfiable']:
+                    as_str += ' ' + str_subtemplate.format(**ver)
+        return as_str
+
+# clingo scripts
+g_clingo = {
+    'mf'   : { 'solve'           : [ Path('clingo/mf/base2_mf.lp'),
+                                     #Path('clingo/mf/base2_mf_partition.lp'),
+                                     Path('clingo/mf/constraints_blai_mf.lp'),
+                                     Path('clingo/mf/constraints_javier_mf.lp'),
+                                     Path('clingo/mf/invariants4a_mf.lp'),
+                                   ],
+               'inverse_actions' : [ Path('clingo/mf/inverse_actions_mf.lp') ],
+               'verify'          : [ Path('clingo/mf/base2_mf.lp'), ],
+               'optimize'        : [ Path('clingo/mf/optimize_mf.lp') ],
+               'heuristics'      : [ Path('clingo/mf/heuristics_mf.lp') ],
+               'partial'         : [ Path('clingo/partial.lp') ],
+             },
+    'orig' : { 'solve'           : [ Path('clingo/orig/base2.lp'),
+                                     Path('clingo/orig/constraints_blai.lp'),
+                                     Path('clingo/orig/constraints_javier.lp'),
+                                     Path('clingo/orig/invariants4a.lp'),
+                                   ],
+               'verify'          : [ Path('clingo/orig/base2.lp'), ],
+               'optimize'        : [ Path('clingo/orig/optimize.lp') ],
+               'heuristics'      : [ ], #Path('clingo/orig/heuristics.lp') ],
+             },
+}
+
+# templates
+g_templates = {
+    'solve'   : '{solver} -Wno-global-variable {lps} {flags} -c opt_synthesis={synthesis} --stats=2 --time-limit={time_limit}',
+    'verify'  : '{solver} -Wno-global-variable {lps} {samples_with_path} {flags} -c opt_synthesis={synthesis} --stats=2 --time-limit={time_limit}',
+    'partial' : '{solver} -Wno-global-variable {lps} {partial_sample_path}/{sample} {flags} -c opt_synthesis={synthesis} --stats=2 --time-limit={time_limit}',
+    'flags'   : '-c num_objects={nobj} -c max_true_atoms_per_state={max_atoms} {options} {extra_flags}',
+}
+
+# logger
+def get_logger(name: str, log_file: Path, level = logging.INFO):
+    logger = logging.getLogger(name)
+    logger.propagate = False
+    logger.setLevel(level)
+
+    # add stdout handler
+    #formatter = logging.Formatter('[%(levelname)s] %(message)s')
+    formatter = logging.Formatter('%(asctime)s [%(levelname)s] [%(funcName)s:%(lineno)d] %(message)s')
+    console = logging.StreamHandler(sys.stdout)
+    console.setFormatter(formatter)
+    logger.addHandler(console)
+
+    # add file handler
+    if log_file != '':
+        formatter = logging.Formatter('%(asctime)s [%(levelname)s] [%(funcName)s:%(lineno)d] %(message)s')
+        file_handler = logging.FileHandler(str(log_file), 'a')
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)
+
+    return logger
+
+def close_logger(logger):
+    handlers = logger.handlers
+    for handler in handlers:
+       logger.removeHandler(handler)
+       handler.close()
+
+# options and arguments
+def get_args():
+    # default values
+    default_debug_level = 0
+    default_extra_flags = ''
+    default_extra_path = ''
+    default_incremental = None
+    default_mem_bound = None
+    default_partial_sample_path = ''
+    default_sample_path = ''
+    default_threads = 1
+    default_time_bound = 0
+    default_time_bound_ver = 0
+
+    # argument parser
+    parser = argparse.ArgumentParser('incremental_mf.py')
+    parser.add_argument('--add', nargs='*', action='append', type=str, default=[], help=f'Set additional .lp for solver')
+    parser.add_argument('--debug_level', nargs=1, type=int, default=default_debug_level, help=f'Set debug level (default={default_debug_level})')
+    parser.add_argument('--extra_flags', nargs=1, type=str, default=default_extra_flags, help=f"Extra flags for encoder (default='{default_extra_flags}')")
+    parser.add_argument('--extra_path', type=Path, default=default_extra_path, help=f"Extra path prefix for dir names (default='{default_extra_path}')")
+    parser.add_argument('--heuristics', action='store_true', help='Apply heuristics in solving')
+    parser.add_argument('--incremental', nargs=2, metavar=('num-samples', 'max-depth'), default=default_incremental, type=int, help=f'Incremental learning (default={default_incremental})')
+    parser.add_argument('--inverse_actions', action='store_true', help='Identify inverse actions in input graph')
+    parser.add_argument('--label_partitioning', action='store_true', help='Identify L1/L2 label partitioning in input graph')
+    parser.add_argument('--mem_bound', type=int, default=default_mem_bound, help=f'Set memory bound for solver calls as MBs (default={default_mem_bound})')
+    parser.add_argument('--onlyver', action='store_true', help='Only verification')
+    parser.add_argument('--optimize', action='store_true', help='Apply optimization in solving')
+    parser.add_argument('--orig', action='store_true', help='Use original formulation in paper (testing)')
+    parser.add_argument('--partial_sample_path', type=Path, default=default_partial_sample_path, help=f"Path to partial samples (default='{default_partial_sample_path}')")
+    parser.add_argument('--remove_dir', help='Remove folder contents if exists', action='store_true')
+    parser.add_argument('--sample_path', type=Path, default=default_sample_path, help=f"Path to samples (default='{default_sample_path}')")
+    parser.add_argument('--skipver', action='store_true', help='Skip verification')
+    parser.add_argument('--threads', nargs=1, type=int, default=1, help=f'Set number of threads for Clingo solver (default = {default_threads})')
+    parser.add_argument('--time_bound', nargs=1, type=int, default=default_time_bound, help=f'Set time bound for synthesis (default={default_time_bound})')
+    parser.add_argument('--time_bound_ver', nargs=1, type=int, default=default_time_bound_ver, help=f'Set time bound for verification (default={default_time_bound_ver})')
+    parser.add_argument('benchmarks', type=Path, help='Filename of file containing benchmarks')
+    parser.add_argument('record', type=int, help='Record index into benchmarks file')
+
+    # parse arguments
+    args = parser.parse_args()
+
+    # unify --add args into single list
+    args.add = list(map(Path, sum(args.add, [])))
+
+    return args
+
+def copy_files(filenames: List[Path], target_dir: Path, logger):
+    for fname in filenames:
+        if fname.exists():
+            if logger: logger.info(colored(f"Copy '{fname.name}' to '{target_dir}'", 'green'))
+            shutil.copy(fname, target_dir)
+        else:
+            if logger:
+                logger.error(colored(f"File '{fname.name}' not found", 'red', attrs=['bold']))
+            else:
+                print(f"Error: file '{fname.name}' not found", 'red', attrs=['bold'])
+            exit(0)
+
+# create and inject instance indices for samples
+def create_instances_in_destination_folder(sample_path: Path, samples: List, samples_catalog: dict, target_dir: Path, version: str, logger):
+    assert version in [ 'orig', 'mf' ]
+    actions = set()
+    target_dir.mkdir(exist_ok=True)
+    for index, sample in enumerate(samples):
+        num_nodes, num_edges = 0, 0
+        if samples_catalog is not None:
+            assert index + 1 not in samples_catalog
+            if sample in samples_catalog:
+                logger.info('Skipping {sample} as already in catalaog as instance {samples_catalog[sample]}')
+                continue
+            samples_catalog[index + 1] = sample
+            samples_catalog[sample] = index + 1
+        with (target_dir / Path(sample)).open('w') as wfd:
+            wfd.write(f'instance({index+1}).\n')
+            wfd.write(f'filename({index+1},"{sample}").\n')
+            with (sample_path / Path(sample)).open('r') as rfd:
+                for line in rfd.readlines():
+                    if line.startswith('node('):
+                        i = line.index('(')
+                        wfd.write(f'node({index+1},{line[i+1:]}')
+                        num_nodes += 1
+                    elif line.startswith('labelname('):
+                        i, label = re.search('labelname\((\d*),"(.*)"\).', line).groups()
+                        wfd.write(f'labelname({index+1},{i},"{label}").\n')
+                        actions.add(label)
+                    elif line.startswith('edge('):
+                        i = line.index('(')
+                        wfd.write(f'edge({index+1},{line[i+1:]}')
+                    elif line.startswith('tlabel('):
+                        i = line.index('(')
+                        wfd.write(f'tlabel({index+1},{line[i+1:]}')
+                        num_edges += 1
+                    else:
+                        wfd.write(line)
+        logger.info(colored(f'Created instance {index+1} for file "{sample}" with {num_nodes} node(s) and {num_edges} edge(s)', 'green'))
+    with (target_dir / Path('metadata.lp')).open('w') as fd:
+        fd.write(f'num_actions({len(actions)}).\n')
+    logger.info(colored(f'Created metadata file for {len(samples)} instance(s)', 'green'))
+    logger.info(colored(f'{len(samples)} instance(s) created, {len(actions)} action(s) {actions}', 'green'))
+
+# resource usage
+def get_process_time_in_seconds():
+    info = resource.getrusage(resource.RUSAGE_SELF)
+    cinfo = resource.getrusage(resource.RUSAGE_CHILDREN)
+    return info.ru_utime + info.ru_stime + cinfo.ru_utime + cinfo.ru_stime
+
+def get_subprocess_memory():
+    cinfo = resource.getrusage(resource.RUSAGE_CHILDREN)
+    return cinfo.ru_maxrss
+
+def limit_process_memory(bytes):
+    resource.setrlimit(resource.RLIMIT_AS, (bytes, bytes))
+
+# subprocesses and signals
+def execute_cmd(cmd, logger=None, mem_limit=None):
+    global g_logger, g_children, g_default_sigxcpu_handler
+    start_time = get_process_time_in_seconds()
+    stdout, stderr = '', ''
+    if mem_limit != None: mem_limit *= 1e6
+
+    g_logger = logger
+    with subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, preexec_fn=lambda: init_process(mem_limit), encoding='utf8', bufsize=1, universal_newlines=True) as p:
+        g_running_children.append(p)
+        for line in p.stdout:
+            stdout += line
+            if logger: logger.info(line.strip('\n'))
+        for line in p.stderr:
+            stderr += line
+            if logger: logger.info(line.strip('\n'))
+    g_running_children.pop()
+    g_logger = None
+
+    #p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, preexec_fn=lambda: init_process(mem_limit), encoding='utf8')
+    #stdout = ''
+    #for line in p.stdout:
+    #    stdout += line
+    #stderr = ''
+    #for line in p.stderr:
+    #    stderr += line
+    #p.wait()
+
+    elapsed_time = get_process_time_in_seconds() - start_time
+    max_memory = get_subprocess_memory()
+    return stdout, stderr, elapsed_time, max_memory
+
+g_logger = None
+g_running_children = []
+g_default_sigxcpu_handler = signal.signal(signal.SIGXCPU, signal.SIG_IGN)
+
+def sigterm_handler(_signo, _stack_frame):
+    if g_logger:
+        g_logger.warning(colored('Process INTERRUPTED by SIGTERM!', 'red'))
+    else:
+        print(colored('Process INTERRUPTED by SIGTERM!', 'red'))
+    if g_running_children:
+        if g_logger:
+            g_logger.info(f'Killing {len(g_running_children)} subprocess(es)...')
+        else:
+            print(f'Killing {len(g_running_children)} subprocess(es)...')
+        for p in g_running_children:
+            p.kill()
+    exit(0)
+
+def restore_sigxcpu_handler():
+    signal.signal(signal.SIGXCPU, g_default_sigxcpu_handler)
+
+def init_process(mem_limit):
+    restore_sigxcpu_handler()
+    if mem_limit:
+        resource.setrlimit(resource.RLIMIT_AS, (mem_limit, mem_limit))
+
+# select records from benchmarks file
+def get_records(fname: Path, record):
+    benchmarks = []
+    with fname.open('r') as fd:
+        benchmark_index = 0
+        for line in fd:
+            fields = line.rstrip('\n').split()
+            if len(fields) == 0 or fields[0][0] == '#': continue
+            if benchmark_index == record:
+                benchmarks.append(Benchmark(fields))
+            benchmark_index += 1
+    return benchmarks
+
+# parse output from clingo and store stats
+def parse_stats_from_clingo_output(stdout, stderr, elapsed_time, max_memory):
+    result = parse_clingo_out(stdout)
+    stats = dict(total_time=result.get(TIME, -1),
+                 solve_memory=max_memory,
+                 satisfiable=result[SAT], # True, False, or None for Sat, Unsat, Unknown
+                 num_rules=result.get(RULES, -1),
+                 num_variables=result.get(VARIABLES, -1),
+                 num_constraints=result.get(CONSTRAINTS, -1),
+                 solve_time=result.get(SOLVING, -1),
+                 first=result.get(MODEL1st, -1),
+                 num_choices=result.get(CHOICES, -1),
+                 num_conflicts=result.get(CONFLICTS, -1))
+    return result, stats
+
+# write output
+def write_output(filename: Path, output: str, logger):
+    logger.info(colored(f'Writing output to {filename}', 'blue'))
+    with filename.open('w') as fd:
+        fd.write(f'{output}\n')
+
+def solve_and_parse_output(task, parameters, stats, logger, extra_lps: List[Path] = None):
+    version = parameters['version']
+    local_parameters = dict(parameters)
+    local_parameters.update(synthesis=1)
+    dirpath = local_parameters['dirpath']
+
+    # copy lps to dirpath
+    assert version in g_clingo
+    copy_files(g_clingo[version]['solve'], dirpath, logger)
+    if args.inverse_actions:
+        copy_files(g_clingo[version]['inverse_actions'], dirpath, logger)
+    if args.optimize:
+        copy_files(g_clingo[version]['optimize'], dirpath, logger)
+    if args.heuristics:
+        copy_files(g_clingo[version]['heuristics'], dirpath, logger)
+    if task.partial != None:
+        copy_files(g_clingo[version]['partial'], dirpath, logger)
+    if extra_lps is not None:
+        copy_files(extra_lps, dirpath, logger)
+    copy_files(local_parameters['add'], dirpath, logger)
+    local_parameters.update(lps=f"'{str(dirpath)}'/*.lp")
+
+    logger.info(colored("Solve '{samples}' with flags '{flags}'".format(**local_parameters), 'magenta', attrs=['bold']))
+    template = g_templates['solve'] if task.partial == None else g_templates['partial']
+    logger.info('cmdline=|{}|'.format(template.format(**local_parameters)))
+
+    stdout, stderr, elapsed_time, max_memory = execute_cmd(template.format(**local_parameters), logger=logger, mem_limit=args.mem_bound)
+    result, solve_stats = parse_stats_from_clingo_output(stdout, stderr, elapsed_time, max_memory)
+    solve_stats.update(objs=local_parameters['nobj'])
+    logger.info(colored(f"Elapsed time {solve_stats['total_time']} second(s)", 'green'))
+    logger.info(colored(f"Memory {solve_stats['solve_memory']}", 'green'))
+    stats.data.update(**solve_stats)
+
+    # save output
+    write_output(dirpath / 'solver_stdout.txt', stdout, logger)
+
+    if not solve_stats['satisfiable']:
+        if solve_stats['satisfiable'] == False:
+            comment = 'UNSATISFIABLE ... skipping verification'.format(**local_parameters)
+        else:
+            comment = 'INDETERMINATE ... skipping verification'.format(**local_parameters)
+        logger.info(colored(comment, 'red', attrs=['bold']))
+        logger.info(colored(f'Stats: {stats}', 'green'))
+        logger.info(colored(f'Stats.data: {stats.data}', 'green'))
+        close_logger(logger)
+        with local_parameters['stats'].open('w') as fd: fd.write(str(stats) + '\n')
+
+    return result
+
+def incremental_solve_and_parse_output(task, parameters, stats, logger):
+    assert not task.partial
+    assert parameters['incremental'] is not None
+
+    local_parameters = dict(parameters)
+    local_parameters.update(synthesis=1)
+    dirpath = local_parameters['dirpath']
+    num_samples, depth = parameters['incremental']
+
+    logger.info(colored("Incremental solve '{samples}' with flags '{flags}'".format(**local_parameters), 'magenta', attrs=['bold']))
+    template = g_templates['solve']
+
+    # get DFAs
+    dfa_fnames = [ local_parameters['sample_path'] / Path(sample) for sample in task.samples ]
+    dfas = [ DFA(fname) for fname in dfa_fnames ]
+    num_dfas = len(dfas)
+
+    solved_tasks = [ 0 ] * num_dfas
+    marked_nodes = [ set() for i in range(num_dfas) ]
+    while sum(solved_tasks) < num_dfas:
+        logger.info(colored(f'solved_tasks: {solved_tasks}', 'blue', attrs=['bold']))
+
+        # sample trajectories
+        for i, dfa in enumerate(dfas):
+            if solved_tasks[i] == 0 and len(marked_nodes[i]) < dfa.num_nodes:
+                # CHECK: exploration values: number of sources, length of trajectories
+                sampled_sources = dfa.sample_nodes(num_samples, avoid=marked_nodes[i])
+                #sampled_sources = [0,1,3,5] #CHECK
+                sampled_paths = [ dfa.sample_path(src, depth, repeat=False) for src in sampled_sources ]
+                logger.info(colored(f'dfa={i}: sampled_paths={sampled_paths}', 'magenta', attrs=['bold']))
+                for path in sampled_paths:
+                    for node in path:
+                        marked_nodes[i].add(node)
+                logger.info(colored(f'dfa={i}: marked_nodes: #={len(marked_nodes[i])}, nodes={sorted(list(marked_nodes[i]))}', 'magenta', attrs=['bold']))
+
+        # create marked.lp file with marked nodes
+        marked_fname = dirpath / Path('marked.lp')
+        with marked_fname.open('w') as fd:
+            for i in range(num_dfas):
+                if len(marked_nodes[i]) > 0:
+                    instance_index = local_parameters['catalog'][dfa_fnames[i].name]
+                    fd.write(f'partial({instance_index},"{dfa_fnames[i].name}").\n')
+                    for node in marked_nodes[i]:
+                        fd.write(f'marked({instance_index},{node}).\n')
+
+        # remove any left over last call
+        local_parameters['model'].unlink(missing_ok=True)
+
+        # call solver and parse output
+        result = solve_and_parse_output(task, local_parameters, stats, logger)
+        if not result[SAT]: return result
+
+        # parse output
+        symbols = result[SYMBOLS]
+        schema = STRIPSSchema.create_from_clingo(symbols)
+        decoded = schema.get_string(val=False)
+        model = schema.get_schema()
+
+        # write model to file
+        logger.info(colored("Save '{model}'".format(**local_parameters), 'green'))
+        with local_parameters['model'].open('w') as fd: fd.write('\n'.join(str(s) + '.' for s in model))
+
+        # verify model over complete instance
+        solved_tasks = []
+
+        for i in range(num_dfas):
+            result, verify_stats = verify_instance(task.samples[i], local_parameters['nobj'], task, parameters, logger=logger)
+            solved_tasks.append(1 if verify_stats['satisfiable'] else 0)
+
+        # check for failure
+        failure = True
+        for i in range(num_dfas):
+            if len(marked_nodes[i]) < dfas[i].num_nodes:
+                failure = False
+                break
+        if failure: break
+
+    logger.info(colored(f'solved_tasks: {solved_tasks}', 'blue', attrs=['bold']))
+    logger.info(colored(f'marked_nodes: {[ len(mn) for mn in marked_nodes ]}', 'blue', attrs=['bold']))
+
+    return result
+
+def verify_instance(instance, nobj, task, parameters, logger):
+    # create and populate verify folder
+    version = parameters['version']
+    dirpath = parameters['dirpath']
+    verify_path = dirpath / Path('verify')
+    create_instances_in_destination_folder(parameters['sample_path'], [ instance ], None, verify_path, version, logger)
+
+    # parameters for solver
+    assert version in g_clingo
+    local_parameters = dict(parameters)
+    lps = [ str(fname) for fname in g_clingo[version]['verify'] ] + ["'{model}'".format(**local_parameters)]
+    local_parameters.update(lps=' '.join(lps))
+    local_parameters.update(sample=Path(instance))
+    local_parameters.update(samples_with_path=f"'{dirpath}'/verify/{instance}")
+    local_parameters.update(nobj=nobj)
+    local_parameters.update(max_atoms=task.max_atoms_learn)
+    local_parameters.update(options=task.get_options())
+    local_parameters.update(flags=g_templates['flags'].format(**local_parameters))
+    local_parameters.update(time_limit=local_parameters['time_bound_ver'])
+    local_parameters.update(synthesis=0)
+
+    # call solver and parse output
+    logger.info(colored("Verify '{sample}' with flags '{flags}'".format(**local_parameters), 'cyan', attrs=['bold']))
+    logger.info('cmdline=|{}|'.format(g_templates['verify'].format(**local_parameters)))
+
+    stdout, stderr, elapsed_time, max_memory = execute_cmd(g_templates['verify'].format(**local_parameters), logger=logger, mem_limit=args.mem_bound)
+    result, verify_stats = parse_stats_from_clingo_output(stdout, stderr, elapsed_time, max_memory)
+    verify_stats.update(instance=instance, objs=nobj)
+
+    # save output and decoded model (if any)
+    write_output((verify_path / f'solver_stdout_{instance}').with_suffix('.txt'), stdout, logger)
+    if verify_stats['satisfiable']:
+        symbols = result[SYMBOLS]
+        schema = STRIPSSchema.create_from_clingo(symbols)
+        decoded = schema.get_string(val=False)
+        with (verify_path / f'decoded_{instance}').with_suffix('.txt').open('w') as fd:
+            fd.write(decoded)
+
+    return result, verify_stats
+
+def verify_and_parse_output(task, parameters, stats, logger):
+    logger.info(colored(f'Verification for instances {task.verify}', 'cyan', attrs=['bold']))
+    if stats: stats.data['verify'] = []
+    complete_verification = True
+    for instance in task.verify:
+        # iterate over num objects, until max, looking for a verification
+        successful = False
+        for nobj in range(1, 1 + task.max_num_objs_ver):
+            result, verify_stats = verify_instance(instance, nobj, task, parameters, logger)
+            logger.info(colored(f"Elapsed time {verify_stats['total_time']} second(s)", 'green'))
+            logger.info(colored(f"Memory {verify_stats['solve_memory']}", 'green'))
+
+            if stats: stats.data['verify'].append(verify_stats)
+            if verify_stats['satisfiable']:
+                successful = True
+                break
+
+        if not successful:
+            comment = f"Unsuccessful verification of '{instance}' ... skipping remaining verification"
+            logger.info(colored(comment, 'red', attrs=['bold']))
+            if stats:
+                logger.info(colored(f'Stats: {stats}', 'green'))
+                logger.info(colored(f'Stats.data: {stats.data}', 'green'))
+            close_logger(logger)
+            if stats:
+                with parameters['stats'].open('w') as fd:
+                    fd.write(str(stats) + '\n')
+            complete_verification = False
+            break
+    return complete_verification
+
+def main(args: dict):
+    benchmarks = get_records(args.benchmarks, args.record)
+    for task in benchmarks:
+        # create stats object
+        stats = Stats(task.samples)
+
+        # add additional options
+        threads = 1 if args.threads == 1 else args.threads[0]
+        task.options.append(f'-t {threads}')
+        if args.heuristics:
+            task.options.append(f'--heuristic=Domain')
+
+        # base parameters
+        parameters = {
+            'version'             : 'orig' if args.orig else 'mf',
+            'solver'              : 'clingo',
+            'sample_path'         : args.sample_path,
+            'partial_sample_path' : args.partial_sample_path,
+            'nobj'                : task.num_objs_learn,
+            'max_atoms'           : task.max_atoms_learn,
+            'options'             : task.get_options(),
+            # CHECK: should simplify -{} to just {}; problem is that '--extra_flags -t8' not accepted
+            'extra_flags'         : '' if not args.extra_flags else '-{}'.format(args.extra_flags[0]),
+            'time_bound'          : '0' if args.time_bound == 0 else str(args.time_bound[0]),
+            'time_bound_ver'      : '0' if args.time_bound_ver == 0 else str(args.time_bound_ver[0]),
+        }
+        parameters.update(flags=g_templates['flags'].format(**parameters).strip(' '))
+        parameters.update(time_limit=parameters['time_bound'])
+
+        # construct dirpath
+        samples = ' '.join(task.samples)
+        dirname = samples + ' ' + parameters['flags']
+        max_filename_length = os.pathconf('.', 'PC_NAME_MAX')
+        if len(dirname) > max_filename_length:
+            print(colored(f"Warning: truncating dirname to OS's max filename length of {max_filename_length}, current length is {len(dirname)}!", 'red', attrs=['bold']))
+            dirname = dirname[:max_filename_length]
+        dirpath = args.extra_path / Path(dirname)
+        parameters.update(dirpath=dirpath)
+
+        # create dir (if existing, skip it)
+        if not args.onlyver:
+            if dirpath.exists():
+                if not dirpath.is_dir():
+                    print(colored(f"Skipping benchmark '{dirpath}' because non-folder file with same name exists ...", 'magenta'))
+                    continue
+                elif args.remove_dir:
+                    print(colored(f"Folder '{dirpath}' removed", 'magenta'))
+                    shutil.rmtree(dirpath)
+                    print(colored(f"Folder '{dirpath}' created", 'green'))
+                    dirpath.mkdir(parents=True)
+                else:
+                    print(colored(f"Skipping benchmark '{dirpath}' because folder with same name exists (use --remove_dir to force) ...", 'magenta'))
+                    continue
+            else:
+                print(colored(f"Folder '{dirpath}' created", 'green'))
+                dirpath.mkdir(parents=True)
+
+            assert dirpath.exists() and dirpath.is_dir()
+
+        # set filenames
+        log_fname = 'log.onlyver.0.txt' if args.onlyver else 'log.0.txt'
+        stats_fname = 'stats.onlyver.0.txt' if args.onlyver else 'stats.0.txt'
+        decoded_fname = 'decoded.txt'
+        model_fname = 'model.lp'
+        parameters.update(log=dirpath / log_fname)
+        parameters.update(decoded=dirpath / decoded_fname)
+        parameters.update(model=dirpath / model_fname)
+        parameters.update(stats=dirpath / stats_fname)
+        assert args.onlyver or (not parameters['log'].exists() and not parameters['stats'].exists())
+
+        # setup logger and identify call
+        log_level = logging.INFO if args.debug_level == 0 else logging.DEBUG
+        logger = get_logger('solve', parameters['log'], log_level)
+        logger.info(colored(f"Log file '{parameters['log']}' created", 'green'))
+        logger.info(f'call=|{" ".join(sys.argv)}|')
+
+        # update samples in parameters and preprocess them in order to add instance indices
+        parameters.update(samples=task.samples)
+        parameters.update(metadata=f"'{parameters['dirpath']}'/metadata.lp")
+        parameters.update(samples_with_path=' '.join([ f"'{parameters['dirpath']}'/{sample}" for sample in task.samples ]))
+        parameters.update(catalog=dict())
+        create_instances_in_destination_folder(args.sample_path, task.samples, parameters['catalog'], parameters['dirpath'], parameters['version'], logger)
+
+        # set additional files in parameters (those passed with --add)
+        parameters.update(add=args.add)
+
+        # solve task?
+        if args.onlyver:
+            # mark theory as SAT so that stats can be printed without error
+            stats.data.update(satisfiable=True)
+        else:
+            # call solver and parse output
+            parameters.update(incremental=args.incremental)
+            if args.incremental:
+                result = incremental_solve_and_parse_output(task, parameters, stats, logger)
+            else:
+                result = solve_and_parse_output(task, parameters, stats, logger)
+            if not result[SAT]: continue
+
+            # parse output
+            symbols = result[SYMBOLS]
+            schema = STRIPSSchema.create_from_clingo(symbols)
+            decoded = schema.get_string(val=False)
+            model = schema.get_schema()
+
+            # write model to file
+            logger.info(colored("Save '{model}'".format(**parameters), 'green'))
+            with parameters['model'].open('w') as fd:
+                fd.write('\n'.join(str(s) + '.' for s in model))
+                fd.write('\n')
+
+            # decode
+            logger.info(colored("Decode '{model}' to obtain description '{decoded}'".format(**parameters), 'green'))
+            with parameters['decoded'].open('w') as fd: fd.write(decoded)
+
+        # verification?
+        if not args.skipver:
+            complete_verification = verify_and_parse_output(task, parameters, stats, logger)
+
+        logger.info(colored(f'Stats: {stats}', 'green'))
+        logger.info(colored(f'Stats.data: {stats.data}', 'green'))
+        close_logger(logger)
+        with parameters['stats'].open('w') as fd: fd.write(str(stats) + '\n')
+
+if __name__ == '__main__':
+    # call
+    # setup exec name
+    exec_path = Path(sys.argv[0]).parent
+    exec_name = Path(sys.argv[0]).stem
+
+    # setup proper SIGTERM handler
+    signal.signal(signal.SIGTERM, sigterm_handler)
+
+    # read arguments and do job
+    args = get_args()
+    main(args)
+
