@@ -34,7 +34,7 @@ argtuple((V1,V2)) :- V1=1..3, V2=1..3.
 
 % at least one effect? (yes if there are no 0-length loops)
 % excludes static predicates
-1 { eff(A,(P,T),0..1) : pred(P), argtuple(T), not p_static(P) } max_effects :- action(A).
+1 { eff(A,(P,T),0..1) : pred(P), argtuple(T), not p_static(P) } max_effects :- action(A), opt_synthesis=1.
 
 :- eff(A,M,0), eff(A,M,1).
 
@@ -43,7 +43,7 @@ argtuple((V1,V2)) :- V1=1..3, V2=1..3.
 % Generate preconditions of actions
 %
 
-{ prec(A,(P,T),0..1) : pred(P), argtuple(T) } max_precs :- action(A).
+{ prec(A,(P,T),0..1) : pred(P), argtuple(T) } max_precs :- action(A), opt_synthesis=1.
 
 :- prec(A,M,0), prec(A,M,1).
 :- prec(_,(P,(0,0)),_), p_static(P).
@@ -101,8 +101,8 @@ objtuple((O1,O2,O3),3) :- object(O1), object(O2), object(O3).
 % Possible valuations of ground atoms
 %
 
-{val((P,OO),  0..1)} = 1 :- pred(P),     p_static(P), objtuple(OO,2).
-{val((P,OO),S,0..1)} = 1 :- pred(P), not p_static(P), objtuple(OO,2), node(S).
+{ val((P,OO),  0..1) } = 1 :- pred(P),     p_static(P), objtuple(OO,2).
+{ val((P,OO),S,0..1) } = 1 :- pred(P), not p_static(P), objtuple(OO,2), node(S).
 
 
 %
