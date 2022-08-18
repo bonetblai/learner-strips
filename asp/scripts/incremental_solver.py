@@ -7,7 +7,8 @@ import re
 
 from dfa import DFA
 from learnasp.names     import SAT, VARIABLES, CONSTRAINTS, SYMBOLS, RULES, SOLVING, CONFLICTS, CHOICES, TIME, MODEL1st
-from learnasp.output_mf import parse_clingo_out, STRIPSSchema
+from learnasp.output    import parse_clingo_out, STRIPSSchema
+#from learnasp.output_mf import parse_clingo_out, STRIPSSchema
 
 class Benchmark:
     def __init__(self, fields):
@@ -67,7 +68,9 @@ g_clingo = {
                                      Path('../clingo/mf/invariants4a_mf.lp'),
                                    ],
                'inverse_actions' : [ Path('../clingo/mf/inverse_actions_mf.lp') ],
-               'verify'          : [ Path('../clingo/mf/base2_mf.lp'), ],
+               'verify'          : [ Path('../clingo/mf/base2_mf.lp'),
+                                     Path('../clingo/mf/invariants4a_mf.lp'),
+                                   ],
                'optimize'        : [ Path('../clingo/mf/optimize_mf.lp') ],
                'heuristics'      : [ Path('../clingo/mf/heuristics_mf.lp') ],
                'partial'         : [ Path('../clingo/partial.lp') ],
@@ -77,18 +80,23 @@ g_clingo = {
                                      Path('../clingo/orig/constraints_javier.lp'),
                                      Path('../clingo/orig/invariants4a.lp'),
                                    ],
-               'verify'          : [ Path('../clingo/orig/base2.lp'), ],
+               'verify'          : [ Path('../clingo/orig/base2.lp'),
+                                     Path('../clingo/orig/invariants4a.lp'),
+                                   ],
                'optimize'        : [ Path('../clingo/orig/optimize.lp') ],
-               'heuristics'      : [ ], #Path('../clingo/orig/heuristics.lp') ],
+               'heuristics'      : [ ], # Already in base2.lp
              },
 }
 
 # templates
 g_templates = {
-    'solve'   : '{solver} -Wno-global-variable {lps} {flags} -c opt_synthesis={synthesis} --stats=2 --time-limit={time_limit}',
-    'verify'  : '{solver} -Wno-global-variable {lps} {samples_with_path} {flags} -c opt_synthesis={synthesis} --stats=2 --time-limit={time_limit}',
-    'partial' : '{solver} -Wno-global-variable {lps} {partial_sample_path}/{sample} {flags} -c opt_synthesis={synthesis} --stats=2 --time-limit={time_limit}',
-    'flags'   : '-c num_objects={nobj} -c max_true_atoms_per_state={max_atoms} {options} {extra_flags}',
+    'solve'   : '{solver} -Wno-global-variable {lps} {_flags_} -c opt_synthesis=1 --stats=2 --time-limit={time_limit}',
+    'verify'  : '{solver} -Wno-global-variable {lps} {samples_with_path} {_flags_} -c opt_synthesis=0 --stats=2 --time-limit={time_limit}',
+    'partial' : '{solver} -Wno-global-variable {lps} {partial_sample_path}/{sample} {_flags_} -c opt_synthesis={synthesis} --stats=2 --time-limit={time_limit}',
+    'flags'   : { 'fixed'   : '{options} {extra_flags}',
+                  'all'     : '-c num_objects={nobj} -c max_true_atoms_per_state={max_atoms} {options} {extra_flags}',
+                },
+    '_flags_' : None,
 }
 
 # logger
@@ -123,7 +131,6 @@ def close_logger(logger):
 def get_args():
     # default values
     default_debug_level = 0
-    default_extra_flags = ''
     default_extra_path = ''
     default_incremental = None
     default_mem_bound = None
@@ -135,9 +142,9 @@ def get_args():
 
     # argument parser
     parser = argparse.ArgumentParser('incremental_mf.py')
-    parser.add_argument('--add', nargs='*', action='append', type=str, default=[], help=f'Set additional .lp for solver')
-    parser.add_argument('--debug_level', nargs=1, type=int, default=default_debug_level, help=f'Set debug level (default={default_debug_level})')
-    parser.add_argument('--extra_flags', nargs=1, type=str, default=default_extra_flags, help=f"Extra flags for encoder (default='{default_extra_flags}')")
+    parser.add_argument('--add', type=Path, action='append', default=[], help=f'Set additional .lp for solver')
+    parser.add_argument('--debug_level', type=int, default=default_debug_level, help=f'Set debug level (default={default_debug_level})')
+    parser.add_argument('--extra_flags', type=str, action='append', default=[], help=f'Extra flags for encoder')
     parser.add_argument('--extra_path', type=Path, default=default_extra_path, help=f"Extra path prefix for dir names (default='{default_extra_path}')")
     parser.add_argument('--heuristics', action='store_true', help='Apply heuristics in solving')
     parser.add_argument('--incremental', nargs=2, metavar=('num-samples', 'max-depth'), default=default_incremental, type=int, help=f'Incremental learning (default={default_incremental})')
@@ -152,17 +159,13 @@ def get_args():
     parser.add_argument('--sample_path', type=Path, default=default_sample_path, help=f"Path to samples (default='{default_sample_path}')")
     parser.add_argument('--skipver', action='store_true', help='Skip verification')
     parser.add_argument('--threads', nargs=1, type=int, default=1, help=f'Set number of threads for Clingo solver (default = {default_threads})')
-    parser.add_argument('--time_bound', nargs=1, type=int, default=default_time_bound, help=f'Set time bound for synthesis (default={default_time_bound})')
-    parser.add_argument('--time_bound_ver', nargs=1, type=int, default=default_time_bound_ver, help=f'Set time bound for verification (default={default_time_bound_ver})')
+    parser.add_argument('--time_bound', type=int, default=default_time_bound, help=f'Set time bound for synthesis (default={default_time_bound})')
+    parser.add_argument('--time_bound_ver', type=int, default=default_time_bound_ver, help=f'Set time bound for verification (default={default_time_bound_ver})')
     parser.add_argument('benchmarks', type=Path, help='Filename of file containing benchmarks')
     parser.add_argument('record', type=int, help='Record index into benchmarks file')
 
     # parse arguments
     args = parser.parse_args()
-
-    # unify --add args into single list
-    args.add = list(map(Path, sum(args.add, [])))
-
     return args
 
 def copy_files(filenames: List[Path], target_dir: Path, logger):
@@ -178,44 +181,66 @@ def copy_files(filenames: List[Path], target_dir: Path, logger):
             exit(0)
 
 # create and inject instance indices for samples
-def create_instances_in_destination_folder(sample_path: Path, samples: List, samples_catalog: dict, target_dir: Path, version: str, logger):
+def create_instances_in_destination_folder(sample_path: Path, samples: List[str], samples_catalog: dict, target_dir: Path, version: str, logger):
     assert version in [ 'orig', 'mf' ]
     actions = set()
     target_dir.mkdir(parents=True, exist_ok=True)
-    for index, sample in enumerate(samples):
-        num_nodes, num_edges = 0, 0
-        if samples_catalog is not None:
-            assert index + 1 not in samples_catalog
-            if sample in samples_catalog:
-                logger.info('Skipping {sample} as already in catalaog as instance {samples_catalog[sample]}')
-                continue
-            samples_catalog[index + 1] = sample
-            samples_catalog[sample] = index + 1
-        with (target_dir / Path(sample)).open('w') as wfd:
-            wfd.write(f'instance({index+1}).\n')
-            wfd.write(f'filename({index+1},"{sample}").\n')
-            with (sample_path / Path(sample)).open('r') as rfd:
-                for line in rfd.readlines():
-                    if line.startswith('node('):
-                        i = line.index('(')
-                        wfd.write(f'node({index+1},{line[i+1:]}')
-                        num_nodes += 1
-                    elif line.startswith('labelname('):
+
+    # check existence of samples
+    all_samples_exist = True
+    for sample in samples:
+        if not (sample_path / Path(sample)).exists():
+            all_samples_exist = False
+            print(colored(f"Error: sample file '{sample_path / Path(sample)}' doesn't exist", 'red'))
+    if not all_samples_exist: exit(0)
+
+    if version == 'orig':
+        samples_with_path = [ sample_path / Path(sample) for sample in samples ]
+        copy_files(samples_with_path, target_dir, logger)
+        # get actions in samples
+        for sample in samples:
+            with (sample_path / Path(sample)).open('r') as fd:
+                for line in fd.readlines():
+                    if line.startswith('labelname('):
                         i, label = re.search('labelname\((\d*),"(.*)"\).', line).groups()
-                        wfd.write(f'labelname({index+1},{i},"{label}").\n')
                         actions.add(label)
-                    elif line.startswith('edge('):
-                        i = line.index('(')
-                        wfd.write(f'edge({index+1},{line[i+1:]}')
-                    elif line.startswith('tlabel('):
-                        i = line.index('(')
-                        wfd.write(f'tlabel({index+1},{line[i+1:]}')
-                        num_edges += 1
-                    else:
-                        wfd.write(line)
-        logger.info(colored(f'Created instance {index+1} for file "{sample}" with {num_nodes} node(s) and {num_edges} edge(s)', 'green'))
+    else:
+        for index, sample in enumerate(samples):
+            num_nodes, num_edges = 0, 0
+            if samples_catalog is not None:
+                assert index + 1 not in samples_catalog
+                if sample in samples_catalog:
+                    logger.info('Skipping {sample} as already in catalaog as instance {samples_catalog[sample]}')
+                    continue
+                samples_catalog[index + 1] = sample
+                samples_catalog[sample] = index + 1
+            with (target_dir / Path(sample)).open('w') as wfd:
+                wfd.write(f'instance({index+1}).\n')
+                wfd.write(f'filename({index+1},"{sample}").\n')
+                with (sample_path / Path(sample)).open('r') as rfd:
+                    for line in rfd.readlines():
+                        if line.startswith('node('):
+                            i = line.index('(')
+                            wfd.write(f'node({index+1},{line[i+1:]}')
+                            num_nodes += 1
+                        elif line.startswith('labelname('):
+                            i, label = re.search('labelname\((\d*),"(.*)"\).', line).groups()
+                            wfd.write(f'labelname({index+1},{i},"{label}").\n')
+                            actions.add(label)
+                        elif line.startswith('edge('):
+                            i = line.index('(')
+                            wfd.write(f'edge({index+1},{line[i+1:]}')
+                        elif line.startswith('tlabel('):
+                            i = line.index('(')
+                            wfd.write(f'tlabel({index+1},{line[i+1:]}')
+                            num_edges += 1
+                        else:
+                            wfd.write(line)
+            logger.info(colored(f'Created instance {index+1} for file "{sample}" with {num_nodes} node(s) and {num_edges} edge(s)', 'green'))
+
     with (target_dir / Path('metadata.lp')).open('w') as fd:
         fd.write(f'num_actions({len(actions)}).\n')
+
     logger.info(colored(f'Created metadata file for {len(samples)} instance(s)', 'green'))
     logger.info(colored(f'{len(samples)} instance(s) created, {len(actions)} action(s) {actions}', 'green'))
 
@@ -301,6 +326,7 @@ def get_records(fname: Path, record):
             if benchmark_index == record:
                 benchmarks.append(Benchmark(fields))
             benchmark_index += 1
+    print(colored(f"Got {len(benchmarks)} record(s) from '{fname}' using record '{record}'", 'green'))
     return benchmarks
 
 # parse output from clingo and store stats
@@ -320,7 +346,7 @@ def parse_stats_from_clingo_output(stdout, stderr, elapsed_time, max_memory):
 
 # write output
 def write_output(filename: Path, output: str, logger):
-    logger.info(colored(f'Writing output to {filename}', 'blue'))
+    logger.info(colored(f'Writing output to {filename}', 'green'))
     with filename.open('w') as fd:
         fd.write(f'{output}\n')
 
@@ -345,8 +371,9 @@ def solve_and_parse_output(task, parameters, stats, logger, extra_lps: List[Path
         copy_files(extra_lps, dirpath, logger)
     copy_files(local_parameters['add'], dirpath, logger)
     local_parameters.update(lps=f"'{str(dirpath)}'/*.lp")
+    local_parameters.update(_flags_=g_templates['flags']['all'].format(**local_parameters))
 
-    logger.info(colored("Solve '{samples}' with flags '{flags}'".format(**local_parameters), 'magenta', attrs=['bold']))
+    logger.info(colored("Solve '{samples}' with flags '{_flags_}'".format(**local_parameters), 'magenta', attrs=['bold']))
     template = g_templates['solve'] if task.partial == None else g_templates['partial']
     logger.info('cmdline=|{}|'.format(template.format(**local_parameters)))
 
@@ -359,6 +386,7 @@ def solve_and_parse_output(task, parameters, stats, logger, extra_lps: List[Path
 
     # save output
     write_output(dirpath / 'solver_stdout.txt', stdout, logger)
+    write_output(dirpath / 'solver_stderr.txt', stderr, logger)
 
     if not solve_stats['satisfiable']:
         if solve_stats['satisfiable'] == False:
@@ -382,7 +410,8 @@ def incremental_solve_and_parse_output(task, parameters, stats, logger):
     dirpath = local_parameters['dirpath']
     num_samples, depth = parameters['incremental']
 
-    logger.info(colored("Incremental solve '{samples}' with flags '{flags}'".format(**local_parameters), 'magenta', attrs=['bold']))
+    # CHECK: following line hasn't been updated!
+    logger.info(colored("Incremental solve '{samples}' with flags '{_flags_}'".format(**local_parameters), 'magenta', attrs=['bold']))
     template = g_templates['solve']
 
     # get DFAs
@@ -393,7 +422,7 @@ def incremental_solve_and_parse_output(task, parameters, stats, logger):
     solved_tasks = [ 0 ] * num_dfas
     marked_nodes = [ set() for i in range(num_dfas) ]
     while sum(solved_tasks) < num_dfas:
-        logger.info(colored(f'solved_tasks: {solved_tasks}', 'blue', attrs=['bold']))
+        logger.info(colored(f'solved_tasks: {solved_tasks}', 'green', attrs=['bold']))
 
         # sample trajectories
         for i, dfa in enumerate(dfas):
@@ -439,7 +468,7 @@ def incremental_solve_and_parse_output(task, parameters, stats, logger):
         solved_tasks = []
 
         for i in range(num_dfas):
-            result, verify_stats = verify_instance(task.samples[i], local_parameters['nobj'], task, parameters, logger=logger)
+            result, verify_stats = verify_instance(task.samples[i], local_parameters['nobj'], local_parameters['max_atoms'], task, parameters, logger=logger)
             solved_tasks.append(1 if verify_stats['satisfiable'] else 0)
 
         # check for failure
@@ -450,12 +479,12 @@ def incremental_solve_and_parse_output(task, parameters, stats, logger):
                 break
         if failure: break
 
-    logger.info(colored(f'solved_tasks: {solved_tasks}', 'blue', attrs=['bold']))
-    logger.info(colored(f'marked_nodes: {[ len(mn) for mn in marked_nodes ]}', 'blue', attrs=['bold']))
+    logger.info(colored(f'solved_tasks: {solved_tasks}', 'green', attrs=['bold']))
+    logger.info(colored(f'marked_nodes: {[ len(mn) for mn in marked_nodes ]}', 'green', attrs=['bold']))
 
     return result
 
-def verify_instance(instance, nobj, task, parameters, logger):
+def verify_instance(instance, nobj, max_atoms, task, parameters, logger):
     # create and populate verify folder
     version = parameters['version']
     dirpath = parameters['dirpath']
@@ -470,14 +499,14 @@ def verify_instance(instance, nobj, task, parameters, logger):
     local_parameters.update(sample=Path(instance))
     local_parameters.update(samples_with_path=f"'{dirpath}'/verify/{instance}")
     local_parameters.update(nobj=nobj)
-    local_parameters.update(max_atoms=task.max_atoms_learn)
+    local_parameters.update(max_atoms=max_atoms)
     local_parameters.update(options=task.get_options())
-    local_parameters.update(flags=g_templates['flags'].format(**local_parameters))
+    local_parameters.update(_flags_=g_templates['flags']['all'].format(**local_parameters))
     local_parameters.update(time_limit=local_parameters['time_bound_ver'])
     local_parameters.update(synthesis=0)
 
     # call solver and parse output
-    logger.info(colored("Verify '{sample}' with flags '{flags}'".format(**local_parameters), 'cyan', attrs=['bold']))
+    logger.info(colored("Verify '{sample}' with flags '{_flags_}'".format(**local_parameters), 'cyan', attrs=['bold']))
     logger.info('cmdline=|{}|'.format(g_templates['verify'].format(**local_parameters)))
 
     stdout, stderr, elapsed_time, max_memory = execute_cmd(g_templates['verify'].format(**local_parameters), logger=logger, mem_limit=args.mem_bound)
@@ -486,12 +515,15 @@ def verify_instance(instance, nobj, task, parameters, logger):
 
     # save output and decoded model (if any)
     write_output((verify_path / f'solver_stdout_{instance}').with_suffix('.txt'), stdout, logger)
+    write_output((verify_path / f'solver_stderr_{instance}').with_suffix('.txt'), stderr, logger)
     if verify_stats['satisfiable']:
         symbols = result[SYMBOLS]
         schema = STRIPSSchema.create_from_clingo(symbols)
         decoded = schema.get_string(val=False)
         with (verify_path / f'decoded_{instance}').with_suffix('.txt').open('w') as fd:
             fd.write(decoded)
+    elif verify_stats['satisfiable'] == None:
+        logger.info(colored(f"Indeterminate output from solver during verification of '{instance}'", 'magenta'))
 
     return result, verify_stats
 
@@ -503,7 +535,7 @@ def verify_and_parse_output(task, parameters, stats, logger):
         # iterate over num objects, until max, looking for a verification
         successful = False
         for nobj in range(1, 1 + task.max_num_objs_ver):
-            result, verify_stats = verify_instance(instance, nobj, task, parameters, logger)
+            result, verify_stats = verify_instance(instance, nobj, task.max_atoms_ver, task, parameters, logger)
             logger.info(colored(f"Elapsed time {verify_stats['total_time']} second(s)", 'green'))
             logger.info(colored(f"Memory {verify_stats['solve_memory']}", 'green'))
 
@@ -527,6 +559,10 @@ def verify_and_parse_output(task, parameters, stats, logger):
     return complete_verification
 
 def main(args: dict):
+    if not args.benchmarks.exists():
+        print(colored(f"Error: benchmarks file '{args.benchmarks}' doesn't exist", 'red', attrs=['bold']))
+        exit(0)
+
     benchmarks = get_records(args.benchmarks, args.record)
     for task in benchmarks:
         # create stats object
@@ -546,18 +582,18 @@ def main(args: dict):
             'partial_sample_path' : args.partial_sample_path,
             'nobj'                : task.num_objs_learn,
             'max_atoms'           : task.max_atoms_learn,
+            'time_bound'          : args.time_bound,
+            'time_bound_ver'      : args.time_bound_ver,
+            'extra_flags'         : ' '.join(args.extra_flags),
             'options'             : task.get_options(),
-            # CHECK: should simplify -{} to just {}; problem is that '--extra_flags -t8' not accepted
-            'extra_flags'         : '' if not args.extra_flags else '-{}'.format(args.extra_flags[0]),
-            'time_bound'          : '0' if args.time_bound == 0 else str(args.time_bound[0]),
-            'time_bound_ver'      : '0' if args.time_bound_ver == 0 else str(args.time_bound_ver[0]),
         }
-        parameters.update(flags=g_templates['flags'].format(**parameters).strip(' '))
+        parameters.update(flags_fixed=g_templates['flags']['fixed'].format(**parameters).strip(' '))
         parameters.update(time_limit=parameters['time_bound'])
 
         # construct dirpath
         samples = ' '.join(task.samples)
-        dirname = samples + ' ' + parameters['flags']
+        dirname = (samples + ' ' + g_templates['flags']['all'].format(**parameters).strip(' ')).replace(' ', '_')
+        parameters.update(dirname=dirname)
         max_filename_length = os.pathconf('.', 'PC_NAME_MAX')
         if len(dirname) > max_filename_length:
             print(colored(f"Warning: truncating dirname to OS's max filename length of {max_filename_length}, current length is {len(dirname)}!", 'red', attrs=['bold']))
@@ -647,6 +683,8 @@ def main(args: dict):
 
         logger.info(colored(f'Stats: {stats}', 'green'))
         logger.info(colored(f'Stats.data: {stats.data}', 'green'))
+        if not args.skipver and complete_verification:
+            logger.info(colored(f'Complete verification!', 'green', attrs=['bold']))
         close_logger(logger)
         with parameters['stats'].open('w') as fd: fd.write(str(stats) + '\n')
 
