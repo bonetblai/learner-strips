@@ -7,8 +7,10 @@ import re
 
 from dfa import DFA
 from learnasp.names     import SAT, VARIABLES, CONSTRAINTS, SYMBOLS, RULES, SOLVING, CONFLICTS, CHOICES, TIME, MODEL1st
-from learnasp.output    import parse_clingo_out, STRIPSSchema
-#from learnasp.output_mf import parse_clingo_out, STRIPSSchema
+from learnasp.output    import parse_clingo_out as parse_clingo_out_orig
+from learnasp.output    import STRIPSSchema     as STRIPSSchema_orig
+from learnasp.output_mf import parse_clingo_out as parse_clingo_out_mf
+from learnasp.output_mf import STRIPSSchema     as STRIPSSchema_mf
 
 class Benchmark:
     def __init__(self, fields):
@@ -330,8 +332,8 @@ def get_records(fname: Path, record):
     return benchmarks
 
 # parse output from clingo and store stats
-def parse_stats_from_clingo_output(stdout, stderr, elapsed_time, max_memory):
-    result = parse_clingo_out(stdout)
+def parse_clingo_output(stdout, stderr, elapsed_time, max_memory, version: str):
+    result = parse_clingo_out_orig(stdout) if version == 'orig' else parse_clingo_out_mf(stdout)
     stats = dict(total_time=result.get(TIME, -1),
                  solve_memory=max_memory,
                  satisfiable=result[SAT], # True, False, or None for Sat, Unsat, Unknown
@@ -343,6 +345,14 @@ def parse_stats_from_clingo_output(stdout, stderr, elapsed_time, max_memory):
                  num_choices=result.get(CHOICES, -1),
                  num_conflicts=result.get(CONFLICTS, -1))
     return result, stats
+
+# parse clingo output
+def create_schema_from_symbols(result, version: str):
+    symbols = result[SYMBOLS]
+    schema = STRIPSSchema_orig.create_from_clingo(symbols) if version == 'orig' else STRIPSSchema_mf.create_from_clingo(symbols)
+    decoded = schema.get_string(val=False)
+    model = schema.get_schema()
+    return schema, decoded, model
 
 # write output
 def write_output(filename: Path, output: str, logger):
@@ -378,7 +388,7 @@ def solve_and_parse_output(task, parameters, stats, logger, extra_lps: List[Path
     logger.info('cmdline=|{}|'.format(template.format(**local_parameters)))
 
     stdout, stderr, elapsed_time, max_memory = execute_cmd(template.format(**local_parameters), logger=logger, mem_limit=args.mem_bound)
-    result, solve_stats = parse_stats_from_clingo_output(stdout, stderr, elapsed_time, max_memory)
+    result, solve_stats = parse_clingo_output(stdout, stderr, elapsed_time, max_memory, version)
     solve_stats.update(objs=local_parameters['nobj'])
     logger.info(colored(f"Elapsed time {solve_stats['total_time']} second(s)", 'green'))
     logger.info(colored(f"Memory {solve_stats['solve_memory']}", 'green'))
@@ -455,10 +465,7 @@ def incremental_solve_and_parse_output(task, parameters, stats, logger):
         if not result[SAT]: return result
 
         # parse output
-        symbols = result[SYMBOLS]
-        schema = STRIPSSchema.create_from_clingo(symbols)
-        decoded = schema.get_string(val=False)
-        model = schema.get_schema()
+        schema, decoded, model = create_schema_from_symbols(result, parameters['version'])
 
         # write model to file
         logger.info(colored("Save '{model}'".format(**local_parameters), 'green'))
@@ -510,16 +517,14 @@ def verify_instance(instance, nobj, max_atoms, task, parameters, logger):
     logger.info('cmdline=|{}|'.format(g_templates['verify'].format(**local_parameters)))
 
     stdout, stderr, elapsed_time, max_memory = execute_cmd(g_templates['verify'].format(**local_parameters), logger=logger, mem_limit=args.mem_bound)
-    result, verify_stats = parse_stats_from_clingo_output(stdout, stderr, elapsed_time, max_memory)
+    result, verify_stats = parse_clingo_output(stdout, stderr, elapsed_time, max_memory, version)
     verify_stats.update(instance=instance, objs=nobj)
 
     # save output and decoded model (if any)
     write_output((verify_path / f'solver_stdout_{instance}').with_suffix('.txt'), stdout, logger)
     write_output((verify_path / f'solver_stderr_{instance}').with_suffix('.txt'), stderr, logger)
     if verify_stats['satisfiable']:
-        symbols = result[SYMBOLS]
-        schema = STRIPSSchema.create_from_clingo(symbols)
-        decoded = schema.get_string(val=False)
+        schema, decoded, model = create_schema_from_symbols(result, version)
         with (verify_path / f'decoded_{instance}').with_suffix('.txt').open('w') as fd:
             fd.write(decoded)
     elif verify_stats['satisfiable'] == None:
@@ -662,10 +667,7 @@ def main(args: dict):
             if not result[SAT]: continue
 
             # parse output
-            symbols = result[SYMBOLS]
-            schema = STRIPSSchema.create_from_clingo(symbols)
-            decoded = schema.get_string(val=False)
-            model = schema.get_schema()
+            schema, decoded, model = create_schema_from_symbols(result, parameters['version'])
 
             # write model to file
             logger.info(colored("Save '{model}'".format(**parameters), 'green'))
