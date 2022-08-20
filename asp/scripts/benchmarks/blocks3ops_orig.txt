@@ -1,0 +1,16 @@
+# TEST SET
+# blocks3ops_2.lp blocks3ops_3.lp blocks3ops_4.lp blocks3ops_5.lp
+
+blocks3ops_2.lp 1 0 -c req_prec=1 -c osym=2 -c asym=2 -c max_num_invariants=2 -c max_predicates=3 -c static=0 VERIFY 5 0 blocks3ops_2.lp blocks3ops_3.lp blocks3ops_4.lp blocks3ops_5.lp
+blocks3ops_2.lp 2 0 -c req_prec=1 -c osym=2 -c asym=2 -c max_num_invariants=2 -c max_predicates=3 -c static=0 VERIFY 5 0 blocks3ops_2.lp blocks3ops_3.lp blocks3ops_4.lp blocks3ops_5.lp
+
+blocks3ops_3.lp 1 0 -c req_prec=1 -c osym=2 -c asym=2 -c max_num_invariants=2 -c max_predicates=3 -c static=0 VERIFY 5 0 blocks3ops_2.lp blocks3ops_3.lp blocks3ops_4.lp blocks3ops_5.lp
+blocks3ops_3.lp 2 0 -c req_prec=1 -c osym=2 -c asym=2 -c max_num_invariants=2 -c max_predicates=3 -c static=0 VERIFY 5 0 blocks3ops_2.lp blocks3ops_3.lp blocks3ops_4.lp blocks3ops_5.lp
+blocks3ops_3.lp 3 0 -c req_prec=1 -c osym=2 -c asym=2 -c max_num_invariants=2 -c max_predicates=3 -c static=0 VERIFY 5 0 blocks3ops_2.lp blocks3ops_3.lp blocks3ops_4.lp blocks3ops_5.lp
+
+# THIS WORKS; MEM OUT ON VERIFICATION OF BLOCKS5 BUT SEEMS OK
+blocks3ops_4.lp 1 0 -c req_prec=1 -c osym=2 -c asym=2 -c max_num_invariants=2 -c max_predicates=3 -c static=0 VERIFY 5 0 blocks3ops_2.lp blocks3ops_3.lp blocks3ops_4.lp blocks3ops_5.lp
+blocks3ops_4.lp 2 0 -c req_prec=1 -c osym=2 -c asym=2 -c max_num_invariants=2 -c max_predicates=3 -c static=0 VERIFY 5 0 blocks3ops_2.lp blocks3ops_3.lp blocks3ops_4.lp blocks3ops_5.lp
+blocks3ops_4.lp 3 0 -c req_prec=1 -c osym=2 -c asym=2 -c max_num_invariants=2 -c max_predicates=3 -c static=0 VERIFY 5 0 blocks3ops_2.lp blocks3ops_3.lp blocks3ops_4.lp blocks3ops_5.lp
+blocks3ops_4.lp 4 0 -c req_prec=1 -c osym=2 -c asym=2 -c max_num_invariants=2 -c max_predicates=3 -c static=0 VERIFY 5 0 blocks3ops_2.lp blocks3ops_3.lp blocks3ops_4.lp blocks3ops_5.lp
+
