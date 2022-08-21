@@ -1,5 +1,5 @@
 # TEST SET
 # hanoi1op_3x2.lp hanoi1op_3x3.lp hanoi1op_3x4.lp hanoi1op_4x3.lp
 
-hanoi1op_3x3.lp 6 0 -c req_prec=1 -c osym=2 -c asym=2 -c max_precs=8 -c max_num_invariants=2 -c max_predicates=3 -c static=1 VERIFY 7 0 hanoi1op_3x2.lp hanoi1op_3x3.lp hanoi1op_3x4.lp hanoi1op_4x3.lp
+hanoi1op_3x3.lp 6 0 -c req_prec=1 -c osym=2 -c asym=2 -c max_precs=8 -c max_num_invariants=2 -c max_predicates=3 -c max_static=1 VERIFY 7 0 hanoi1op_3x2.lp hanoi1op_3x3.lp hanoi1op_3x4.lp hanoi1op_4x3.lp
 

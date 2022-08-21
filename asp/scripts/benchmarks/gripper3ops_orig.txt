@@ -1,6 +1,6 @@
 # TEST SET
 # gripper3ops_2x0.lp gripper3ops_3x0.lp gripper3ops_4x0.lp gripper3ops_5x0.lp
 
-gripper3ops_2x0.lp 1 0 -c req_prec=1 -c osym=2 -c asym=2 -c max_num_invariants=2 -c max_predicates=5 -c static=0 VERIFY 5 0 gripper3ops_2x0.lp gripper3ops_3x0.lp gripper3ops_4x0.lp gripper3ops_5x0.lp
-gripper3ops_2x0.lp 2 0 -c req_prec=1 -c osym=2 -c asym=2 -c max_num_invariants=2 -c max_predicates=5 -c static=0 VERIFY 5 0 gripper3ops_2x0.lp gripper3ops_3x0.lp gripper3ops_4x0.lp gripper3ops_5x0.lp
+gripper3ops_2x0.lp 1 0 -c req_prec=1 -c osym=2 -c asym=2 -c max_num_invariants=2 -c max_predicates=5 -c max_static=0 VERIFY 5 0 gripper3ops_2x0.lp gripper3ops_3x0.lp gripper3ops_4x0.lp gripper3ops_5x0.lp
+gripper3ops_2x0.lp 2 0 -c req_prec=1 -c osym=2 -c asym=2 -c max_num_invariants=2 -c max_predicates=5 -c max_static=0 VERIFY 5 0 gripper3ops_2x0.lp gripper3ops_3x0.lp gripper3ops_4x0.lp gripper3ops_5x0.lp
 

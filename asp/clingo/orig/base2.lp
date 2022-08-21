@@ -3,7 +3,7 @@
 %
 
 #const max_predicates=5.
-#const static=2.
+#const max_static=2.
 #const max_effects=6.    % for each action
 #const max_precs=6.      % for each action
 
@@ -16,7 +16,7 @@ action(L) :- tlabel(T,L).
 
 pred(1..max_predicates).
 
-p_static(max_predicates-static+1..max_predicates).
+p_static(max_predicates-max_static+1..max_predicates).
 
 object(1..num_objects).
 
