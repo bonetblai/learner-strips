@@ -334,7 +334,7 @@ def get_records(fname: Path, record):
 # parse output from clingo and store stats
 def parse_clingo_output(stdout, stderr, elapsed_time, max_memory, version: str):
     result = parse_clingo_out_orig(stdout) if version == 'orig' else parse_clingo_out_mf(stdout)
-    stats = dict(total_time=result.get(TIME, -1),
+    stats = dict(total_time=result.get(TIME, elapsed_time),
                  solve_memory=max_memory,
                  satisfiable=result[SAT], # True, False, or None for Sat, Unsat, Unknown
                  num_rules=result.get(RULES, -1),
