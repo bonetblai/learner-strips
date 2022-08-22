@@ -55,10 +55,19 @@ class Stats:
             as_str = str_template.format(**self.data)
         else:
             as_str = '{samples}'.format(**self.data)
-        if self.data['satisfiable']:
+
+        success = self.data['satisfiable']
+        if success:
+            ver_instance = None
             for ver in self.data.get('verify', []):
-                if ver['satisfiable']:
-                    as_str += ' ' + str_subtemplate.format(**ver)
+                #if ver['satisfiable']:
+                #    as_str += ' ' + str_subtemplate.format(**ver)
+                if ver_instance != ver['instance'] and not success: break
+                as_str += ' ' + str_subtemplate.format(**ver)
+                success = ver['satisfiable']
+                ver_instance = ver['instance']
+        as_str += ' Success' if success else ' Failure'
+
         return as_str
 
 # clingo scripts
@@ -92,9 +101,9 @@ g_clingo = {
 
 # templates
 g_templates = {
-    'solve'   : '{solver} -Wno-global-variable {lps} {_flags_} -c opt_synthesis=1 --stats=2 --time-limit={time_limit}',
-    'verify'  : '{solver} -Wno-global-variable {lps} {samples_with_path} {_flags_} -c opt_synthesis=0 --stats=2 --time-limit={time_limit}',
-    'partial' : '{solver} -Wno-global-variable {lps} {partial_sample_path}/{sample} {_flags_} -c opt_synthesis={synthesis} --stats=2 --time-limit={time_limit}',
+    'solve'   : '{solver} --fast-exit -Wno-global-variable {lps} {_flags_} -c opt_synthesis=1 --stats=2 --time-limit={time_limit}',
+    'verify'  : '{solver} --fast-exit -Wno-global-variable {lps} {samples_with_path} {_flags_} -c opt_synthesis=0 --stats=2 --time-limit={time_limit}',
+    'partial' : '{solver} --fast-exit -Wno-global-variable {lps} {partial_sample_path}/{sample} {_flags_} -c opt_synthesis={synthesis} --stats=2 --time-limit={time_limit}',
     'flags'   : { 'fixed'   : '{options} {extra_flags}',
                   'all'     : '-c num_objects={nobj} -c max_true_atoms_per_state={max_atoms} {options} {extra_flags}',
                 },
@@ -521,8 +530,8 @@ def verify_instance(instance, nobj, max_atoms, task, parameters, logger):
     verify_stats.update(instance=instance, objs=nobj)
 
     # save output and decoded model (if any)
-    write_output((verify_path / f'solver_stdout_{instance}').with_suffix('.txt'), stdout, logger)
-    write_output((verify_path / f'solver_stderr_{instance}').with_suffix('.txt'), stderr, logger)
+    write_output((verify_path / f'solver_stdout_{Path(instance).stem}_{nobj}').with_suffix('.txt'), stdout, logger)
+    write_output((verify_path / f'solver_stderr_{Path(instance).stem}_{nobj}').with_suffix('.txt'), stderr, logger)
     if verify_stats['satisfiable']:
         schema, decoded, model = create_schema_from_symbols(result, version)
         with (verify_path / f'decoded_{instance}').with_suffix('.txt').open('w') as fd:
