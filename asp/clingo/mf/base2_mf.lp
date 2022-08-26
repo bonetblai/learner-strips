@@ -8,15 +8,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Constants
 
-% Allocate num_predicates predicates of which the last num_static are
+% Allocate max_predicates predicates of which the last max_static are
 % static predicates. Some predicates may be left unused; these will be
 % the last ones in each block of fluent or static predicates.
 
 % max_precs and max_effects bound the number of preconditions and effects
 % for each action.
 
-#const num_predicates=5. % total number of predicates
-#const num_static=2.     % these last number of predicates are static
+#const max_predicates=5. % total number of predicates
+#const max_static=2.     % these last number of predicates are static
 #const max_precs=6.      % for each action
 #const max_effects=6.    % for each action
 #const opt_unequal=1.    % inequality constraints for action arguments
@@ -46,9 +46,9 @@ relevant(I,S) :- marked(I,S1), tlabel(I,(S1,S),B).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Predicates and static predicates (p_static), objects and actions
 
-pred(1..num_predicates).
-p_static(num_predicates-num_static+1..num_predicates).
-:- p_static(P), P = 1..num_predicates-num_static.
+pred(1..max_predicates).
+p_static(max_predicates-max_static+1..max_predicates).
+:- p_static(P), P = 1..max_predicates-max_static.
 object(I,1..num_objects) :- instance(I).
 action(1..N) :- num_actions(N), opt_synthesis = 1.
 #defined num_actions/1.

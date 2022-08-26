@@ -69,7 +69,7 @@ a_pred(A,P) :- prec(A,(P,T),V),                                          opt_psy
 % Then, it cannot hold that the aggregated (sum) value yielded
 % by object O is less than the aggregated value yielded by O+1.
 
-:- object(I,O), object(I,O+1), M = num_predicates, root(I,R),
+:- object(I,O), object(I,O+1), M = max_predicates, root(I,R),
    1 #sum{ -((1+num_objects)**((M-P)*2 + 1)),P,OO : pred(P), val(I,(P,  (O,OO)),R,1);
            -((1+num_objects)**((M-P)*2 + 1)),P,OO : pred(P), val(I,(P,  (O,OO)),  1);
            -((1+num_objects)**((M-P)*2    )),P,OO : pred(P), val(I,(P,  (OO,O)),R,1);
@@ -160,7 +160,7 @@ less(O,O+1,P,2) :- object(I,O), object(I,O+1), pred(P), root(I,R),
 
 % Option opt_asym=1
 
-:- V = 1..2, Vs = 3, action(A), M = num_predicates,
+:- V = 1..2, Vs = 3, action(A), M = max_predicates,
    V = 1 : sreversible(A);
    1 #sum{ -((1+Vs)**((M-P)*2 + 1)),I,P,VV : a_atom(I,A,(P,( V,  VV)));
            -((1+Vs)**((M-P)*2    )),I,P,VV : a_atom(I,A,(P,( VV,  V)));

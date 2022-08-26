@@ -1,9 +1,9 @@
 % (Break symmetries) Order predicates by arity
 % CHECK: see constraints_javier.lp with psym=1 (redundant)
-:- p_arity(P,X), p_arity(P+1,Y), X > Y, P=1..num_predicates-num_static-1.
-:- not p_used(P), p_used(P+1), P=1..num_predicates-num_static-1.
-:- p_arity(P,X), p_arity(P+1,Y), X > Y, P=num_predicates-num_static+1..num_predicates-1.
-:- not p_used(P), p_used(P+1), P=num_predicates-num_static+1..num_predicates-1.
+:- p_arity(P,X), p_arity(P+1,Y), X > Y, P=1..max_predicates-max_static-1.
+:- not p_used(P), p_used(P+1), P=1..max_predicates-max_static-1.
+:- p_arity(P,X), p_arity(P+1,Y), X > Y, P=max_predicates-max_static+1..max_predicates-1.
+:- not p_used(P), p_used(P+1), P=max_predicates-max_static+1..max_predicates-1.
 
 %*
 % Simple small problems (e.g. packages without a package)
