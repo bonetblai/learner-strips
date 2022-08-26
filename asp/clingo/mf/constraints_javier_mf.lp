@@ -8,21 +8,21 @@
 
 % Order predicates by arity and use (opt_psym>=1), and enforce
 % the use of predicates in order (opt_psym=2).
-#const opt_psym=2.
+%#const opt_psym=2.
 
 % Symmetry breaking on objects controlled with opt_osym={0..3}.
 % opt_osym=0 : no symmetry breaking on objects
 % opt_osym=1 : complex formulation (see comments below)
 % opt_osym=2 : simpler formulation (see comments below)
 % opt_osym=3 : separating the levels (see comments below)
-#const opt_osym=2.
+%#const opt_osym=2.
 
 % Symmetry breaking on action variables controlled with opt_asym={0..3}.
 % opt_asym=0 : no symmetry breaking on action variables
 % opt_asym=1 : complex formulation (see comments below)
 % opt_asym=2 : simpler formulation (see comments below)
 % opt_asym=3 : separating the levels (see comments below)
-#const opt_asym=2.
+%#const opt_asym=2.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
