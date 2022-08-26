@@ -4,7 +4,7 @@
 % Whether effect must modify precs (opt_req_prec=1) or whether
 % this a preferred model (opt_req_prec=2); opt_req_prec=2 requires
 % --heuristic=Domain
-#const opt_req_prec=1.
+%#const opt_req_prec=1.
 
 % Order predicates by arity and use (opt_psym>=1), and enforce
 % the use of predicates in order (opt_psym=2).
