@@ -1,0 +1,8 @@
+# TEST SUITE
+# grid2ops_2x3.lp grid2ops_3x3.lp grid2ops_3x4.lp grid2ops_4x4.lp grid2ops_4x5.lp grid2ops_5x5.lp grid2ops_5x6.lp grid2ops_6x6.lp
+
+grid2ops_2x3.lp 1 10 -c opt_req_prec=1 -c opt_psym=2 -c opt_osym=2 -c opt_asym=2  -c max_num_invariants=3  -c max_predicates=6 -c static=3 -t 4 --heuristic=Domain --configuration=frumpy VERIFY 8 0 grid2ops_2x3.lp grid2ops_3x3.lp grid2ops_3x4.lp grid2ops_4x4.lp grid2ops_4x5.lp grid2ops_5x5.lp grid2ops_5x6.lp grid2ops_6x6.lp
+grid2ops_2x3.lp 2 10 -c opt_req_prec=1 -c opt_psym=2 -c opt_osym=2 -c opt_asym=2  -c max_num_invariants=3  -c max_predicates=6 -c static=3 -t 4 --heuristic=Domain --configuration=frumpy VERIFY 8 0 grid2ops_2x3.lp grid2ops_3x3.lp grid2ops_3x4.lp grid2ops_4x4.lp grid2ops_4x5.lp grid2ops_5x5.lp grid2ops_5x6.lp grid2ops_6x6.lp
+grid2ops_2x3.lp 3 10 -c opt_req_prec=1 -c opt_psym=2 -c opt_osym=2 -c opt_asym=2  -c max_num_invariants=3  -c max_predicates=6 -c static=3 -t 4 --heuristic=Domain --configuration=frumpy VERIFY 8 0 grid2ops_2x3.lp grid2ops_3x3.lp grid2ops_3x4.lp grid2ops_4x4.lp grid2ops_4x5.lp grid2ops_5x5.lp
+grid2ops_2x3.lp 3 10 -c opt_req_prec=1 -c opt_psym=2 -c opt_osym=2 -c opt_asym=2  -c max_num_invariants=3  -c max_predicates=6 -c static=3 -t 4 --heuristic=Domain --configuration=frumpy VERIFY 8 0 grid2ops_2x3.lp grid2ops_3x3.lp grid2ops_3x4.lp grid2ops_4x4.lp grid2ops_4x5.lp grid2ops_5x5.lp grid2ops_5x6.lp grid2ops_6x6.lp
+
