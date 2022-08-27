@@ -74,6 +74,7 @@ class Stats:
 g_clingo = {
     'mf'   : { 'solve'           : [ Path('../clingo/mf/base2_mf.lp'),
                                      #Path('../clingo/mf/base2_mf_partition.lp'),
+                                     #Path('../clingo/mf/base2_mf_simple.lp'),
                                      Path('../clingo/mf/constraints_blai_mf.lp'),
                                      Path('../clingo/mf/constraints_javier_mf.lp'),
                                      Path('../clingo/mf/invariants4a_mf.lp'),
@@ -101,9 +102,9 @@ g_clingo = {
 
 # templates
 g_templates = {
-    'solve'   : '{solver} --fast-exit -Wno-global-variable {lps} {_flags_} -c opt_synthesis=1 --stats=2 --time-limit={time_limit}',
-    'verify'  : '{solver} --fast-exit -Wno-global-variable {lps} {samples_with_path} {_flags_} -c opt_synthesis=0 --stats=2 --time-limit={time_limit}',
-    'partial' : '{solver} --fast-exit -Wno-global-variable {lps} {partial_sample_path}/{sample} {_flags_} -c opt_synthesis={synthesis} --stats=2 --time-limit={time_limit}',
+    'solve'   : '{solver} --fast-exit -Wno-global-variable {lps} {_flags_} -c opt_synthesis=1 -c opt_val={opt_val} --stats=2 --time-limit={time_limit}',
+    'verify'  : '{solver} --fast-exit -Wno-global-variable {lps} {samples_with_path} {_flags_} -c opt_synthesis=0 -c opt_val={opt_val} --stats=2 --time-limit={time_limit}',
+    'partial' : '{solver} --fast-exit -Wno-global-variable {lps} {partial_sample_path}/{sample} {_flags_} -c opt_synthesis={synthesis} -c opt_val={opt_val} --stats=2 --time-limit={time_limit}',
     'flags'   : { 'fixed'   : '{options} {extra_flags}',
                   'all'     : '-c num_objects={nobj} -c max_true_atoms_per_state={max_atoms} {options} {extra_flags}',
                 },
@@ -150,6 +151,7 @@ def get_args():
     default_threads = 1
     default_time_bound = 0
     default_time_bound_ver = 0
+    default_opt_val = 1
 
     # argument parser
     parser = argparse.ArgumentParser('incremental_mf.py')
@@ -172,6 +174,7 @@ def get_args():
     parser.add_argument('--threads', nargs=1, type=int, default=1, help=f'Set number of threads for Clingo solver (default = {default_threads})')
     parser.add_argument('--time_bound', type=int, default=default_time_bound, help=f'Set time bound for synthesis (default={default_time_bound})')
     parser.add_argument('--time_bound_ver', type=int, default=default_time_bound_ver, help=f'Set time bound for verification (default={default_time_bound_ver})')
+    parser.add_argument('--val', type=int, default=default_opt_val, help=f'Set method for choosing state valuations')
     parser.add_argument('benchmarks', type=Path, help='Filename of file containing benchmarks')
     parser.add_argument('record', type=int, help='Record index into benchmarks file')
 
@@ -600,6 +603,7 @@ def main(args: dict):
             'time_bound_ver'      : args.time_bound_ver,
             'extra_flags'         : ' '.join(args.extra_flags),
             'options'             : task.get_options(),
+            'opt_val'             : args.val,
         }
         parameters.update(flags_fixed=g_templates['flags']['fixed'].format(**parameters).strip(' '))
         parameters.update(time_limit=parameters['time_bound'])
