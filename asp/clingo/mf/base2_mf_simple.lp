@@ -1,11 +1,4 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TODO
-
-% Parametrize input with instance information as done with O2D;
-% e.g., replate tlabel((S1,S2),B) by tlabel(I,(S1,S2),B)
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Constants
 
 % Allocate max_predicates predicates of which the last max_static are
@@ -148,7 +141,7 @@ labelmatch(I,A,B) :- label(A,L), labelname(I,B,L).
 #defined act_inverse/1.
 #defined partitioning/0.
 
-{ prec(A,(P,T),0..1) : pred(P),  argtuple(T) } max_precs :- action(A), not partitioning, not frozen(A), not act_inverse(A), opt_synthesis = 1.
+{ prec(A,(P,T),0..1) : pred(P), argtuple(T) } max_precs :- action(A), not partitioning, not frozen(A), not act_inverse(A), opt_synthesis = 1.
 :- prec(A,M,0), prec(A,M,1).         % rule out contradictory precs
 :- prec(_,(P,(0,0)),_), p_static(P). % CHECK: not nullary prec on static predicates
 
