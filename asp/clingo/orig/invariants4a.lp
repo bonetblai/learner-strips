@@ -8,7 +8,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Choose number and type of invariants to use
 
-#heuristic invariant(N) : N=1..max_num_invariants. [N, true]
   invariant(1)   :-                 max_num_invariants != 0.
 { invariant(N) } :- invariant(N-1), N <= max_num_invariants.
 
@@ -45,7 +44,6 @@ inv_used_pred(P) :- pred(P), p_arity(P, 2), not p_static(P), invariant(N), inv_s
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bound number of true atoms per state
 
-%#heuristic bound_true_atoms_per_state(N) : N=1..max_true_atoms_per_state. [100-N, true]
 { bound_true_atoms_per_state(1..max_true_atoms_per_state) } = 1 :- max_true_atoms_per_state != 0.
 { val((P, OO), S, 1) : pred(P), not p_static(P), objtuple(OO, 2) } N :- node(S), bound_true_atoms_per_state(N), max_true_atoms_per_state != 0.
 

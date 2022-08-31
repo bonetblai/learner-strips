@@ -15,8 +15,6 @@
 % Every effect changes some precondition
 
 :- eff(A,M,V), not prec(A,M,1-V),           opt_req_prec=1.
-#heuristic  eff(A,M,1-V) : not prec(A,M,V), opt_req_prec=2. [1,false]
-#heuristic prec(A,M,1-V) :      eff(A,M,V), opt_req_prec=2. [1, true]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
