@@ -331,6 +331,7 @@ affects(A,(P,T)) :- eff(A,(P,T),X).
 
 % If there are X edges, there should be X applicable actions
 :- action(A), labelmatch(I,A,B), X = { tlabel(I,(S1,S2),B) : marked(I,S1) }, { appl(I,A,OO,S) } != X.
+:- instance(I), X = { tlabel(I,(S1,S2),A) : marked(I,S1) }, { appl(I,B,OO,S) } != X.
 
 % Define root if no root node is specified
  min(I,S) :- marked(I,S), S <= S1 : marked(I,S1).
