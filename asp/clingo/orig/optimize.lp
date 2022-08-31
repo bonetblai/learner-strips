@@ -11,5 +11,5 @@
 #minimize { N@2, P : p_arity(P, N), p_static(P) }.
 
 % Prefer models with minimum number of true atoms per state
-#minimize { N@1, N : bound_true_atoms_per_state(N) }.
+#minimize { N@1, N : bound_on_true_atoms_per_state(N) }.
 
