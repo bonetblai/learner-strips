@@ -96,7 +96,7 @@ g_clingo = {
                                      Path('../clingo/orig/invariants4a.lp'),
                                    ],
                'optimize'        : [ Path('../clingo/orig/optimize.lp') ],
-               'heuristics'      : [ ], # Already in base2.lp
+               'heuristics'      : [ Path('../clingo/orig/heuristics.lp') ],
              },
 }
 
