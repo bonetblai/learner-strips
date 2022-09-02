@@ -108,6 +108,7 @@ a_atom(A,M)   :- a_atom(J,A,M), J = 1..2.
 a_var(A,V) :- a_atom(A,(_,(V,_))).
 a_var(A,V) :- a_atom(A,(_,(_,V))).
 :- action(A), a_var(A,V), V > 1, not a_var(A,V-1).
+:- action(A), not a_var(A,V) : V = 0..3. % redundant but small
 
 a_arity(A,N)     :- a_var(A,N), not a_var(A,N+1).
 a_arity_geq(A,M) :- a_arity(A,N), M = 1..3, N = M..3.
@@ -154,7 +155,6 @@ labelmatch(I,A,B) :- label(A,L), labelname(I,B,L).
 
 % No noop effects and no noop actions
 :- prec(A,M,X), eff(A,M,X).
-:- action(A), not a_var(A,V) : V = 0..3. % redundant
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -156,7 +156,7 @@ p_arity_1_or_2(P) :- p_arity(P,N), N = 1..2.
 
 % If P hasn't arity 0, P(0,0) is false
 :- val((P,(0,0)),1),   not p_arity(P,0).
-:- val((P,(0,0)),S,1), not p_arity(P,0).    
+:- val((P,(0,0)),S,1), not p_arity(P,0).
 
 % Previous constraints imply all P(O1,O2) are false if P has no arity
 
