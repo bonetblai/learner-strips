@@ -1,16 +1,17 @@
 # learner-strips
-Repo for learning (first-order) STRIPS models from graph-based representation of state spaces, either complete or partial.
-The graph-based representation can be obtained from observable traces of (black box states) noes and
+Repository for learning (first-order) STRIPS models from graph-based representation of state spaces, either complete or partial.
+The graph-based representation can be obtained from observable traces of (black box states) nodes and
 action labels; for example, images and action labels. The assumptions being that different nodes correspond
 to different planning states, and different planning states correspond to different nodes.
 
 The learning of first-order STRIPS models is cast as a combinatorial optimization task where a simplest (first-order
 STRIPS) model that fits a given training data is sought. The space of models is finitely bounded by setting values for
-hypeparameters that bound the space (e.g. max arity of predicates/actions, max actions, max predicates, max objects, etc).
+hypeparameters that bound the space (e.g. max arity of predicates/actions, max number of actions, max number of 
+predicates, max number of objects, etc).
 
 Two encodings for learning are presented. The original encoding using SAT and that is no longer developed, and
-a somewhat less efficient but much more compact and flexible encoding using ASP. The later one is being actively
-modified/extended.
+a somewhat less efficient but much more compact and flexible encoding using Answer Set Programming (ASP). 
+The later one is being actively modified/extended.
 
 This work is based on the following publications:
 1. Blai Bonet and Hector Geffner.
@@ -20,9 +21,14 @@ Proc. 24th European Conf. on Artificial Intelligence (ECAI). Santiago de Compost
 *Learning First-Order Representations for Planning from Black-Box States: New Results.*
 Proc. 18th Int. Conf. on Principles of Knowledge Representation and Reasoning (KR). Hanoi, Vietnam. 2021. Pages 539-548.
 
-The repo depends on the following submodules:
+The repository depends on the following submodules:
 1. ``dfa-sat`` that include support for reading/writing for labeled directed graphs.
 2. ``sat-engine`` that provides C++ tools for writing SAT theories.
+
+The repository is organized with the following folders:
+1. ``dfas`` that contains the input graphs from which a model is learned,
+2. ``sat`` that contains the SAT-based implementation of the learner, and
+3. ``asp`` that contains the ASP-based implementation of the learner.
 
 ## Inputs
 
