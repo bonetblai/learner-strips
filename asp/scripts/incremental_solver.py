@@ -24,14 +24,14 @@ class Benchmark:
             index += 1
 
         self.num_objs_learn = int(fields[index]); index += 1
-        self.max_atoms_learn = int(fields[index]); index += 1
+        self.max_true_atoms_learn = int(fields[index]); index += 1
         self.options = []
         while fields[index].upper() != 'VERIFY':
             self.options.append(fields[index]); index += 1
 
         index += 1
         self.max_num_objs_ver = int(fields[index]); index += 1
-        self.max_atoms_ver = int(fields[index]); index += 1
+        self.max_true_atoms_ver = int(fields[index]); index += 1
         self.verify = []
         while index < len(fields) and fields[index] != 'partial':
             self.verify.append(fields[index]); index += 1
@@ -108,7 +108,7 @@ g_templates = {
     'verify'  : '{solver} --fast-exit -Wno-global-variable {lps} {samples_with_path} {_flags_} -c opt_synthesis=0 -c opt_val={opt_val} --sat-prepro={opt_prepro} --stats=2 --time-limit={time_limit}',
     'partial' : '{solver} --fast-exit -Wno-global-variable {lps} {partial_sample_path}/{sample} {_flags_} -c opt_synthesis={synthesis} -c opt_val={opt_val} --sat-prepro={opt_prepro} --stats=2 --time-limit={time_limit}',
     'flags'   : { 'fixed'   : '{options} {additional_flags}',
-                  'all'     : '-c num_objects={nobj} -c max_true_atoms_per_state={max_atoms} {options} {additional_flags}',
+                  'all'     : '-c num_objects={nobj} -c max_true_atoms_per_state={max_true_atoms} {options} {additional_flags}',
                 },
     '_flags_' : None,
 }
@@ -158,21 +158,22 @@ def get_args():
     # options for solver
     default_opt_val = 1
     default_incremental = None
+    default_version = 'orig'
     solver = parser.add_argument_group('options for solver')
-    solver.add_argument('--heuristics', action='store_true', help='Apply heuristics in solving')
-    solver.add_argument('--optimize', action='store_true', help='Apply optimization in solving')
-    solver.add_argument('--opt_val', type=int, default=default_opt_val, help=f'Set method for choosing state valuation (default={default_opt_val})')
-    solver.add_argument('--orig', action='store_true', help='Use original formulation in paper (testing)')
-    solver.add_argument('--incremental', nargs=2, metavar=('num-samples', 'max-depth'), default=default_incremental, type=int, help=f'Incremental learning (default={default_incremental})')
+    solver.add_argument('--heuristics', action='store_true', help='Apply heuristics when solving')
+    solver.add_argument('--no_optimize', action='store_true', help="Don't do optimization when solving")
+    solver.add_argument('--opt_val', type=int, default=default_opt_val, choices=[1, 2, 3], help=f"Set method for choosing state valuation, only for 'mf' version (default={default_opt_val})")
+    solver.add_argument('--incremental', nargs=2, metavar=('num-samples', 'max-depth'), default=default_incremental, type=int, help=f'Set options for incremental learning (default={default_incremental})')
+    solver.add_argument('--version', type=str, default=default_version, choices=['orig', 'mf'], help=f'Set solver version (default={default_version})')
 
     # options for clingo
-    default_opt_prepro = 2
-    default_threads = 1
-    clingo = parser.add_argument_group('options for clingo')
-    clingo.add_argument('--add_lp', type=Path, action='append', default=[], help=f'Additional .lp file for solver (possibly multiple times)')
-    clingo.add_argument('--add_flag', type=str, action='append', default=[], help=f'Additional flag for solver (possibly multiple times)')
+    default_threads = 6
+    default_opt_prepro = 0
+    clingo = parser.add_argument_group('options for Clingo')
+    clingo.add_argument('--add_lp', type=Path, action='append', default=[], help=f'Add additional .lp file for solver (possibly multiple times)')
+    clingo.add_argument('--add_flag', type=str, action='append', default=[], help=f'Add additional flag for solver (possibly multiple times)')
+    clingo.add_argument('--threads', type=int, default=default_threads, help=f'Set number of threads for solver (default={default_threads})')
     clingo.add_argument('--opt_prepro', type=int, default=default_opt_prepro, help=f'Set SAT preprocessing option (default={default_opt_prepro})')
-    clingo.add_argument('--threads', nargs=1, type=int, default=1, help=f'Set number of threads for Clingo solver (default = {default_threads})')
 
     # verification
     verification = parser.add_argument_group('verification')
@@ -185,20 +186,20 @@ def get_args():
     default_partial_sample_path = '../samples/partial'
     default_solver_path = '../clingo'
     paths = parser.add_argument_group('paths')
-    paths.add_argument('--prefix', type=Path, default=default_prefix, help=f"Prefix to be added to dir names (default='{default_prefix}')")
+    paths.add_argument('--prefix', type=Path, default=default_prefix, help=f"Prefix added to dir names (default='{default_prefix}')")
     paths.add_argument('--sample_path', type=Path, default=default_sample_path, help=f"Path to samples (default='{default_sample_path}')")
     paths.add_argument('--partial_sample_path', type=Path, default=default_partial_sample_path, help=f"Path to partial samples (default='{default_partial_sample_path}')")
     paths.add_argument('--solver_path', type=Path, default=default_solver_path, help=f"Path to solver files (default='{default_solver_path}')")
-    paths.add_argument('--remove_dir', help='Remove folder contents if exists', action='store_true')
+    paths.add_argument('--remove_dir', help='Discard existing files in results folder (if exists)', action='store_true')
 
     # time and mem bounds
     default_mem_bound = None
     default_time_bound = 0
     default_time_bound_ver = 0
     bounds = parser.add_argument_group('bounds')
-    bounds.add_argument('--mem_bound', type=int, default=default_mem_bound, help=f'Set memory bound for solver calls as MBs (default={default_mem_bound})')
-    bounds.add_argument('--time_bound', type=int, default=default_time_bound, help=f'Set time bound for synthesis (default={default_time_bound})')
-    bounds.add_argument('--time_bound_ver', type=int, default=default_time_bound_ver, help=f'Set time bound for verification (default={default_time_bound_ver})')
+    bounds.add_argument('--mem_bound', type=int, default=default_mem_bound, help=f'Set memory bound for solver in MBs (default={default_mem_bound})')
+    bounds.add_argument('--time_bound', type=int, default=default_time_bound, help=f'Set time bound for synthesis (0 means no bound, default={default_time_bound})')
+    bounds.add_argument('--time_bound_ver', type=int, default=default_time_bound_ver, help=f'Set time bound for verification (0 means no bound, default={default_time_bound_ver})')
 
     # parse arguments
     args = parser.parse_args()
@@ -406,7 +407,7 @@ def solve_and_parse_output(task, parameters, stats, logger, extra_lps: List[Path
     copy_files(g_clingo[version]['solve'], dirpath, logger, prefix=parameters['solver_path'])
     if args.inverse_actions:
         copy_files(g_clingo[version]['inverse_actions'], dirpath, logger, prefix=parameters['solver_path'])
-    if args.optimize:
+    if not args.no_optimize:
         copy_files(g_clingo[version]['optimize'], dirpath, logger, prefix=parameters['solver_path'])
     if args.heuristics:
         copy_files(g_clingo[version]['heuristics'], dirpath, logger, prefix=parameters['solver_path'])
@@ -510,7 +511,7 @@ def incremental_solve_and_parse_output(task, parameters, stats, logger):
         solved_tasks = []
 
         for i in range(num_dfas):
-            result, verify_stats = verify_instance(task.samples[i], local_parameters['nobj'], local_parameters['max_atoms'], task, parameters, logger=logger)
+            result, verify_stats = verify_instance(task.samples[i], local_parameters['nobj'], local_parameters['max_true_atoms'], task, parameters, logger=logger)
             solved_tasks.append(1 if verify_stats['satisfiable'] else 0)
 
         # check for failure
@@ -526,7 +527,7 @@ def incremental_solve_and_parse_output(task, parameters, stats, logger):
 
     return result
 
-def verify_instance(instance, nobj, max_atoms, task, parameters, logger):
+def verify_instance(instance, nobj, max_true_atoms, task, parameters, logger):
     # create and populate verify folder
     version = parameters['version']
     dirpath = parameters['dirpath']
@@ -542,7 +543,7 @@ def verify_instance(instance, nobj, max_atoms, task, parameters, logger):
     local_parameters.update(sample=Path(instance))
     local_parameters.update(samples_with_path=f"'{dirpath}'/verify/{instance}")
     local_parameters.update(nobj=nobj)
-    local_parameters.update(max_atoms=max_atoms)
+    local_parameters.update(max_true_atoms=max_true_atoms)
     local_parameters.update(options=task.get_options())
     local_parameters.update(_flags_=g_templates['flags']['all'].format(**local_parameters))
     local_parameters.update(time_limit=local_parameters['time_bound_ver'])
@@ -576,7 +577,7 @@ def verify_and_parse_output(task, parameters, stats, logger):
         # iterate over num objects, until max, looking for a verification
         successful = False
         for nobj in range(1, 1 + task.max_num_objs_ver):
-            result, verify_stats = verify_instance(instance, nobj, task.max_atoms_ver, task, parameters, logger)
+            result, verify_stats = verify_instance(instance, nobj, task.max_true_atoms_ver, task, parameters, logger)
             logger.info(colored(f"Elapsed time {verify_stats['total_time']} second(s)", 'green'))
             logger.info(colored(f"Memory {verify_stats['solve_memory']}", 'green'))
 
@@ -610,20 +611,19 @@ def main(args: dict):
         stats = Stats(task.samples)
 
         # add additional options
-        threads = 1 if args.threads == 1 else args.threads[0]
-        task.options.append(f'-t {threads}')
+        task.options.append(f'-t {args.threads}')
         if args.heuristics:
             task.options.append(f'--heuristic=Domain')
 
         # base parameters
         parameters = {
-            'version'             : 'orig' if args.orig else 'mf',
+            'version'             : args.version,
             'solver'              : 'clingo',
             'sample_path'         : args.sample_path,
             'partial_sample_path' : args.partial_sample_path,
             'solver_path'         : args.solver_path,
             'nobj'                : task.num_objs_learn,
-            'max_atoms'           : task.max_atoms_learn,
+            'max_true_atoms'      : task.max_true_atoms_learn,
             'time_bound'          : args.time_bound,
             'time_bound_ver'      : args.time_bound_ver,
             'additional_flags'    : ' '.join(args.add_flag),
