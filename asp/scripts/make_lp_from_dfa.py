@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import List
 import logging
 
-from dfa import DFA
+from utils.dfa import DFA
 
 def get_logger(name: str, log_file: Path, level = logging.INFO):
     logger = logging.getLogger(name)
@@ -42,7 +42,7 @@ def get_args():
     parser = argparse.ArgumentParser(description='Translate .dfa file (labeled directed graph) into .lp file that can be processed by clingo.')
     parser.add_argument('--debug_level', nargs=1, type=int, default=default_debug_level, help='Set debug level')
     parser.add_argument('--log_file', nargs=1, type=Path, default=default_log_file, help=f"Set log filename (default='{default_log_file}')")
-    parser.add_argument('dfa', type=Path, help='Filename of .dfa containing state space graph')
+    parser.add_argument('dfa', type=Path, help='Filename or folder for .dfa containing state space graph')
     parser.add_argument('lp', type=Path, help='Filename or folder for output .lp file')
 
     # parse arguments
@@ -57,14 +57,30 @@ if __name__ == '__main__':
     log_level = logging.INFO if args.debug_level == 0 else logging.DEBUG
     logger = get_logger('make_lp_from_dfa', 'make_lp_from_dfa.log', log_level)
 
-    # set lpfname taking into account that args.lp may be a folder
-    lp_fname = (args.lp / args.dfa.name).with_suffix('.lp') if args.lp.is_dir() else args.lp
+    # setup input/output filenames
+    input_fnames = []
+    output_fnames = []
+
+    # if args.lp is a folder, create it
+    if args.lp.suffix != '.lp':
+        logger.info(f"Creating folder '{args.lp}'")
+        args.lp.mkdir(parents=True, exist_ok=True)
+
+    # if args.dfa is a folder, process all .dfa files in it
+    if args.dfa.is_dir():
+        assert args.lp.is_dir()
+        input_fnames = [fname for fname in args.dfa.glob('*.dfa') if fname.is_file()]
+        output_fnames = [(args.lp / fname.name).with_suffix('.lp') for fname in input_fnames]
+    else:
+        input_fnames.append(args.dfa)
+        lp_fname = (args.lp / args.dfa.name).with_suffix('.lp') if args.lp.is_dir() else args.lp
+        output_fnames.append(lp_fname)
 
     # do job
-    dfa = DFA(args.dfa, logger)
-    with lp_fname.open('w') as fd:
-        logger.info(f"Writing '{lp_fname}'")
-        dfa.dump_as_lp(fd)
-
+    for input_fname, output_fname in zip(input_fnames, output_fnames):
+        dfa = DFA(input_fname, logger)
+        with output_fname.open('w') as fd:
+            logger.info(f"Writing '{output_fname}'")
+            dfa.dump_as_lp(fd)
     close_logger(logger)
 
