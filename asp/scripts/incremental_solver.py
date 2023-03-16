@@ -5,7 +5,7 @@ from typing import List
 import logging
 import re
 
-from dfa import DFA
+from utils.dfa          import DFA
 from utils.names        import SAT, VARIABLES, CONSTRAINTS, SYMBOLS, RULES, SOLVING, CONFLICTS, CHOICES, TIME, MODEL1st
 from utils.output       import parse_clingo_out as parse_clingo_out_orig
 from utils.output       import STRIPSSchema     as STRIPSSchema_orig
