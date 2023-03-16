@@ -74,31 +74,31 @@ class Stats:
 
 # clingo scripts
 g_clingo = {
-    'mf'   : { 'solve'           : [ #Path('../clingo/mf/base2_mf.lp'),
-                                     #Path('../clingo/mf/base2_mf_partition.lp'),
-                                     Path('../clingo/mf/base2_mf_simple.lp'),
-                                     Path('../clingo/mf/constraints_blai_mf.lp'),
-                                     Path('../clingo/mf/constraints_javier_mf.lp'),
-                                     Path('../clingo/mf/invariants4a_mf.lp'),
+    'mf'   : { 'solve'           : [ #Path('mf/base2_mf.lp'),
+                                     #Path('mf/base2_mf_partition.lp'),
+                                     Path('mf/base2_mf_simple.lp'),
+                                     Path('mf/constraints_blai_mf.lp'),
+                                     Path('mf/constraints_javier_mf.lp'),
+                                     Path('mf/invariants4a_mf.lp'),
                                    ],
-               'inverse_actions' : [ Path('../clingo/mf/inverse_actions_mf.lp') ],
-               'verify'          : [ Path('../clingo/mf/base2_mf.lp'),
-                                     Path('../clingo/mf/invariants4a_mf.lp'),
+               'inverse_actions' : [ Path('mf/inverse_actions_mf.lp') ],
+               'verify'          : [ Path('mf/base2_mf.lp'),
+                                     Path('mf/invariants4a_mf.lp'),
                                    ],
-               'optimize'        : [ Path('../clingo/mf/optimize_mf.lp') ],
-               'heuristics'      : [ Path('../clingo/mf/heuristics_mf.lp') ],
-               'partial'         : [ Path('../clingo/partial.lp') ],
+               'optimize'        : [ Path('mf/optimize_mf.lp') ],
+               'heuristics'      : [ Path('mf/heuristics_mf.lp') ],
+               'partial'         : [ Path('partial.lp') ],
              },
-    'orig' : { 'solve'           : [ Path('../clingo/orig/base2.lp'),
-                                     Path('../clingo/orig/constraints_blai.lp'),
-                                     Path('../clingo/orig/constraints_javier.lp'),
-                                     Path('../clingo/orig/invariants4a.lp'),
+    'orig' : { 'solve'           : [ Path('orig/base2.lp'),
+                                     Path('orig/constraints_blai.lp'),
+                                     Path('orig/constraints_javier.lp'),
+                                     Path('orig/invariants4a.lp'),
                                    ],
-               'verify'          : [ Path('../clingo/orig/base2.lp'),
-                                     Path('../clingo/orig/invariants4a.lp'),
+               'verify'          : [ Path('orig/base2.lp'),
+                                     Path('orig/invariants4a.lp'),
                                    ],
-               'optimize'        : [ Path('../clingo/orig/optimize.lp') ],
-               'heuristics'      : [ Path('../clingo/orig/heuristics.lp') ],
+               'optimize'        : [ Path('orig/optimize.lp') ],
+               'heuristics'      : [ Path('orig/heuristics.lp') ],
              },
 }
 
@@ -204,16 +204,17 @@ def get_args():
     args = parser.parse_args()
     return args
 
-def copy_files(filenames: List[Path], target_dir: Path, logger):
+def copy_files(filenames: List[Path], target_dir: Path, logger, prefix=None):
     for fname in filenames:
-        if fname.exists():
-            if logger: logger.info(colored(f"Copy '{fname.name}' to '{target_dir}'", 'green'))
-            shutil.copy(fname, target_dir)
+        fname_with_prefix = prefix / fname if prefix else fname
+        if fname_with_prefix.exists():
+            if logger: logger.info(colored(f"Copy '{fname_with_prefix.name}' to '{target_dir}'", 'green'))
+            shutil.copy(fname_with_prefix, target_dir)
         else:
             if logger:
-                logger.error(colored(f"File '{fname.name}' not found", 'red', attrs=['bold']))
+                logger.error(colored(f"File '{fname_with_prefix.name}' not found", 'red', attrs=['bold']))
             else:
-                print(f"Error: file '{fname.name}' not found", 'red', attrs=['bold'])
+                print(f"Error: file '{fname_with_prefix.name}' not found", 'red', attrs=['bold'])
             exit(0)
 
 # create and inject instance indices for samples
@@ -402,15 +403,15 @@ def solve_and_parse_output(task, parameters, stats, logger, extra_lps: List[Path
 
     # copy lps to dirpath
     assert version in g_clingo
-    copy_files(g_clingo[version]['solve'], dirpath, logger)
+    copy_files(g_clingo[version]['solve'], dirpath, logger, prefix=parameters['solver_path'])
     if args.inverse_actions:
-        copy_files(g_clingo[version]['inverse_actions'], dirpath, logger)
+        copy_files(g_clingo[version]['inverse_actions'], dirpath, logger, prefix=parameters['solver_path'])
     if args.optimize:
-        copy_files(g_clingo[version]['optimize'], dirpath, logger)
+        copy_files(g_clingo[version]['optimize'], dirpath, logger, prefix=parameters['solver_path'])
     if args.heuristics:
-        copy_files(g_clingo[version]['heuristics'], dirpath, logger)
+        copy_files(g_clingo[version]['heuristics'], dirpath, logger, prefix=parameters['solver_path'])
     if task.partial != None:
-        copy_files(g_clingo[version]['partial'], dirpath, logger)
+        copy_files(g_clingo[version]['partial'], dirpath, logger, prefix=parameters['solver_path'])
     if extra_lps is not None:
         copy_files(extra_lps, dirpath, logger)
     copy_files(local_parameters['add_lp'], dirpath, logger)
@@ -530,12 +531,13 @@ def verify_instance(instance, nobj, max_atoms, task, parameters, logger):
     version = parameters['version']
     dirpath = parameters['dirpath']
     verify_path = dirpath / Path('verify')
-    create_instances_in_destination_folder(parameters['sample_path'], [ instance ], None, verify_path, version, logger)
+    create_instances_in_destination_folder(parameters['sample_path'], [instance], None, verify_path, version, logger)
 
     # parameters for solver
     assert version in g_clingo
     local_parameters = dict(parameters)
-    lps = [ str(fname) for fname in g_clingo[version]['verify'] ] + ["'{model}'".format(**local_parameters)]
+    verify_solver_with_path = [parameters['solver_path'] / fname for fname in g_clingo[version]['verify']]
+    lps = [str(fname) for fname in verify_solver_with_path] + ["'{model}'".format(**local_parameters)]
     local_parameters.update(lps=' '.join(lps))
     local_parameters.update(sample=Path(instance))
     local_parameters.update(samples_with_path=f"'{dirpath}'/verify/{instance}")
@@ -619,6 +621,7 @@ def main(args: dict):
             'solver'              : 'clingo',
             'sample_path'         : args.sample_path,
             'partial_sample_path' : args.partial_sample_path,
+            'solver_path'         : args.solver_path,
             'nobj'                : task.num_objs_learn,
             'max_atoms'           : task.max_atoms_learn,
             'time_bound'          : args.time_bound,
