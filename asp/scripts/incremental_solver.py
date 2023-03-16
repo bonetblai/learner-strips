@@ -6,11 +6,13 @@ import logging
 import re
 
 from dfa import DFA
-from learnasp.names     import SAT, VARIABLES, CONSTRAINTS, SYMBOLS, RULES, SOLVING, CONFLICTS, CHOICES, TIME, MODEL1st
-from learnasp.output    import parse_clingo_out as parse_clingo_out_orig
-from learnasp.output    import STRIPSSchema     as STRIPSSchema_orig
-from learnasp.output_mf import parse_clingo_out as parse_clingo_out_mf
-from learnasp.output_mf import STRIPSSchema     as STRIPSSchema_mf
+from utils.names        import SAT, VARIABLES, CONSTRAINTS, SYMBOLS, RULES, SOLVING, CONFLICTS, CHOICES, TIME, MODEL1st
+from utils.output       import parse_clingo_out as parse_clingo_out_orig
+from utils.output       import STRIPSSchema     as STRIPSSchema_orig
+from utils.output_mf    import parse_clingo_out as parse_clingo_out_mf
+from utils.output_mf    import STRIPSSchema     as STRIPSSchema_mf
+from utils.output_vars2 import parse_clingo_out as parse_clingo_out_vars
+from utils.output_vars2 import STRIPSSchema     as STRIPSSchema_vars
 
 class Benchmark:
     def __init__(self, fields):
@@ -72,9 +74,9 @@ class Stats:
 
 # clingo scripts
 g_clingo = {
-    'mf'   : { 'solve'           : [ Path('../clingo/mf/base2_mf.lp'),
+    'mf'   : { 'solve'           : [ #Path('../clingo/mf/base2_mf.lp'),
                                      #Path('../clingo/mf/base2_mf_partition.lp'),
-                                     #Path('../clingo/mf/base2_mf_simple.lp'),
+                                     Path('../clingo/mf/base2_mf_simple.lp'),
                                      Path('../clingo/mf/constraints_blai_mf.lp'),
                                      Path('../clingo/mf/constraints_javier_mf.lp'),
                                      Path('../clingo/mf/invariants4a_mf.lp'),
