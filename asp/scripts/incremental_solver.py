@@ -107,8 +107,8 @@ g_templates = {
     'solve'   : '{solver} --fast-exit -Wno-global-variable {lps} {_flags_} -c opt_synthesis=1 -c opt_val={opt_val} --sat-prepro={opt_prepro} --stats=2 --time-limit={time_limit}',
     'verify'  : '{solver} --fast-exit -Wno-global-variable {lps} {samples_with_path} {_flags_} -c opt_synthesis=0 -c opt_val={opt_val} --sat-prepro={opt_prepro} --stats=2 --time-limit={time_limit}',
     'partial' : '{solver} --fast-exit -Wno-global-variable {lps} {partial_sample_path}/{sample} {_flags_} -c opt_synthesis={synthesis} -c opt_val={opt_val} --sat-prepro={opt_prepro} --stats=2 --time-limit={time_limit}',
-    'flags'   : { 'fixed'   : '{options} {extra_flags}',
-                  'all'     : '-c num_objects={nobj} -c max_true_atoms_per_state={max_atoms} {options} {extra_flags}',
+    'flags'   : { 'fixed'   : '{options} {additional_flags}',
+                  'all'     : '-c num_objects={nobj} -c max_true_atoms_per_state={max_atoms} {options} {additional_flags}',
                 },
     '_flags_' : None,
 }
@@ -143,44 +143,62 @@ def close_logger(logger):
 
 # options and arguments
 def get_args():
-    # default values
-    default_debug_level = 0
-    default_extra_path = ''
-    default_incremental = None
-    default_mem_bound = None
-    default_partial_sample_path = ''
-    default_sample_path = ''
-    default_threads = 1
-    default_time_bound = 0
-    default_time_bound_ver = 0
-    default_opt_prepro = 2
-    default_opt_val = 1
-
     # argument parser
+    default_debug_level = 0
     parser = argparse.ArgumentParser('incremental_mf.py')
-    parser.add_argument('--add', type=Path, action='append', default=[], help=f'Set additional .lp for solver')
     parser.add_argument('--debug_level', type=int, default=default_debug_level, help=f'Set debug level (default={default_debug_level})')
-    parser.add_argument('--extra_flags', type=str, action='append', default=[], help=f'Extra flags for encoder')
-    parser.add_argument('--extra_path', type=Path, default=default_extra_path, help=f"Extra path prefix for dir names (default='{default_extra_path}')")
-    parser.add_argument('--heuristics', action='store_true', help='Apply heuristics in solving')
-    parser.add_argument('--incremental', nargs=2, metavar=('num-samples', 'max-depth'), default=default_incremental, type=int, help=f'Incremental learning (default={default_incremental})')
-    parser.add_argument('--inverse_actions', action='store_true', help='Identify inverse actions in input graph')
-    parser.add_argument('--label_partitioning', action='store_true', help='Identify L1/L2 label partitioning in input graph')
-    parser.add_argument('--mem_bound', type=int, default=default_mem_bound, help=f'Set memory bound for solver calls as MBs (default={default_mem_bound})')
-    parser.add_argument('--onlyver', action='store_true', help='Only verification')
-    parser.add_argument('--optimize', action='store_true', help='Apply optimization in solving')
-    parser.add_argument('--orig', action='store_true', help='Use original formulation in paper (testing)')
-    parser.add_argument('--partial_sample_path', type=Path, default=default_partial_sample_path, help=f"Path to partial samples (default='{default_partial_sample_path}')")
-    parser.add_argument('--remove_dir', help='Remove folder contents if exists', action='store_true')
-    parser.add_argument('--sample_path', type=Path, default=default_sample_path, help=f"Path to samples (default='{default_sample_path}')")
-    parser.add_argument('--skipver', action='store_true', help='Skip verification')
-    parser.add_argument('--threads', nargs=1, type=int, default=1, help=f'Set number of threads for Clingo solver (default = {default_threads})')
-    parser.add_argument('--time_bound', type=int, default=default_time_bound, help=f'Set time bound for synthesis (default={default_time_bound})')
-    parser.add_argument('--time_bound_ver', type=int, default=default_time_bound_ver, help=f'Set time bound for verification (default={default_time_bound_ver})')
-    parser.add_argument('--opt_prepro', type=int, default=default_opt_prepro, help=f'Set method for choosing state valuations')
-    parser.add_argument('--opt_val', type=int, default=default_opt_val, help=f'Set SAT preprocessing option')
     parser.add_argument('benchmarks', type=Path, help='Filename of file containing benchmarks')
     parser.add_argument('record', type=int, help='Record index into benchmarks file')
+
+    # preprocessing of graphs
+    graphs = parser.add_argument_group('preprocessing of input graphs')
+    graphs.add_argument('--inverse_actions', action='store_true', help='Identify inverse actions in input graph')
+    graphs.add_argument('--label_partitioning', action='store_true', help='Identify L1/L2 label partitioning in input graph')
+
+    # options for solver
+    default_opt_val = 1
+    default_incremental = None
+    solver = parser.add_argument_group('options for solver')
+    solver.add_argument('--heuristics', action='store_true', help='Apply heuristics in solving')
+    solver.add_argument('--optimize', action='store_true', help='Apply optimization in solving')
+    solver.add_argument('--opt_val', type=int, default=default_opt_val, help=f'Set method for choosing state valuation (default={default_opt_val})')
+    solver.add_argument('--orig', action='store_true', help='Use original formulation in paper (testing)')
+    solver.add_argument('--incremental', nargs=2, metavar=('num-samples', 'max-depth'), default=default_incremental, type=int, help=f'Incremental learning (default={default_incremental})')
+
+    # options for clingo
+    default_opt_prepro = 2
+    default_threads = 1
+    clingo = parser.add_argument_group('options for clingo')
+    clingo.add_argument('--add_lp', type=Path, action='append', default=[], help=f'Additional .lp file for solver (possibly multiple times)')
+    clingo.add_argument('--add_flag', type=str, action='append', default=[], help=f'Additional flag for solver (possibly multiple times)')
+    clingo.add_argument('--opt_prepro', type=int, default=default_opt_prepro, help=f'Set SAT preprocessing option (default={default_opt_prepro})')
+    clingo.add_argument('--threads', nargs=1, type=int, default=1, help=f'Set number of threads for Clingo solver (default = {default_threads})')
+
+    # verification
+    verification = parser.add_argument_group('verification')
+    verification.add_argument('--onlyver', action='store_true', help='Only do verification')
+    verification.add_argument('--skipver', action='store_true', help='Skip verification step')
+
+    # paths
+    default_prefix = ''
+    default_sample_path = '../samples/full'
+    default_partial_sample_path = '../samples/partial'
+    default_solver_path = '../clingo'
+    paths = parser.add_argument_group('paths')
+    paths.add_argument('--prefix', type=Path, default=default_prefix, help=f"Prefix to be added to dir names (default='{default_prefix}')")
+    paths.add_argument('--sample_path', type=Path, default=default_sample_path, help=f"Path to samples (default='{default_sample_path}')")
+    paths.add_argument('--partial_sample_path', type=Path, default=default_partial_sample_path, help=f"Path to partial samples (default='{default_partial_sample_path}')")
+    paths.add_argument('--solver_path', type=Path, default=default_solver_path, help=f"Path to solver files (default='{default_solver_path}')")
+    paths.add_argument('--remove_dir', help='Remove folder contents if exists', action='store_true')
+
+    # time and mem bounds
+    default_mem_bound = None
+    default_time_bound = 0
+    default_time_bound_ver = 0
+    bounds = parser.add_argument_group('bounds')
+    bounds.add_argument('--mem_bound', type=int, default=default_mem_bound, help=f'Set memory bound for solver calls as MBs (default={default_mem_bound})')
+    bounds.add_argument('--time_bound', type=int, default=default_time_bound, help=f'Set time bound for synthesis (default={default_time_bound})')
+    bounds.add_argument('--time_bound_ver', type=int, default=default_time_bound_ver, help=f'Set time bound for verification (default={default_time_bound_ver})')
 
     # parse arguments
     args = parser.parse_args()
@@ -395,7 +413,7 @@ def solve_and_parse_output(task, parameters, stats, logger, extra_lps: List[Path
         copy_files(g_clingo[version]['partial'], dirpath, logger)
     if extra_lps is not None:
         copy_files(extra_lps, dirpath, logger)
-    copy_files(local_parameters['add'], dirpath, logger)
+    copy_files(local_parameters['add_lp'], dirpath, logger)
     local_parameters.update(lps=f"'{str(dirpath)}'/*.lp")
     local_parameters.update(_flags_=g_templates['flags']['all'].format(**local_parameters))
 
@@ -605,7 +623,7 @@ def main(args: dict):
             'max_atoms'           : task.max_atoms_learn,
             'time_bound'          : args.time_bound,
             'time_bound_ver'      : args.time_bound_ver,
-            'extra_flags'         : ' '.join(args.extra_flags),
+            'additional_flags'    : ' '.join(args.add_flag),
             'options'             : task.get_options(),
             'opt_prepro'          : args.opt_prepro,
             'opt_val'             : args.opt_val,
@@ -621,7 +639,7 @@ def main(args: dict):
         if len(dirname) > max_filename_length:
             print(colored(f"Warning: truncating dirname to OS's max filename length of {max_filename_length}, current length is {len(dirname)}!", 'red', attrs=['bold']))
             dirname = dirname[:max_filename_length]
-        dirpath = args.extra_path / Path(dirname)
+        dirpath = args.prefix / Path(dirname)
         parameters.update(dirpath=dirpath)
 
         # create dir (if existing, skip it)
@@ -669,7 +687,7 @@ def main(args: dict):
         create_instances_in_destination_folder(args.sample_path, task.samples, parameters['catalog'], parameters['dirpath'], parameters['version'], logger)
 
         # set additional files in parameters (those passed with --add)
-        parameters.update(add=args.add)
+        parameters.update(add_lp=args.add_lp)
 
         # solve task?
         if args.onlyver:
