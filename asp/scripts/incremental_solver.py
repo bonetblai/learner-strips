@@ -104,9 +104,9 @@ g_clingo = {
 
 # templates
 g_templates = {
-    'solve'   : '{solver} --fast-exit -Wno-global-variable {lps} {_flags_} -c opt_synthesis=1 -c opt_val={opt_val} --sat-prepro={opt_prepro} --stats=2 --time-limit={time_limit}',
-    'verify'  : '{solver} --fast-exit -Wno-global-variable {lps} {samples_with_path} {_flags_} -c opt_synthesis=0 -c opt_val={opt_val} --sat-prepro={opt_prepro} --stats=2 --time-limit={time_limit}',
-    'partial' : '{solver} --fast-exit -Wno-global-variable {lps} {partial_sample_path}/{sample} {_flags_} -c opt_synthesis={synthesis} -c opt_val={opt_val} --sat-prepro={opt_prepro} --stats=2 --time-limit={time_limit}',
+    'solve'   : '{solver} --fast-exit -Wno-global-variable {lps} {_flags_} -c opt_synthesis=1 -c opt_val={opt_val} --sat-prepro={sat_prepro} --stats=2 --time-limit={time_limit}',
+    'verify'  : '{solver} --fast-exit -Wno-global-variable {lps} {samples_with_path} {_flags_} -c opt_synthesis=0 -c opt_val={opt_val} --sat-prepro={sat_prepro} --stats=2 --time-limit={time_limit}',
+    'partial' : '{solver} --fast-exit -Wno-global-variable {lps} {partial_sample_path}/{sample} {_flags_} -c opt_synthesis={synthesis} -c opt_val={opt_val} --sat-prepro={sat_prepro} --stats=2 --time-limit={time_limit}',
     'flags'   : { 'fixed'   : '{options} {additional_flags}',
                   'all'     : '-c num_objects={nobj} -c max_true_atoms_per_state={max_true_atoms} {options} {additional_flags}',
                 },
@@ -145,7 +145,7 @@ def close_logger(logger):
 def get_args():
     # argument parser
     default_debug_level = 0
-    parser = argparse.ArgumentParser('incremental_mf.py')
+    parser = argparse.ArgumentParser('incremental_solver.py')
     parser.add_argument('--debug_level', type=int, default=default_debug_level, help=f'Set debug level (default={default_debug_level})')
     parser.add_argument('benchmarks', type=Path, help='Filename of file containing benchmarks')
     parser.add_argument('record', type=int, help='Record index into benchmarks file')
@@ -164,16 +164,16 @@ def get_args():
     solver.add_argument('--no_optimize', action='store_true', help="Don't do optimization when solving")
     solver.add_argument('--opt_val', type=int, default=default_opt_val, choices=[1, 2, 3], help=f"Set method for choosing state valuation, only for 'mf' version (default={default_opt_val})")
     solver.add_argument('--incremental', nargs=2, metavar=('num-samples', 'max-depth'), default=default_incremental, type=int, help=f'Set options for incremental learning (default={default_incremental})')
-    solver.add_argument('--version', type=str, default=default_version, choices=['orig', 'mf'], help=f'Set solver version (default={default_version})')
+    solver.add_argument('--version', type=str, default=default_version, choices=['kr21', 'orig', 'mf'], help=f'Set solver version (default={default_version})')
 
     # options for clingo
     default_threads = 6
-    default_opt_prepro = 0
+    default_sat_prepro = 0
     clingo = parser.add_argument_group('options for Clingo')
     clingo.add_argument('--add_lp', type=Path, action='append', default=[], help=f'Add additional .lp file for solver (possibly multiple times)')
     clingo.add_argument('--add_flag', type=str, action='append', default=[], help=f'Add additional flag for solver (possibly multiple times)')
     clingo.add_argument('--threads', type=int, default=default_threads, help=f'Set number of threads for solver (default={default_threads})')
-    clingo.add_argument('--opt_prepro', type=int, default=default_opt_prepro, help=f'Set SAT preprocessing option (default={default_opt_prepro})')
+    clingo.add_argument('--sat_prepro', type=int, default=default_sat_prepro, help=f'Set SAT preprocessing option (default={default_sat_prepro})')
 
     # verification
     verification = parser.add_argument_group('verification')
@@ -181,12 +181,12 @@ def get_args():
     verification.add_argument('--skipver', action='store_true', help='Skip verification step')
 
     # paths
-    default_prefix = ''
+    default_results_path = ''
     default_sample_path = '../samples/full'
     default_partial_sample_path = '../samples/partial'
     default_solver_path = '../clingo'
     paths = parser.add_argument_group('paths')
-    paths.add_argument('--prefix', type=Path, default=default_prefix, help=f"Prefix added to dir names (default='{default_prefix}')")
+    paths.add_argument('--results', type=Path, default=default_results_path, help=f"Path to results folders (default='{default_results_path}')")
     paths.add_argument('--sample_path', type=Path, default=default_sample_path, help=f"Path to samples (default='{default_sample_path}')")
     paths.add_argument('--partial_sample_path', type=Path, default=default_partial_sample_path, help=f"Path to partial samples (default='{default_partial_sample_path}')")
     paths.add_argument('--solver_path', type=Path, default=default_solver_path, help=f"Path to solver files (default='{default_solver_path}')")
@@ -628,7 +628,7 @@ def main(args: dict):
             'time_bound_ver'      : args.time_bound_ver,
             'additional_flags'    : ' '.join(args.add_flag),
             'options'             : task.get_options(),
-            'opt_prepro'          : args.opt_prepro,
+            'sat_prepro'          : args.sat_prepro,
             'opt_val'             : args.opt_val,
         }
         parameters.update(flags_fixed=g_templates['flags']['fixed'].format(**parameters).strip(' '))
@@ -642,7 +642,7 @@ def main(args: dict):
         if len(dirname) > max_filename_length:
             print(colored(f"Warning: truncating dirname to OS's max filename length of {max_filename_length}, current length is {len(dirname)}!", 'red', attrs=['bold']))
             dirname = dirname[:max_filename_length]
-        dirpath = args.prefix / Path(dirname)
+        dirpath = args.results / Path(dirname)
         parameters.update(dirpath=dirpath)
 
         # create dir (if existing, skip it)
@@ -730,7 +730,6 @@ def main(args: dict):
         with parameters['stats'].open('w') as fd: fd.write(str(stats) + '\n')
 
 if __name__ == '__main__':
-    # call
     # setup exec name
     exec_path = Path(sys.argv[0]).parent
     exec_name = Path(sys.argv[0]).stem
