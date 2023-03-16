@@ -22,13 +22,13 @@ Proc. 24th European Conf. on Artificial Intelligence (ECAI). Santiago de Compost
 Proc. 18th Int. Conf. on Principles of Knowledge Representation and Reasoning (KR). Hanoi, Vietnam. 2021. Pages 539-548.
 
 The repository depends on the following submodules:
-1. ``dfa-sat`` that include support for reading/writing for labeled directed graphs.
-2. ``sat-engine`` that provides C++ tools for writing SAT theories.
+* ``dfa-sat`` that include support for reading/writing for labeled directed graphs.
+* ``sat-engine`` that provides C++ tools for writing SAT theories.
 
 The repository is organized with the following folders:
-1. ``dfas`` that contains the input graphs from which a model is learned,
-2. ``sat`` that contains the SAT-based implementation of the learner, and
-3. ``asp`` that contains the ASP-based implementation of the learner.
+* ``dfas`` that contains the input graphs from which a model is learned,
+* ``sat`` that contains the SAT-based implementation of the learner, and
+* ``asp`` that contains the ASP-based implementation of the learner.
 
 ## Inputs
 
@@ -167,5 +167,20 @@ Running ```experiment.py``` with the option ```--help``` provides information ab
 
 TO BE WRITTEN
 
+### Samples
 
+The DFAs that serve as inputs to the SAT-solver are preprocessed into ``.lp`` files that are understood by the ``clingo``.
+The preprocessing is straightforward and consists of describing the graph using the atoms:
+* ``node/1`` to describe the nodes in the graph with non-negative integer indices; e.g., ``node(0)``.
+* ``labelname/2`` assigns symbolic names to indices for labels; e.g., ``labelname(`,"NEWTOWER")``.
+* ``edge/1`` describes the (directed) edges in the graph where the argument is a pair of indices; e.g., ``edge((0,1))``.
+* ``tlabel/2`` that assign labels to edges (e.g., ``tlabel((0,1),2)``). It is assumed that the pair is also declared as an edge and that the label index is also declared with ``labelname/2``.
+
+Making a ``.lp`` file from a ``.dfa`` file is done with the script ``make_lp_from_dfa.py`` in the folder ``asp/scripts``. 
+It takes two positional arguments, the first the path to the ``.dfa`` file and the second the path to the (new) ``.lp`` file.
+For example, the following generates ``blocks3ops_5.lp`` in the current folder when executed in ``asp/scripts``:
+
+```
+$ python make_lp_from_dfa.py ../../dfas/blocks3ops_5.dfa .
+```
 
