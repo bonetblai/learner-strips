@@ -2,7 +2,7 @@ from typing import List
 import clingo
 import sys
 import re
-from learnasp.names import *
+from utils.names import *
 #from names import *
 
 VARTYPE_1 = ('vartype', 1)

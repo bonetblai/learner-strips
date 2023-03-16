@@ -2,7 +2,7 @@ from typing import List
 import clingo
 import sys
 import re
-from learnasp.names import *
+from utils.names import *
 
 PRED_1 = ('pred', 1)
 STATIC_1 = ('static', 1)
