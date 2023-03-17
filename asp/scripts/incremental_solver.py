@@ -164,7 +164,7 @@ def get_args():
     solver.add_argument('--no_optimize', action='store_true', help="Don't do optimization when solving")
     solver.add_argument('--opt_val', type=int, default=default_opt_val, choices=[1, 2, 3], help=f"Set method for choosing state valuation, only for 'mf' version (default={default_opt_val})")
     solver.add_argument('--incremental', nargs=2, metavar=('num-samples', 'max-depth'), default=default_incremental, type=int, help=f'Set options for incremental learning (default={default_incremental})')
-    solver.add_argument('--version', type=str, default=default_version, choices=['kr21', 'orig', 'mf'], help=f'Set solver version (default={default_version})')
+    solver.add_argument('--version', type=str, default=default_version, help=f'Set solver version (default={default_version})')
 
     # options for clingo
     default_threads = 6
@@ -220,7 +220,6 @@ def copy_files(filenames: List[Path], target_dir: Path, logger, prefix=None):
 
 # create and inject instance indices for samples
 def create_instances_in_destination_folder(sample_path: Path, samples: List[str], samples_catalog: dict, target_dir: Path, version: str, logger):
-    assert version in [ 'orig', 'mf' ]
     actions = set()
     target_dir.mkdir(parents=True, exist_ok=True)
 
@@ -232,7 +231,7 @@ def create_instances_in_destination_folder(sample_path: Path, samples: List[str]
             print(colored(f"Error: sample file '{sample_path / Path(sample)}' doesn't exist", 'red'))
     if not all_samples_exist: exit(0)
 
-    if version == 'orig':
+    if version != 'mf':
         samples_with_path = [ sample_path / Path(sample) for sample in samples ]
         copy_files(samples_with_path, target_dir, logger)
         # get actions in samples
@@ -369,7 +368,7 @@ def get_records(fname: Path, record):
 
 # parse output from clingo and store stats
 def parse_clingo_output(stdout, stderr, elapsed_time, max_memory, version: str):
-    result = parse_clingo_out_orig(stdout) if version == 'orig' else parse_clingo_out_mf(stdout)
+    result = parse_clingo_out_mf(stdout) if version == 'mf' else parse_clingo_out_orig(stdout)
     stats = dict(total_time=result.get(TIME, elapsed_time),
                  solve_memory=max_memory,
                  satisfiable=result[SAT], # True, False, or None for Sat, Unsat, Unknown
@@ -385,7 +384,7 @@ def parse_clingo_output(stdout, stderr, elapsed_time, max_memory, version: str):
 # parse clingo output
 def create_schema_from_symbols(result, version: str):
     symbols = result[SYMBOLS]
-    schema = STRIPSSchema_orig.create_from_clingo(symbols) if version == 'orig' else STRIPSSchema_mf.create_from_clingo(symbols)
+    schema = STRIPSSchema_mf.create_from_clingo(symbols) if version == 'mf' else STRIPSSchema_orig.create_from_clingo(symbols)
     decoded = schema.get_string(val=False)
     model = schema.get_schema()
     return schema, decoded, model
