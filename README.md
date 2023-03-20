@@ -199,12 +199,12 @@ usage: incremental_solver.py [-h] [--debug_level DEBUG_LEVEL]
                              [--inverse_actions] [--label_partitioning]
                              [--heuristics] [--no_invariants] [--no_optimize]
                              [--opt_val {1,2,3}]
-                             [--incremental num-samples max-depth]
+                             [--incremental num-graphs max-depth]
                              [--version VERSION] [--add_lp ADD_LP]
                              [--add_flag ADD_FLAG] [--threads THREADS]
                              [--sat_prepro SAT_PREPRO] [--onlyver] [--skipver]
-                             [--results RESULTS] [--sample_path SAMPLE_PATH]
-                             [--partial_sample_path PARTIAL_SAMPLE_PATH]
+                             [--results RESULTS] [--graph_path SAMPLE_PATH]
+                             [--partial_graph_path PARTIAL_SAMPLE_PATH]
                              [--solver_path SOLVER_PATH] [--remove_dir]
                              [--mem_bound MEM_BOUND] [--time_bound TIME_BOUND]
                              [--time_bound_ver TIME_BOUND_VER]
@@ -229,7 +229,7 @@ options for solver:
   --no_optimize         Don't do optimization when solving
   --opt_val {1,2,3}     Set method for choosing state valuation, only for 'mf'
                         version (default=1)
-  --incremental num-samples max-depth
+  --incremental num-graphs max-depth
                         Set options for incremental learning (default=None)
   --version VERSION     Set solver version (default=kr21)
 
@@ -248,10 +248,10 @@ verification:
 
 paths:
   --results RESULTS     Path to results folders (default='')
-  --sample_path SAMPLE_PATH
-                        Path to samples (default='../samples/full')
-  --partial_sample_path PARTIAL_SAMPLE_PATH
-                        Path to partial samples (default='../samples/partial')
+  --graph_path SAMPLE_PATH
+                        Path to graphs (default='../graphs/full')
+  --partial_graph_path PARTIAL_SAMPLE_PATH
+                        Path to partial graphs (default='../graphs/partial')
   --solver_path SOLVER_PATH
                         Path to solver files (default='../clingo')
   --remove_dir          Discard existing files in results folder (if exists)

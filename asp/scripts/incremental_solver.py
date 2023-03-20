@@ -18,9 +18,9 @@ class Benchmark:
     def __init__(self, fields):
         index = 0
 
-        self.samples = []
+        self.graphs = []
         while fields[index].endswith('.lp'):
-            self.samples.append(fields[index])
+            self.graphs.append(fields[index])
             index += 1
 
         self.num_objs_learn = int(fields[index]); index += 1
@@ -47,16 +47,16 @@ class Benchmark:
         return ' '.join(opts)
 
 class Stats:
-    def __init__(self, samples):
-        self.data = dict(samples = '_'.join(samples))
+    def __init__(self, graphs):
+        self.data = dict(graphs='_'.join(graphs))
     def __str__(self):
-        str_template = '{samples} {objs} {num_rules} {num_variables} {num_constraints} {num_choices} {num_conflicts} {total_time} {solve_time} {first} {solve_memory} {satisfiable}'
+        str_template = '{graphs} {objs} {num_rules} {num_variables} {num_constraints} {num_choices} {num_conflicts} {total_time} {solve_time} {first} {solve_memory} {satisfiable}'
         str_subtemplate = '{instance} {objs} {num_rules} {num_variables} {num_constraints} {num_choices} {num_conflicts} {total_time} {solve_time} {solve_memory} {satisfiable}'
         if 'num_rules' in self.data:
             # if only verification, self.data does not contain info about solving theory
             as_str = str_template.format(**self.data)
         else:
-            as_str = '{samples}'.format(**self.data)
+            as_str = '{graphs}'.format(**self.data)
 
         success = self.data['satisfiable']
         if success:
@@ -113,8 +113,8 @@ g_clingo = {
 # templates
 g_templates = {
     'solve'   : '{solver} --fast-exit -Wno-global-variable {lps} {_flags_} -c opt_synthesis=1 -c opt_val={opt_val} --sat-prepro={sat_prepro} --stats=2 --time-limit={time_limit}',
-    'verify'  : '{solver} --fast-exit -Wno-global-variable {lps} {samples_with_path} {_flags_} -c opt_synthesis=0 -c opt_val={opt_val} --sat-prepro={sat_prepro} --stats=2 --time-limit={time_limit}',
-    'partial' : '{solver} --fast-exit -Wno-global-variable {lps} {partial_sample_path}/{sample} {_flags_} -c opt_synthesis={synthesis} -c opt_val={opt_val} --sat-prepro={sat_prepro} --stats=2 --time-limit={time_limit}',
+    'verify'  : '{solver} --fast-exit -Wno-global-variable {lps} {graphs_with_path} {_flags_} -c opt_synthesis=0 -c opt_val={opt_val} --sat-prepro={sat_prepro} --stats=2 --time-limit={time_limit}',
+    'partial' : '{solver} --fast-exit -Wno-global-variable {lps} {partial_graph_path}/{graph} {_flags_} -c opt_synthesis={synthesis} -c opt_val={opt_val} --sat-prepro={sat_prepro} --stats=2 --time-limit={time_limit}',
     'flags'   : { 'fixed'   : '{options} {additional_flags}',
                   'all'     : '-c num_objects={nobj} -c max_true_atoms_per_state={max_true_atoms} {options} {additional_flags}',
                 },
@@ -172,7 +172,7 @@ def get_args():
     solver.add_argument('--no_invariants', action='store_true', help="Don't enforce invariants when solving")
     solver.add_argument('--no_optimize', action='store_true', help="Don't do optimization when solving")
     solver.add_argument('--opt_val', type=int, default=default_opt_val, choices=[1, 2, 3], help=f"Set method for choosing state valuation, only for 'mf' version (default={default_opt_val})")
-    solver.add_argument('--incremental', nargs=2, metavar=('num-samples', 'max-depth'), default=default_incremental, type=int, help=f'Set options for incremental learning (default={default_incremental})')
+    solver.add_argument('--incremental', nargs=2, metavar=('num-graphs', 'max-depth'), default=default_incremental, type=int, help=f'Set options for incremental learning (default={default_incremental})')
     solver.add_argument('--version', type=str, default=default_version, help=f'Set solver version (default={default_version})')
 
     # options for clingo
@@ -191,13 +191,13 @@ def get_args():
 
     # paths
     default_results_path = ''
-    default_sample_path = '../samples/full'
-    default_partial_sample_path = '../samples/partial'
+    default_graph_path = '../graphs/full'
+    default_partial_graph_path = '../graphs/partial'
     default_solver_path = '../clingo'
     paths = parser.add_argument_group('paths')
     paths.add_argument('--results', type=Path, default=default_results_path, help=f"Path to results folders (default='{default_results_path}')")
-    paths.add_argument('--sample_path', type=Path, default=default_sample_path, help=f"Path to samples (default='{default_sample_path}')")
-    paths.add_argument('--partial_sample_path', type=Path, default=default_partial_sample_path, help=f"Path to partial samples (default='{default_partial_sample_path}')")
+    paths.add_argument('--graph_path', type=Path, default=default_graph_path, help=f"Path to graphs (default='{default_graph_path}')")
+    paths.add_argument('--partial_graph_path', type=Path, default=default_partial_graph_path, help=f"Path to partial graphs (default='{default_partial_graph_path}')")
     paths.add_argument('--solver_path', type=Path, default=default_solver_path, help=f"Path to solver files (default='{default_solver_path}')")
     paths.add_argument('--remove_dir', help='Discard existing files in results folder (if exists)', action='store_true')
 
@@ -227,43 +227,43 @@ def copy_files(filenames: List[Path], target_dir: Path, logger, prefix=None):
                 print(f"Error: file '{fname_with_prefix.name}' not found", 'red', attrs=['bold'])
             exit(0)
 
-# create and inject instance indices for samples
-def create_instances_in_destination_folder(sample_path: Path, samples: List[str], samples_catalog: dict, target_dir: Path, version: str, logger):
+# create and inject instance indices for graphs
+def create_instances_in_destination_folder(graph_path: Path, graphs: List[str], graphs_catalog: dict, target_dir: Path, version: str, logger):
     actions = set()
     target_dir.mkdir(parents=True, exist_ok=True)
 
-    # check existence of samples
-    all_samples_exist = True
-    for sample in samples:
-        if not (sample_path / Path(sample)).exists():
-            all_samples_exist = False
-            print(colored(f"Error: sample file '{sample_path / Path(sample)}' doesn't exist", 'red'))
-    if not all_samples_exist: exit(0)
+    # check existence of graphs
+    all_graphs_exist = True
+    for graph in graphs:
+        if not (graph_path / Path(graph)).exists():
+            all_graphs_exist = False
+            print(colored(f"Error: graph file '{graph_path / Path(graph)}' doesn't exist", 'red'))
+    if not all_graphs_exist: exit(0)
 
     if version != 'mf':
-        samples_with_path = [ sample_path / Path(sample) for sample in samples ]
-        copy_files(samples_with_path, target_dir, logger)
-        # get actions in samples
-        for sample in samples:
-            with (sample_path / Path(sample)).open('r') as fd:
+        graphs_with_path = [ graph_path / Path(graph) for graph in graphs ]
+        copy_files(graphs_with_path, target_dir, logger)
+        # get actions in graphs
+        for graph in graphs:
+            with (graph_path / Path(graph)).open('r') as fd:
                 for line in fd.readlines():
                     if line.startswith('labelname('):
                         i, label = re.search('labelname\((\d*),"(.*)"\).', line).groups()
                         actions.add(label)
     else:
-        for index, sample in enumerate(samples):
+        for index, graph in enumerate(graphs):
             num_nodes, num_edges = 0, 0
-            if samples_catalog is not None:
-                assert index + 1 not in samples_catalog
-                if sample in samples_catalog:
-                    logger.info('Skipping {sample} as already in catalaog as instance {samples_catalog[sample]}')
+            if graphs_catalog is not None:
+                assert index + 1 not in graphs_catalog
+                if graph in graphs_catalog:
+                    logger.info('Skipping {graph} as already in catalaog as instance {graphs_catalog[graph]}')
                     continue
-                samples_catalog[index + 1] = sample
-                samples_catalog[sample] = index + 1
-            with (target_dir / Path(sample)).open('w') as wfd:
+                graphs_catalog[index + 1] = graph
+                graphs_catalog[graph] = index + 1
+            with (target_dir / Path(graph)).open('w') as wfd:
                 wfd.write(f'instance({index+1}).\n')
-                wfd.write(f'filename({index+1},"{sample}").\n')
-                with (sample_path / Path(sample)).open('r') as rfd:
+                wfd.write(f'filename({index+1},"{graph}").\n')
+                with (graph_path / Path(graph)).open('r') as rfd:
                     for line in rfd.readlines():
                         if line.startswith('node('):
                             i = line.index('(')
@@ -282,13 +282,13 @@ def create_instances_in_destination_folder(sample_path: Path, samples: List[str]
                             num_edges += 1
                         else:
                             wfd.write(line)
-            logger.info(colored(f'Created instance {index+1} for file "{sample}" with {num_nodes} node(s) and {num_edges} edge(s)', 'green'))
+            logger.info(colored(f'Created instance {index+1} for file "{graph}" with {num_nodes} node(s) and {num_edges} edge(s)', 'green'))
 
     with (target_dir / Path('metadata.lp')).open('w') as fd:
         fd.write(f'num_actions({len(actions)}).\n')
 
-    logger.info(colored(f'Created metadata file for {len(samples)} instance(s)', 'green'))
-    logger.info(colored(f'{len(samples)} instance(s) created, {len(actions)} action(s) {actions}', 'green'))
+    logger.info(colored(f'Created metadata file for {len(graphs)} instance(s)', 'green'))
+    logger.info(colored(f'{len(graphs)} instance(s) created, {len(actions)} action(s) {actions}', 'green'))
 
 # resource usage
 def get_process_time_in_seconds():
@@ -429,7 +429,7 @@ def solve_and_parse_output(task, parameters, stats, logger, extra_lps: List[Path
     local_parameters.update(lps=f"'{str(dirpath)}'/*.lp")
     local_parameters.update(_flags_=g_templates['flags']['all'].format(**local_parameters))
 
-    logger.info(colored("Solve '{samples}' with flags '{_flags_}'".format(**local_parameters), 'magenta', attrs=['bold']))
+    logger.info(colored("Solve '{graphs}' with flags '{_flags_}'".format(**local_parameters), 'magenta', attrs=['bold']))
     template = g_templates['solve'] if task.partial == None else g_templates['partial']
     logger.info('cmdline=|{}|'.format(template.format(**local_parameters)))
 
@@ -464,14 +464,14 @@ def incremental_solve_and_parse_output(task, parameters, stats, logger):
     local_parameters = dict(parameters)
     local_parameters.update(synthesis=1)
     dirpath = local_parameters['dirpath']
-    num_samples, depth = parameters['incremental']
+    num_graphs, depth = parameters['incremental']
 
     # CHECK: following line hasn't been updated!
-    logger.info(colored("Incremental solve '{samples}' with flags '{_flags_}'".format(**local_parameters), 'magenta', attrs=['bold']))
+    logger.info(colored("Incremental solve '{graphs}' with flags '{_flags_}'".format(**local_parameters), 'magenta', attrs=['bold']))
     template = g_templates['solve']
 
     # get DFAs
-    dfa_fnames = [ local_parameters['sample_path'] / Path(sample) for sample in task.samples ]
+    dfa_fnames = [ local_parameters['graph_path'] / Path(graph) for graph in task.graphs ]
     dfas = [ DFA(fname) for fname in dfa_fnames ]
     num_dfas = len(dfas)
 
@@ -480,13 +480,13 @@ def incremental_solve_and_parse_output(task, parameters, stats, logger):
     while sum(solved_tasks) < num_dfas:
         logger.info(colored(f'solved_tasks: {solved_tasks}', 'green', attrs=['bold']))
 
-        # sample trajectories
+        # graph trajectories
         for i, dfa in enumerate(dfas):
             if solved_tasks[i] == 0 and len(marked_nodes[i]) < dfa.num_nodes:
                 # CHECK: exploration values: number of sources, length of trajectories
-                sampled_sources = dfa.sample_nodes(num_samples, avoid=marked_nodes[i])
+                sampled_sources = dfa.sample_nodes(num_graphs, avoid=marked_nodes[i])
                 #sampled_sources = [0,1,3,5] #CHECK
-                sampled_paths = [ dfa.sample_path(src, depth, repeat=False) for src in sampled_sources ]
+                sampled_paths = [ dfa.graph_path(src, depth, repeat=False) for src in sampled_sources ]
                 logger.info(colored(f'dfa={i}: sampled_paths={sampled_paths}', 'magenta', attrs=['bold']))
                 for path in sampled_paths:
                     for node in path:
@@ -521,7 +521,7 @@ def incremental_solve_and_parse_output(task, parameters, stats, logger):
         solved_tasks = []
 
         for i in range(num_dfas):
-            result, verify_stats = verify_instance(task.samples[i], local_parameters['nobj'], local_parameters['max_true_atoms'], task, parameters, logger=logger)
+            result, verify_stats = verify_instance(task.graphs[i], local_parameters['nobj'], local_parameters['max_true_atoms'], task, parameters, logger=logger)
             solved_tasks.append(1 if verify_stats['satisfiable'] else 0)
 
         # check for failure
@@ -542,7 +542,7 @@ def verify_instance(instance, nobj, max_true_atoms, task, parameters, logger):
     version = parameters['version']
     dirpath = parameters['dirpath']
     verify_path = dirpath / Path('verify')
-    create_instances_in_destination_folder(parameters['sample_path'], [instance], None, verify_path, version, logger)
+    create_instances_in_destination_folder(parameters['graph_path'], [instance], None, verify_path, version, logger)
 
     # parameters for solver
     assert version in g_clingo
@@ -550,8 +550,8 @@ def verify_instance(instance, nobj, max_true_atoms, task, parameters, logger):
     verify_solver_with_path = [parameters['solver_path'] / fname for fname in g_clingo[version]['verify']]
     lps = [str(fname) for fname in verify_solver_with_path] + ["'{model}'".format(**local_parameters)]
     local_parameters.update(lps=' '.join(lps))
-    local_parameters.update(sample=Path(instance))
-    local_parameters.update(samples_with_path=f"'{dirpath}'/verify/{instance}")
+    local_parameters.update(graph=Path(instance))
+    local_parameters.update(graphs_with_path=f"'{dirpath}'/verify/{instance}")
     local_parameters.update(nobj=nobj)
     local_parameters.update(max_true_atoms=max_true_atoms)
     local_parameters.update(options=task.get_options())
@@ -560,7 +560,7 @@ def verify_instance(instance, nobj, max_true_atoms, task, parameters, logger):
     local_parameters.update(synthesis=0)
 
     # call solver and parse output
-    logger.info(colored("Verify '{sample}' with flags '{_flags_}'".format(**local_parameters), 'cyan', attrs=['bold']))
+    logger.info(colored("Verify '{graph}' with flags '{_flags_}'".format(**local_parameters), 'cyan', attrs=['bold']))
     logger.info('cmdline=|{}|'.format(g_templates['verify'].format(**local_parameters)))
 
     stdout, stderr, elapsed_time, max_memory = execute_cmd(g_templates['verify'].format(**local_parameters), logger=logger, mem_limit=args.mem_bound)
@@ -618,7 +618,7 @@ def main(args: dict):
     benchmarks = get_records(args.benchmarks, args.record)
     for task in benchmarks:
         # create stats object
-        stats = Stats(task.samples)
+        stats = Stats(task.graphs)
 
         # add additional options
         task.options.append(f'-t {args.threads}')
@@ -629,8 +629,8 @@ def main(args: dict):
         parameters = {
             'version'             : args.version,
             'solver'              : 'clingo',
-            'sample_path'         : args.sample_path,
-            'partial_sample_path' : args.partial_sample_path,
+            'graph_path'          : args.graph_path,
+            'partial_graph_path'  : args.partial_graph_path,
             'solver_path'         : args.solver_path,
             'nobj'                : task.num_objs_learn,
             'max_true_atoms'      : task.max_true_atoms_learn,
@@ -645,8 +645,8 @@ def main(args: dict):
         parameters.update(time_limit=parameters['time_bound'])
 
         # construct dirpath
-        samples = ' '.join(task.samples)
-        dirname = (samples + ' ' + g_templates['flags']['all'].format(**parameters).strip(' ')).replace(' ', '_')
+        graphs = ' '.join(task.graphs)
+        dirname = (graphs + ' ' + g_templates['flags']['all'].format(**parameters).strip(' ')).replace(' ', '_')
         parameters.update(dirname=dirname)
         max_filename_length = os.pathconf('.', 'PC_NAME_MAX')
         if len(dirname) > max_filename_length:
@@ -692,12 +692,12 @@ def main(args: dict):
         logger.info(colored(f"Log file '{parameters['log']}' created", 'green'))
         logger.info(f'call=|{" ".join(sys.argv)}|')
 
-        # update samples in parameters and preprocess them in order to add instance indices
-        parameters.update(samples=task.samples)
+        # update graphs in parameters and preprocess them in order to add instance indices
+        parameters.update(graphs=task.graphs)
         parameters.update(metadata=f"'{parameters['dirpath']}'/metadata.lp")
-        parameters.update(samples_with_path=' '.join([ f"'{parameters['dirpath']}'/{sample}" for sample in task.samples ]))
+        parameters.update(graphs_with_path=' '.join([ f"'{parameters['dirpath']}'/{graph}" for graph in task.graphs ]))
         parameters.update(catalog=dict())
-        create_instances_in_destination_folder(args.sample_path, task.samples, parameters['catalog'], parameters['dirpath'], parameters['version'], logger)
+        create_instances_in_destination_folder(args.graph_path, task.graphs, parameters['catalog'], parameters['dirpath'], parameters['version'], logger)
 
         # set additional files in parameters (those passed with --add)
         parameters.update(add_lp=args.add_lp)
