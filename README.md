@@ -184,5 +184,104 @@ $ python make_lp_from_dfa.py ../../dfas/blocks3ops_5.dfa .
 
 ### Solver
 
-***TO BE WRITTEN***
+The ASP-based solver consists of a python driver program called ```incremental_solver.py``` located in
+the ```scripts/``` folder together with ```.lp``` Clingo programs located in the ```clingo/``` folder.
+There are different versions of the ```.lp``` programs (some of them currently under development) and
+the current "official" and default release called ```kr21```.
+
+The driver accepts a number of arguments that affects where the inputs/outputs are located,
+options that affect the behavior of the driver, and options that affect the behavior of the solver.
+As in the SAT-based approach, the "experiments" are described in ```.txt``` files, one experiment
+per line, that are located in the ```benchmarks/``` folder. The options for the solver are:
+
+```
+usage: incremental_solver.py [-h] [--debug_level DEBUG_LEVEL]
+                             [--inverse_actions] [--label_partitioning]
+                             [--heuristics] [--no_invariants] [--no_optimize]
+                             [--opt_val {1,2,3}]
+                             [--incremental num-samples max-depth]
+                             [--version VERSION] [--add_lp ADD_LP]
+                             [--add_flag ADD_FLAG] [--threads THREADS]
+                             [--sat_prepro SAT_PREPRO] [--onlyver] [--skipver]
+                             [--results RESULTS] [--sample_path SAMPLE_PATH]
+                             [--partial_sample_path PARTIAL_SAMPLE_PATH]
+                             [--solver_path SOLVER_PATH] [--remove_dir]
+                             [--mem_bound MEM_BOUND] [--time_bound TIME_BOUND]
+                             [--time_bound_ver TIME_BOUND_VER]
+                             benchmarks record
+
+positional arguments:
+  benchmarks            Filename of file containing benchmarks
+  record                Record index into benchmarks file
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --debug_level DEBUG_LEVEL
+                        Set debug level (default=0)
+
+preprocessing of input graphs:
+  --inverse_actions     Identify inverse actions in input graph
+  --label_partitioning  Identify L1/L2 label partitioning in input graph
+
+options for solver:
+  --heuristics          Apply heuristics when solving
+  --no_invariants       Don't enforce invariants when solving
+  --no_optimize         Don't do optimization when solving
+  --opt_val {1,2,3}     Set method for choosing state valuation, only for 'mf'
+                        version (default=1)
+  --incremental num-samples max-depth
+                        Set options for incremental learning (default=None)
+  --version VERSION     Set solver version (default=kr21)
+
+options for Clingo:
+  --add_lp ADD_LP       Add additional .lp file for solver (possibly multiple
+                        times)
+  --add_flag ADD_FLAG   Add additional flag for solver (possibly multiple
+                        times)
+  --threads THREADS     Set number of threads for solver (default=6)
+  --sat_prepro SAT_PREPRO
+                        Set SAT preprocessing option (default=0)
+
+verification:
+  --onlyver             Only do verification
+  --skipver             Skip verification step
+
+paths:
+  --results RESULTS     Path to results folders (default='')
+  --sample_path SAMPLE_PATH
+                        Path to samples (default='../samples/full')
+  --partial_sample_path PARTIAL_SAMPLE_PATH
+                        Path to partial samples (default='../samples/partial')
+  --solver_path SOLVER_PATH
+                        Path to solver files (default='../clingo')
+  --remove_dir          Discard existing files in results folder (if exists)
+
+bounds:
+  --mem_bound MEM_BOUND
+                        Set memory bound for solver in MBs (default=None)
+  --time_bound TIME_BOUND
+                        Set time bound in seconds for synthesis (0 means no
+                        bound, default=0)
+  --time_bound_ver TIME_BOUND_VER
+                        Set time bound in seconds for verification (0 means no
+                        bound, default=0)
+```
+
+For the default behavior, the solver produces results that correspond (or are close)
+to the ones reported in the KR2021 paper.
+
+For example, to solve the blocks3ops problem and store the results in the folder
+```results/```, it is enough to do the following:
+
+```python incremental_solver.lp --remove_dir --results results benchmarks/blocks3ops_1r.txt 0```
+
+This instruct the solver to run the experiment described in the first line (record number 0)
+in the file ```benchmarks/blocks3ops_1r.txt```. The flag ```--remove_dir``` instruct the
+solver to first erase the output folder for the experiment (if it exists).
+
+The flag ```--version``` instruct the solver to read the ```.lp``` files from the corresponding
+subfolder in ```clingo/```. The default behavior is to use the files in ```clingo/kr21/```.
+Other options enable/disable the use of all the files in this folder (e.g., ```--no_optimize```,
+```--no_invariants```, and ```--heuristics```). The ```--heuristics``` option does not yield
+conclusive results, sometimes it improves performance and other times it degrades it.
 
