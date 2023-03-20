@@ -104,7 +104,7 @@ g_clingo = {
                                      #Path('kr21/constraints_javier.lp'), # NOT CLEAR IF HELPFUL
                                    ],
                'verify'          : [ Path('kr21/base2.lp') ],
-               'invariants'      : [ Path('kr21/invariants4a.lp') ], # USED for test3 on 2023-MAR-17
+               'invariants'      : [ Path('kr21/invariants4a.lp') ], #     USED for test3 on 2023-MAR-17
                'optimize'        : [ Path('kr21/optimize.lp') ],
                'heuristics'      : [ Path('kr21/heuristics.lp') ],   # NOT USED for test3 on 2023-MAR-17
              },
@@ -480,13 +480,13 @@ def incremental_solve_and_parse_output(task, parameters, stats, logger):
     while sum(solved_tasks) < num_dfas:
         logger.info(colored(f'solved_tasks: {solved_tasks}', 'green', attrs=['bold']))
 
-        # graph trajectories
+        # sample trajectories
         for i, dfa in enumerate(dfas):
             if solved_tasks[i] == 0 and len(marked_nodes[i]) < dfa.num_nodes:
                 # CHECK: exploration values: number of sources, length of trajectories
                 sampled_sources = dfa.sample_nodes(num_graphs, avoid=marked_nodes[i])
                 #sampled_sources = [0,1,3,5] #CHECK
-                sampled_paths = [ dfa.graph_path(src, depth, repeat=False) for src in sampled_sources ]
+                sampled_paths = [ dfa.sample_path(src, depth, repeat=False) for src in sampled_sources ]
                 logger.info(colored(f'dfa={i}: sampled_paths={sampled_paths}', 'magenta', attrs=['bold']))
                 for path in sampled_paths:
                     for node in path:
