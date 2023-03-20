@@ -165,11 +165,9 @@ Running ```experiment.py``` with the option ```--help``` provides information ab
 
 ## ASP-based approach
 
-TO BE WRITTEN
+### Graphs
 
-### Samples
-
-The DFAs that serve as inputs to the SAT-solver are preprocessed into ``.lp`` files that are understood by the ``clingo``.
+The DFAs that serve as inputs to the SAT-solver are preprocessed into ``.lp`` files that are understood by  ``clingo``.
 The preprocessing is straightforward and consists of describing the graph using the atoms:
 * ``node/1`` to describe the nodes in the graph with non-negative integer indices; e.g., ``node(0)``.
 * ``labelname/2`` assigns symbolic names to indices for labels; e.g., ``labelname(`,"NEWTOWER")``.
@@ -183,4 +181,8 @@ For example, the following generates ``blocks3ops_5.lp`` in the current folder w
 ```
 $ python make_lp_from_dfa.py ../../dfas/blocks3ops_5.dfa .
 ```
+
+### Solver
+
+***TO BE WRITTEN***
 
