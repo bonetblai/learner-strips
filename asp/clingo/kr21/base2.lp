@@ -5,15 +5,16 @@
 % static predicates. Some predicates may be left unused; these will be
 % the last ones in each block of fluent or static predicates.
 
-% max_precs and max_effects bound the number of preconditions and effects
-% for each action.
+% max_precs and max_effects (NOT USED) bound the number of preconditions
+% and effects for each action.
 
 #const max_predicates=5. % total number of predicates
 #const max_static=2.     % these last number of predicates are static
 #const max_precs=6.      % for each action
-#const max_effects=6.    % for each action
+#const max_effects=6.    % for each action (NOT USED)
 #const opt_unequal=1.    % inequality constraints for action arguments
 #const opt_synthesis=1.  % enable synthesis of model
+#const opt_req_prec=1.   % effects must have corresponding precondition
 
 % Constants needed and set at call time:
 %#const num_objects >= 1
@@ -114,11 +115,14 @@ a_arity_geq(A,M) :- a_arity(A,N), M = 1..3, N = M..3.
 % eff(A,(P,T),1): atom (P,T) is positive effect of action A
 
 % at least one effect (assumes there are no noop actions, i.e. self loops in graphs)
-1 { eff(A,(P,T),0..1) : pred(P), argtuple(T), not p_static(P) } max_effects :- action(A), opt_synthesis = 1.
+1 { eff(A,(P,T),0..1) : pred(P), argtuple(T), not p_static(P) } :- action(A), opt_synthesis = 1.
 :- eff(A,M,0), eff(A,M,1).           % rule out contradictory effects
 
 % No noop effects and no noop actions
 :- prec(A,M,X), eff(A,M,X).
+
+% Implied effect of minimizing number of precs is to minimize number of effects
+prec(A,M,1-X) :- eff(A,M,X), opt_req_prec = 1.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -251,15 +255,13 @@ affects(A,(P,T)) :- eff(A,(P,T),X).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Additional constraints (some redundant)
 
-% No more changes than the max of effects
-:- edge((S1,S2)), max_effects+1 #count{ M : val(M,S1,V), val(M,S2,1-V) }.
 
 % If A has X outgoing edges in S1, it should be applicable X times
 :- node(S1), action(A), X = { tlabel((S1,S2),A) }, { appl(A,OO,S1) } != X.
 
 % If there are X edges, there should be X applicable actions (redundant as it should be implied by above)
-:- action(A), X = { tlabel(E,A) }, { appl(A,OO,S) } != X.
-:- X = { tlabel(E,A) }, { appl(B,OO,S) } != X.
+%%%:- action(A), X = { tlabel(E,A) }, { appl(A,OO,S) } != X.
+%%%:- X = { tlabel(E,A) }, { appl(B,OO,S) } != X.
 
 % Define root(0) by default if no root node specified (root/1 is not used elsewhere)
 root(0) :- not root(N) : node(N), N != 0.

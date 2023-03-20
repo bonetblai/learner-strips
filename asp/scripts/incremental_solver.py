@@ -79,12 +79,10 @@ g_clingo = {
                                      Path('mf/base2_mf_simple.lp'),
                                      Path('mf/constraints_blai_mf.lp'),
                                      Path('mf/constraints_javier_mf.lp'),
-                                     Path('mf/invariants4a_mf.lp'),
                                    ],
                'inverse_actions' : [ Path('mf/inverse_actions_mf.lp') ],
-               'verify'          : [ Path('mf/base2_mf.lp'),
-                                     Path('mf/invariants4a_mf.lp'),
-                                   ],
+               'verify'          : [ Path('mf/base2_mf.lp') ],
+               'invariants'      : [ Path('mf/invariants4a_mf.lp') ],
                'optimize'        : [ Path('mf/optimize_mf.lp') ],
                'heuristics'      : [ Path('mf/heuristics_mf.lp') ],
                'partial'         : [ Path('partial.lp') ],
@@ -92,13 +90,23 @@ g_clingo = {
     'orig' : { 'solve'           : [ Path('orig/base2.lp'),
                                      Path('orig/constraints_blai.lp'),
                                      Path('orig/constraints_javier.lp'),
-                                     Path('orig/invariants4a.lp'),
                                    ],
-               'verify'          : [ Path('orig/base2.lp'),
-                                     Path('orig/invariants4a.lp'),
-                                   ],
+               'verify'          : [ Path('orig/base2.lp') ],
+               'invariants'      : [ Path('orig/invariants4a.lp') ],
                'optimize'        : [ Path('orig/optimize.lp') ],
                'heuristics'      : [ Path('orig/heuristics.lp') ],
+             },
+    # kr21 is default version as it produced best results in test on 2023-MAR-17, the difference
+    # between files wrt 'orig' is that kr21/base2.lp doesn't use max_effects. Example of call
+    #   python incremental_solver.py --remove_dir --results xxx benchmarks/grid1op_1r.txt
+    'kr21' : { 'solve'           : [ Path('kr21/base2.lp'),
+                                     Path('kr21/constraints_blai.lp'),
+                                     #Path('kr21/constraints_javier.lp'), # NOT CLEAR IF HELPFUL
+                                   ],
+               'verify'          : [ Path('kr21/base2.lp') ],
+               'invariants'      : [ Path('kr21/invariants4a.lp') ], # USED for test3 on 2023-MAR-17
+               'optimize'        : [ Path('kr21/optimize.lp') ],
+               'heuristics'      : [ Path('kr21/heuristics.lp') ],   # NOT USED for test3 on 2023-MAR-17
              },
 }
 
@@ -158,9 +166,10 @@ def get_args():
     # options for solver
     default_opt_val = 1
     default_incremental = None
-    default_version = 'orig'
+    default_version = 'kr21'
     solver = parser.add_argument_group('options for solver')
     solver.add_argument('--heuristics', action='store_true', help='Apply heuristics when solving')
+    solver.add_argument('--no_invariants', action='store_true', help="Don't enforce invariants when solving")
     solver.add_argument('--no_optimize', action='store_true', help="Don't do optimization when solving")
     solver.add_argument('--opt_val', type=int, default=default_opt_val, choices=[1, 2, 3], help=f"Set method for choosing state valuation, only for 'mf' version (default={default_opt_val})")
     solver.add_argument('--incremental', nargs=2, metavar=('num-samples', 'max-depth'), default=default_incremental, type=int, help=f'Set options for incremental learning (default={default_incremental})')
@@ -198,8 +207,8 @@ def get_args():
     default_time_bound_ver = 0
     bounds = parser.add_argument_group('bounds')
     bounds.add_argument('--mem_bound', type=int, default=default_mem_bound, help=f'Set memory bound for solver in MBs (default={default_mem_bound})')
-    bounds.add_argument('--time_bound', type=int, default=default_time_bound, help=f'Set time bound for synthesis (0 means no bound, default={default_time_bound})')
-    bounds.add_argument('--time_bound_ver', type=int, default=default_time_bound_ver, help=f'Set time bound for verification (0 means no bound, default={default_time_bound_ver})')
+    bounds.add_argument('--time_bound', type=int, default=default_time_bound, help=f'Set time bound in seconds for synthesis (0 means no bound, default={default_time_bound})')
+    bounds.add_argument('--time_bound_ver', type=int, default=default_time_bound_ver, help=f'Set time bound in seconds for verification (0 means no bound, default={default_time_bound_ver})')
 
     # parse arguments
     args = parser.parse_args()
@@ -406,6 +415,8 @@ def solve_and_parse_output(task, parameters, stats, logger, extra_lps: List[Path
     copy_files(g_clingo[version]['solve'], dirpath, logger, prefix=parameters['solver_path'])
     if args.inverse_actions:
         copy_files(g_clingo[version]['inverse_actions'], dirpath, logger, prefix=parameters['solver_path'])
+    if not args.no_invariants:
+        copy_files(g_clingo[version]['invariants'], dirpath, logger, prefix=parameters['solver_path'])
     if not args.no_optimize:
         copy_files(g_clingo[version]['optimize'], dirpath, logger, prefix=parameters['solver_path'])
     if args.heuristics:
