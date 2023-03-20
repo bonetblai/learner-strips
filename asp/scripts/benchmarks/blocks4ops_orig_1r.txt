@@ -1,6 +1,0 @@
-# TEST SET
-# blocks4ops_2.lp blocks4ops_3.lp blocks4ops_4.lp blocks4ops_5.lp
-
-blocks4ops_3.lp 3 0 -c opt_req_prec=1 -c opt_psym=2 -c opt_osym=2 -c opt_asym=2 -c max_num_invariants=2 -c max_predicates=5 -c max_static=0 VERIFY 5 0 blocks4ops_2.lp blocks4ops_3.lp blocks4ops_4.lp blocks4ops_5.lp
-blocks4ops_4.lp 4 0 -c opt_req_prec=1 -c opt_psym=2 -c opt_osym=2 -c opt_asym=2 -c max_num_invariants=2 -c max_predicates=5 -c max_static=0 VERIFY 5 0 blocks4ops_2.lp blocks4ops_3.lp blocks4ops_4.lp blocks4ops_5.lp
-
