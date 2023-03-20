@@ -1,0 +1,3 @@
+
+grid4ops_3x5.lp 5 0 -c opt_psym=2 -c opt_osym=2 -c opt_asym=2 -c max_num_invariants=2 -c max_predicates=4 -c max_static=2 VERIFY 6 2 grid4ops_2x2.lp grid4ops_2x3.lp grid4ops_2x4.lp grid4ops_2x5.lp grid4ops_2x6.lp grid4ops_3x3.lp grid4ops_3x4.lp grid4ops_3x5.lp grid4ops_3x6.lp grid4ops_4x4.lp grid4ops_4x5.lp grid4ops_4x6.lp grid4ops_5x5.lp grid4ops_5x6.lp grid4ops_6x6.lp
+
