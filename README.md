@@ -93,7 +93,7 @@ provide python scripts that implement the solution pipeline.
 The source for the C++ program called ```strips``` is in ```sat/src```. To construct it, a simple ```make```
 in the folder should suffice, yet some update to ```makefile``` may be required. The program requires the
 ```boost``` library and the submodules ```dfa-sat``` and ```sat-engine``` that can be installed with the
-command ```git sumodule update --init```.
+command ```git submodule update --init```.
 
 Directly executing ```src/strips``` gives a description of the different options and usages provided.
 One such usage allows for the generation of ```.dot``` (graphical) description of an input DFA.
