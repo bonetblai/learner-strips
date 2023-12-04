@@ -23,7 +23,7 @@ some_binary_predicate :- pred(P), p_arity(P, 2), not p_static(P).
 
 % Each non-static binary predicate must appear in some type-1 invariant
 inv_used_pred(P) :- pred(P), p_arity(P, 2), not p_static(P), invariant(N), inv_schema(N, P, 2..3).
-:- pred(P), p_arity(P, 2), not p_static(P), not inv_used_pred(P).
+:- pred(P), p_arity(P, 2), not p_static(P), not inv_used_pred(P), max_num_invariants > 0.
 
 % Show statements
 #show num_invariants(N) : invariant(N), not invariant(N+1).
