@@ -264,30 +264,33 @@ appl(I,A,OO1,S) :- action(A), objtuple(I,OO1,3), marked(I,S), not nappl(I,A,OO1,
 { next(I,A,OO,S1,S2) : tlabel(I,(S1,S2),B) } = 1 :- appl(I,A,OO,S1), labelmatch(I,A,B), marked(I,S1).
 
 % If action A maps S1 into S2, there is instance of A assigned to edge
-:- marked(I,S1), tlabel(I,(S1,S2),B), labelmatch(I,A,B), { next(I,A,OO,S1,S2) } != 1.
+:- marked(I,S1), tlabel(I,(S1,S2),B), labelmatch(I,A,B), { next(I,A,OO,S1,S2) } = 0.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Check action effects on successor states (factored test)
 
 % A maps S1 into S2 with O1 in V1, O2 in V2, and O3 in V3
-pnext(I,0,A, 0,S1,S2) :- marked(I,S1), labelmatch(I,A,B), tlabel(I,(S1,S2),B), S2 >= 0. % for nullary predicates
-pnext(I,1,A,O1,S1,S2) :- next(I,A,(O1,O2,O3),S1,S2), S2 >= 0.
-pnext(I,2,A,O2,S1,S2) :- next(I,A,(O1,O2,O3),S1,S2), S2 >= 0.
-pnext(I,3,A,O3,S1,S2) :- next(I,A,(O1,O2,O3),S1,S2), S2 >= 0.
+pnext(I,0,A, 0,(O1,O2,O3),S1,S2) :- tlabel(I,(S1,S2),B),            S2 >= 0, marked(I,S1), labelmatch(I,A,B), objtuple((O1,O2,O3),3). % for nullary predicates, object selection is irrelevant.
+pnext(I,1,A,O1,(O1,O2,O3),S1,S2) :- next(I,A,(O1,O2,O3),S1,S2),     S2 >= 0.
+pnext(I,2,A,O2,(O1,O2,O3),S1,S2) :- next(I,A,(O1,O2,O3),S1,S2),     S2 >= 0.
+pnext(I,3,A,O3,(O1,O2,O3),S1,S2) :- next(I,A,(O1,O2,O3),S1,S2),     S2 >= 0.
+
 
 % If A goes from S1 to S2 with O1 in V1 and O2 in V2, the effects must hold in S2
-:- eff(A,(P,(V1,V2)),X), pnext(I,V1,A,O1,S1,S2), pnext(I,V2,A,O2,S1,S2), val(I,(P,(O1,O2)),S2,1-X).
+:- eff(A,(P,(V1,V2)),X), pnext(I,V1,A,O1,OO,S1,S2), pnext(I,V2,A,O2,OO,S1,S2), val(I,(P,(O1,O2)),S2,1-X).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Inertia
 
 % There cannot be a non-caused change of a fluent
-:- marked(I,S1), edge(I,(S1,S2)), val(I,M,S1,V), val(I,M,S2,1-V), not caused(I,S1,S2,M).
+:- marked(I,S1), edge(I,(S1,S2)),    val(I,K,S1,V), val(I,K,S2,1-V), { caused(I,A,S1,S2,OO,K) } = 0.
+:- marked(I,S1), next(I,A,OO,S1,S2), val(I,K,S1,V), val(I,K,S2,1-V), { caused(I,A,S1,S2,OO,K) } = 0.
+
 
 % If A goes from S1 to S2 with O1 in V1 and O2 in V2, P(O1,O2) is caused if P(V1,V2) is effect
-caused(I,S1,S2,(P,(O1,O2))) :- affects(A,(P,(V1,V2))), pnext(I,V1,A,O1,S1,S2), pnext(I,V2,A,O2,S1,S2).
+caused(I,A,S1,S2,OO,(P,(O1,O2))) :- affects(A,(P,(V1,V2))), pnext(I,V1,A,O1,OO,S1,S2), pnext(I,V2,A,O2,OO,S1,S2).
 affects(A,(P,T)) :- eff(A,(P,T),X).
 
 
@@ -298,10 +301,11 @@ affects(A,(P,T)) :- eff(A,(P,T),X).
 :- marked(I,S1), edge(I,(S1,S2)), max_effects+1 #count{ M : val(I,M,S1,V), val(I,M,S2,1-V) }.
 
 % If A has X outgoing edges in S1, it should be applicable X times
-:- marked(I,S1), action(A), labelmatch(I,A,B), X = { tlabel(I,(S1,S2),B) }, { appl(I,A,OO,S1) } != X.
+:- marked(I,S1), action(A), labelmatch(I,A,B), X = { tlabel(I,(S1,S2),B) }, { appl(I,A,OO,S1) } < X.
 
 % If there are X edges, there should be X applicable actions
-:- action(A), labelmatch(I,A,B), X = { tlabel(I,(S1,S2),B) : marked(I,S1) }, { appl(I,A,OO,S) } != X.
+:- action(A), labelmatch(I,A,B), X = { tlabel(I,(S1,S2),B) : marked(I,S1) }, { appl(I,A,OO,S) } < X.
+
 
 % Define root if no root node is specified
  min(I,S) :- marked(I,S), S <= S1 : marked(I,S1).
