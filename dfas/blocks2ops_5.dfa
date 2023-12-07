@@ -1,0 +1,504 @@
+dfa 501 -1
+2 unstack stack
+1 0
+20 stack 1 stack 2 stack 3 stack 4 stack 5 stack 6 stack 7 stack 8 stack 9 stack 10 stack 11 stack 12 stack 13 stack 14 stack 15 stack 16 stack 17 stack 18 stack 19 stack 20
+10 unstack 0 stack 21 stack 22 stack 23 stack 24 stack 25 stack 26 stack 27 stack 28 stack 29
+10 unstack 0 stack 30 stack 31 stack 32 stack 33 stack 34 stack 35 stack 36 stack 37 stack 38
+10 unstack 0 stack 39 stack 40 stack 41 stack 42 stack 43 stack 44 stack 45 stack 46 stack 47
+10 unstack 0 stack 48 stack 49 stack 50 stack 51 stack 52 stack 53 stack 54 stack 55 stack 56
+10 unstack 0 stack 57 stack 58 stack 59 stack 60 stack 61 stack 62 stack 63 stack 64 stack 65
+10 unstack 0 stack 66 stack 40 stack 49 stack 67 stack 68 stack 69 stack 70 stack 71 stack 72
+10 unstack 0 stack 73 stack 31 stack 50 stack 74 stack 75 stack 76 stack 77 stack 78 stack 79
+10 unstack 0 stack 80 stack 32 stack 41 stack 81 stack 82 stack 83 stack 84 stack 85 stack 86
+10 unstack 0 stack 87 stack 74 stack 81 stack 88 stack 89 stack 90 stack 91 stack 92 stack 93
+10 unstack 0 stack 94 stack 43 stack 52 stack 95 stack 96 stack 97 stack 98 stack 99 stack 100
+10 unstack 0 stack 22 stack 101 stack 53 stack 58 stack 102 stack 83 stack 103 stack 104 stack 105
+10 unstack 0 stack 23 stack 106 stack 44 stack 59 stack 107 stack 76 stack 108 stack 109 stack 110
+10 unstack 0 stack 67 stack 111 stack 84 stack 95 stack 112 stack 108 stack 113 stack 114 stack 115
+10 unstack 0 stack 34 stack 116 stack 55 stack 88 stack 117 stack 109 stack 118 stack 119 stack 120
+10 unstack 0 stack 25 stack 121 stack 56 stack 61 stack 122 stack 86 stack 123 stack 124 stack 125
+10 unstack 0 stack 26 stack 35 stack 126 stack 62 stack 69 stack 127 stack 90 stack 97 stack 128
+10 unstack 0 stack 70 stack 77 stack 129 stack 98 stack 103 stack 130 stack 118 stack 123 stack 131
+10 unstack 0 stack 37 stack 46 stack 132 stack 91 stack 104 stack 133 stack 113 stack 124 stack 134
+10 unstack 0 stack 28 stack 47 stack 135 stack 64 stack 79 stack 136 stack 114 stack 119 stack 137
+10 unstack 0 stack 29 stack 38 stack 138 stack 65 stack 72 stack 139 stack 93 stack 100 stack 140
+5 unstack 1 stack 141 stack 142 stack 143 stack 144
+4 unstack 11 unstack 1 stack 145 stack 146
+4 unstack 12 unstack 1 stack 147 stack 148
+5 unstack 1 stack 149 stack 147 stack 150 stack 151
+4 unstack 15 unstack 1 stack 152 stack 153
+4 unstack 16 unstack 1 stack 142 stack 154
+5 unstack 1 stack 145 stack 155 stack 152 stack 156
+4 unstack 19 unstack 1 stack 150 stack 157
+4 unstack 20 unstack 1 stack 144 stack 158
+5 unstack 2 stack 159 stack 160 stack 161 stack 162
+4 unstack 7 unstack 2 stack 163 stack 164
+4 unstack 8 unstack 2 stack 165 stack 166
+5 unstack 2 stack 167 stack 165 stack 168 stack 169
+4 unstack 14 unstack 2 stack 170 stack 171
+4 unstack 16 unstack 2 stack 160 stack 172
+5 unstack 2 stack 163 stack 173 stack 170 stack 174
+4 unstack 18 unstack 2 stack 168 stack 175
+4 unstack 20 unstack 2 stack 162 stack 176
+5 unstack 3 stack 177 stack 178 stack 179 stack 180
+4 unstack 6 unstack 3 stack 181 stack 182
+4 unstack 8 unstack 3 stack 183 stack 184
+5 unstack 3 stack 185 stack 183 stack 186 stack 187
+4 unstack 10 unstack 3 stack 188 stack 189
+4 unstack 12 unstack 3 stack 178 stack 190
+5 unstack 3 stack 181 stack 191 stack 188 stack 192
+4 unstack 18 unstack 3 stack 186 stack 193
+4 unstack 19 unstack 3 stack 180 stack 194
+5 unstack 4 stack 195 stack 196 stack 197 stack 198
+4 unstack 6 unstack 4 stack 199 stack 200
+4 unstack 7 unstack 4 stack 201 stack 202
+5 unstack 4 stack 203 stack 201 stack 204 stack 205
+4 unstack 10 unstack 4 stack 206 stack 207
+4 unstack 11 unstack 4 stack 196 stack 208
+5 unstack 4 stack 199 stack 209 stack 206 stack 210
+4 unstack 14 unstack 4 stack 204 stack 211
+4 unstack 15 unstack 4 stack 198 stack 212
+5 unstack 5 stack 213 stack 214 stack 215 stack 216
+4 unstack 11 unstack 5 stack 217 stack 218
+4 unstack 12 unstack 5 stack 219 stack 220
+5 unstack 5 stack 221 stack 219 stack 222 stack 223
+4 unstack 15 unstack 5 stack 224 stack 225
+4 unstack 16 unstack 5 stack 214 stack 226
+5 unstack 5 stack 217 stack 227 stack 224 stack 228
+4 unstack 19 unstack 5 stack 222 stack 229
+4 unstack 20 unstack 5 stack 216 stack 230
+5 unstack 6 stack 231 stack 232 stack 233 stack 234
+4 unstack 13 unstack 6 stack 235 stack 236
+5 unstack 6 stack 237 stack 200 stack 238 stack 239
+4 unstack 16 unstack 6 stack 232 stack 240
+4 unstack 17 unstack 6 stack 238 stack 241
+5 unstack 6 stack 182 stack 242 stack 235 stack 243
+4 unstack 20 unstack 6 stack 234 stack 244
+5 unstack 7 stack 245 stack 246 stack 247 stack 248
+4 unstack 9 unstack 7 stack 249 stack 250
+5 unstack 7 stack 251 stack 202 stack 252 stack 253
+4 unstack 12 unstack 7 stack 246 stack 254
+4 unstack 17 unstack 7 stack 252 stack 255
+5 unstack 7 stack 164 stack 256 stack 249 stack 257
+4 unstack 19 unstack 7 stack 248 stack 258
+5 unstack 8 stack 259 stack 260 stack 261 stack 262
+4 unstack 9 unstack 8 stack 263 stack 264
+5 unstack 8 stack 265 stack 184 stack 266 stack 267
+4 unstack 11 unstack 8 stack 260 stack 268
+4 unstack 13 unstack 8 stack 266 stack 269
+5 unstack 8 stack 166 stack 270 stack 263 stack 271
+4 unstack 15 unstack 8 stack 262 stack 272
+5 unstack 9 stack 273 stack 274 stack 275 stack 276
+4 unstack 14 unstack 9 stack 277 stack 278
+5 unstack 9 stack 279 stack 264 stack 280 stack 281
+4 unstack 16 unstack 9 stack 274 stack 282
+4 unstack 18 unstack 9 stack 280 stack 283
+5 unstack 9 stack 250 stack 284 stack 277 stack 285
+4 unstack 20 unstack 9 stack 276 stack 286
+5 unstack 10 stack 287 stack 288 stack 289 stack 290
+4 unstack 13 unstack 10 stack 291 stack 292
+5 unstack 10 stack 293 stack 207 stack 294 stack 295
+4 unstack 16 unstack 10 stack 288 stack 296
+4 unstack 17 unstack 10 stack 294 stack 297
+5 unstack 10 stack 189 stack 298 stack 291 stack 299
+4 unstack 20 unstack 10 stack 290 stack 300
+5 unstack 11 stack 301 stack 268 stack 302 stack 303
+5 unstack 11 stack 304 stack 208 stack 305 stack 306
+4 unstack 17 unstack 11 stack 305 stack 307
+4 unstack 18 unstack 11 stack 303 stack 308
+5 unstack 11 stack 146 stack 309 stack 218 stack 310
+5 unstack 12 stack 311 stack 254 stack 312 stack 313
+5 unstack 12 stack 314 stack 190 stack 315 stack 316
+4 unstack 13 unstack 12 stack 315 stack 317
+4 unstack 14 unstack 12 stack 313 stack 318
+5 unstack 12 stack 148 stack 319 stack 220 stack 320
+5 unstack 13 stack 321 stack 317 stack 322 stack 323
+5 unstack 13 stack 324 stack 269 stack 325 stack 326
+4 unstack 18 unstack 13 stack 325 stack 327
+4 unstack 19 unstack 13 stack 323 stack 328
+5 unstack 13 stack 236 stack 329 stack 292 stack 330
+5 unstack 14 stack 331 stack 318 stack 332 stack 333
+5 unstack 14 stack 334 stack 211 stack 335 stack 336
+4 unstack 17 unstack 14 stack 335 stack 337
+4 unstack 19 unstack 14 stack 333 stack 338
+5 unstack 14 stack 171 stack 339 stack 278 stack 340
+5 unstack 15 stack 341 stack 272 stack 342 stack 343
+5 unstack 15 stack 344 stack 212 stack 345 stack 346
+4 unstack 17 unstack 15 stack 345 stack 347
+4 unstack 18 unstack 15 stack 343 stack 348
+5 unstack 15 stack 153 stack 349 stack 225 stack 350
+5 unstack 16 stack 351 stack 240 stack 352 stack 296
+5 unstack 16 stack 353 stack 172 stack 282 stack 354
+5 unstack 16 stack 154 stack 355 stack 226 stack 356
+5 unstack 17 stack 357 stack 307 stack 358 stack 347
+5 unstack 17 stack 359 stack 255 stack 337 stack 360
+5 unstack 17 stack 241 stack 361 stack 297 stack 362
+5 unstack 18 stack 363 stack 308 stack 364 stack 348
+5 unstack 18 stack 365 stack 193 stack 327 stack 366
+5 unstack 18 stack 175 stack 367 stack 283 stack 368
+5 unstack 19 stack 369 stack 258 stack 370 stack 338
+5 unstack 19 stack 371 stack 194 stack 328 stack 372
+5 unstack 19 stack 157 stack 373 stack 229 stack 374
+5 unstack 20 stack 375 stack 244 stack 376 stack 300
+5 unstack 20 stack 377 stack 176 stack 286 stack 378
+5 unstack 20 stack 158 stack 379 stack 230 stack 380
+2 unstack 21 stack 381
+2 unstack 26 unstack 21
+2 unstack 21 stack 382
+2 unstack 29 unstack 21
+2 unstack 27 unstack 22
+2 unstack 105 unstack 22
+2 unstack 24 unstack 23
+2 unstack 110 unstack 23
+2 unstack 24 stack 383
+2 unstack 28 unstack 24
+2 unstack 24 stack 384
+2 unstack 27 unstack 25
+2 unstack 125 unstack 25
+2 unstack 128 unstack 26
+2 unstack 27 stack 385
+2 unstack 27 stack 386
+2 unstack 137 unstack 28
+2 unstack 140 unstack 29
+2 unstack 30 stack 387
+2 unstack 35 unstack 30
+2 unstack 30 stack 388
+2 unstack 38 unstack 30
+2 unstack 36 unstack 31
+2 unstack 78 unstack 31
+2 unstack 33 unstack 32
+2 unstack 85 unstack 32
+2 unstack 33 stack 389
+2 unstack 37 unstack 33
+2 unstack 33 stack 390
+2 unstack 36 unstack 34
+2 unstack 120 unstack 34
+2 unstack 127 unstack 35
+2 unstack 36 stack 391
+2 unstack 36 stack 392
+2 unstack 134 unstack 37
+2 unstack 139 unstack 38
+2 unstack 39 stack 393
+2 unstack 44 unstack 39
+2 unstack 39 stack 394
+2 unstack 47 unstack 39
+2 unstack 45 unstack 40
+2 unstack 71 unstack 40
+2 unstack 42 unstack 41
+2 unstack 82 unstack 41
+2 unstack 42 stack 395
+2 unstack 46 unstack 42
+2 unstack 42 stack 396
+2 unstack 45 unstack 43
+2 unstack 99 unstack 43
+2 unstack 107 unstack 44
+2 unstack 45 stack 397
+2 unstack 45 stack 398
+2 unstack 133 unstack 46
+2 unstack 136 unstack 47
+2 unstack 48 stack 399
+2 unstack 53 unstack 48
+2 unstack 48 stack 400
+2 unstack 56 unstack 48
+2 unstack 54 unstack 49
+2 unstack 68 unstack 49
+2 unstack 51 unstack 50
+2 unstack 75 unstack 50
+2 unstack 51 stack 401
+2 unstack 55 unstack 51
+2 unstack 51 stack 402
+2 unstack 54 unstack 52
+2 unstack 96 unstack 52
+2 unstack 102 unstack 53
+2 unstack 54 stack 403
+2 unstack 54 stack 404
+2 unstack 117 unstack 55
+2 unstack 122 unstack 56
+2 unstack 57 stack 405
+2 unstack 62 unstack 57
+2 unstack 57 stack 406
+2 unstack 65 unstack 57
+2 unstack 63 unstack 58
+2 unstack 105 unstack 58
+2 unstack 60 unstack 59
+2 unstack 110 unstack 59
+2 unstack 60 stack 407
+2 unstack 64 unstack 60
+2 unstack 60 stack 408
+2 unstack 63 unstack 61
+2 unstack 125 unstack 61
+2 unstack 128 unstack 62
+2 unstack 63 stack 409
+2 unstack 63 stack 410
+2 unstack 137 unstack 64
+2 unstack 140 unstack 65
+2 unstack 66 stack 411
+2 unstack 69 unstack 66
+2 unstack 66 stack 412
+2 unstack 72 unstack 66
+2 unstack 71 unstack 67
+2 unstack 115 unstack 67
+2 unstack 68 stack 413
+2 unstack 70 unstack 68
+2 unstack 68 stack 414
+2 unstack 69 unstack 126
+2 unstack 131 unstack 70
+2 unstack 71 stack 415
+2 unstack 71 stack 416
+2 unstack 72 unstack 138
+2 unstack 73 stack 417
+2 unstack 76 unstack 73
+2 unstack 73 stack 418
+2 unstack 79 unstack 73
+2 unstack 78 unstack 74
+2 unstack 92 unstack 74
+2 unstack 75 stack 419
+2 unstack 77 unstack 75
+2 unstack 75 stack 420
+2 unstack 76 unstack 106
+2 unstack 130 unstack 77
+2 unstack 78 stack 421
+2 unstack 78 stack 422
+2 unstack 79 unstack 135
+2 unstack 80 stack 423
+2 unstack 83 unstack 80
+2 unstack 80 stack 424
+2 unstack 86 unstack 80
+2 unstack 85 unstack 81
+2 unstack 89 unstack 81
+2 unstack 82 stack 425
+2 unstack 84 unstack 82
+2 unstack 82 stack 426
+2 unstack 83 unstack 101
+2 unstack 112 unstack 84
+2 unstack 85 stack 427
+2 unstack 85 stack 428
+2 unstack 86 unstack 121
+2 unstack 87 stack 429
+2 unstack 90 unstack 87
+2 unstack 87 stack 430
+2 unstack 93 unstack 87
+2 unstack 92 unstack 88
+2 unstack 120 unstack 88
+2 unstack 89 stack 431
+2 unstack 91 unstack 89
+2 unstack 89 stack 432
+2 unstack 90 unstack 127
+2 unstack 134 unstack 91
+2 unstack 92 stack 433
+2 unstack 92 stack 434
+2 unstack 93 unstack 139
+2 unstack 94 stack 435
+2 unstack 97 unstack 94
+2 unstack 94 stack 436
+2 unstack 100 unstack 94
+2 unstack 99 unstack 95
+2 unstack 115 unstack 95
+2 unstack 96 stack 437
+2 unstack 98 unstack 96
+2 unstack 96 stack 438
+2 unstack 97 unstack 126
+2 unstack 131 unstack 98
+2 unstack 99 stack 439
+2 unstack 99 stack 440
+2 unstack 100 unstack 138
+2 unstack 101 stack 441
+2 unstack 101 stack 442
+2 unstack 104 unstack 101
+2 unstack 102 stack 443
+2 unstack 103 unstack 102
+2 unstack 102 stack 444
+2 unstack 103 unstack 129
+2 unstack 104 unstack 132
+2 unstack 105 stack 445
+2 unstack 105 stack 446
+2 unstack 106 stack 447
+2 unstack 106 stack 448
+2 unstack 109 unstack 106
+2 unstack 107 stack 449
+2 unstack 108 unstack 107
+2 unstack 107 stack 450
+2 unstack 108 unstack 111
+2 unstack 109 unstack 116
+2 unstack 110 stack 451
+2 unstack 110 stack 452
+2 unstack 111 stack 453
+2 unstack 111 stack 454
+2 unstack 114 unstack 111
+2 unstack 112 stack 455
+2 unstack 113 unstack 112
+2 unstack 112 stack 456
+2 unstack 113 unstack 133
+2 unstack 114 unstack 136
+2 unstack 115 stack 457
+2 unstack 115 stack 458
+2 unstack 116 stack 459
+2 unstack 116 stack 460
+2 unstack 119 unstack 116
+2 unstack 117 stack 461
+2 unstack 118 unstack 117
+2 unstack 117 stack 462
+2 unstack 118 unstack 130
+2 unstack 119 unstack 135
+2 unstack 120 stack 463
+2 unstack 120 stack 464
+2 unstack 121 stack 465
+2 unstack 121 stack 466
+2 unstack 124 unstack 121
+2 unstack 122 stack 467
+2 unstack 123 unstack 122
+2 unstack 122 stack 468
+2 unstack 123 unstack 129
+2 unstack 124 unstack 132
+2 unstack 125 stack 469
+2 unstack 125 stack 470
+2 unstack 126 stack 471
+2 unstack 126 stack 472
+2 unstack 127 stack 473
+2 unstack 127 stack 474
+2 unstack 128 stack 475
+2 unstack 128 stack 476
+2 unstack 129 stack 477
+2 unstack 129 stack 478
+2 unstack 130 stack 479
+2 unstack 130 stack 480
+2 unstack 131 stack 481
+2 unstack 131 stack 482
+2 unstack 132 stack 483
+2 unstack 132 stack 484
+2 unstack 133 stack 485
+2 unstack 133 stack 486
+2 unstack 134 stack 487
+2 unstack 134 stack 488
+2 unstack 135 stack 489
+2 unstack 135 stack 490
+2 unstack 136 stack 491
+2 unstack 136 stack 492
+2 unstack 137 stack 493
+2 unstack 137 stack 494
+2 unstack 138 stack 495
+2 unstack 138 stack 496
+2 unstack 139 stack 497
+2 unstack 139 stack 498
+2 unstack 140 stack 499
+2 unstack 140 stack 500
+1 unstack 141
+1 unstack 143
+1 unstack 149
+1 unstack 151
+1 unstack 155
+1 unstack 156
+1 unstack 159
+1 unstack 161
+1 unstack 167
+1 unstack 169
+1 unstack 173
+1 unstack 174
+1 unstack 177
+1 unstack 179
+1 unstack 185
+1 unstack 187
+1 unstack 191
+1 unstack 192
+1 unstack 195
+1 unstack 197
+1 unstack 203
+1 unstack 205
+1 unstack 209
+1 unstack 210
+1 unstack 213
+1 unstack 215
+1 unstack 221
+1 unstack 223
+1 unstack 227
+1 unstack 228
+1 unstack 231
+1 unstack 233
+1 unstack 237
+1 unstack 239
+1 unstack 242
+1 unstack 243
+1 unstack 245
+1 unstack 247
+1 unstack 251
+1 unstack 253
+1 unstack 256
+1 unstack 257
+1 unstack 259
+1 unstack 261
+1 unstack 265
+1 unstack 267
+1 unstack 270
+1 unstack 271
+1 unstack 273
+1 unstack 275
+1 unstack 279
+1 unstack 281
+1 unstack 284
+1 unstack 285
+1 unstack 287
+1 unstack 289
+1 unstack 293
+1 unstack 295
+1 unstack 298
+1 unstack 299
+1 unstack 301
+1 unstack 302
+1 unstack 304
+1 unstack 306
+1 unstack 309
+1 unstack 310
+1 unstack 311
+1 unstack 312
+1 unstack 314
+1 unstack 316
+1 unstack 319
+1 unstack 320
+1 unstack 321
+1 unstack 322
+1 unstack 324
+1 unstack 326
+1 unstack 329
+1 unstack 330
+1 unstack 331
+1 unstack 332
+1 unstack 334
+1 unstack 336
+1 unstack 339
+1 unstack 340
+1 unstack 341
+1 unstack 342
+1 unstack 344
+1 unstack 346
+1 unstack 349
+1 unstack 350
+1 unstack 351
+1 unstack 352
+1 unstack 353
+1 unstack 354
+1 unstack 355
+1 unstack 356
+1 unstack 357
+1 unstack 358
+1 unstack 359
+1 unstack 360
+1 unstack 361
+1 unstack 362
+1 unstack 363
+1 unstack 364
+1 unstack 365
+1 unstack 366
+1 unstack 367
+1 unstack 368
+1 unstack 369
+1 unstack 370
+1 unstack 371
+1 unstack 372
+1 unstack 373
+1 unstack 374
+1 unstack 375
+1 unstack 376
+1 unstack 377
+1 unstack 378
+1 unstack 379
+1 unstack 380
