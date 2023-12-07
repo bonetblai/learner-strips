@@ -14,6 +14,7 @@
 #const max_effects=6.    % for each action
 #const opt_unequal=1.    % inequality constraints for action arguments
 #const opt_synthesis=1.  % enable synthesis of model
+#const opt_prec=2.       % 2 enforce positive prec, 1 prefer positive prec, else disabled
 
 % Constants needed and set at call time:
 %#const num_objects >= 1
@@ -142,7 +143,9 @@ labelmatch(I,A,B) :- label(A,L), labelname(I,B,L).
 #defined act_inverse/1.
 #defined partitioning/0.
 
-{ prec(A,(P,T),0..1) : pred(P), argtuple(T) } max_precs :- action(A), not partitioning, not frozen(A), not act_inverse(A), opt_synthesis = 1.
+{ prec(A,(P,T),0..1) : pred(P), argtuple(T) } max_precs :- action(A), not partitioning, not frozen(A), not act_inverse(A), opt_synthesis = 1, opt_prec != 2.
+{ prec(A,(P,T),   1) : pred(P), argtuple(T) } max_precs :- action(A), not partitioning, not frozen(A), not act_inverse(A), opt_synthesis = 1, opt_prec  = 2.
+:- prec(A,M,0), opt_prec = 2.        % rule out negative precs
 :- prec(A,M,0), prec(A,M,1).         % rule out contradictory precs
 :- prec(_,(P,(0,0)),_), p_static(P). % CHECK: not nullary prec on static predicates
 

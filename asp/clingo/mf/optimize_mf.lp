@@ -19,3 +19,5 @@
 % Prefer models with minimum number of true atoms per state
 #minimize {   N@10,   I,N : bound_on_true_atoms_per_state(I,N) }.
 
+% Prefer positive preconditions
+#minimize {   1@1, prec(A,(P,T),0) : prec(A,(P,T),0) , opt_prec  = 1}.
