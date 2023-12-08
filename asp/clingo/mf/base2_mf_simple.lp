@@ -312,6 +312,9 @@ pnext(I,3,A,O3,(O1,O2,O3),S1,S2) :- next(I,A,(O1,O2,O3),S1,S2),     S2 >= 0.
 :- eff(A,(P,(V1,V2)),X), pnext(I,V1,A,O1,OO,S1,S2), pnext(I,V2,A,O2,OO,S1,S2), val(I,(P,(O1,O2)),S2,1-X).
 
 
+% an effect should be visible at one node at least
+eff_used(A,(P,(V1,V2))) :- pnext(I,V1,A,O1,OO,S1,S2), pnext(I,V2,A,O2,OO,S1,S2), val(I,(P,(O1,O2)),S1,1-X), marked(I,S1), eff(A,(P,(V1,V2)),X).
+:- eff(A,(P,(V1,V2)),X), not eff_used(A,(P,(V1,V2))).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Inertia

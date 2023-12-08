@@ -246,6 +246,9 @@ pnext(3,A,O3,(O1,O2,O3),S1,S2) :- next(A,(O1,O2,O3),S1,S2),     S2 >= 0.
 % If A goes from S1 to S2 with O1 in V1 and O2 in V2, the effects must hold in S2
 :- eff(A,(P,(V1,V2)),X), pnext(V1,A,O1,OO,S1,S2), pnext(V2,A,O2,OO,S1,S2), val((P,(O1,O2)),S2,1-X).
 
+% an effect should be visible at one node at least
+eff_used(A,(P,(V1,V2))) :- pnext(V1,A,O1,OO,S1,S2), pnext(V2,A,O2,OO,S1,S2), val((P,(O1,O2)),S1,1-X), node(S1), eff(A,(P,(V1,V2)),X).
+:- eff(A,(P,(V1,V2)),X), not eff_used(A,(P,(V1,V2))).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Inertia
