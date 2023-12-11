@@ -114,6 +114,14 @@ a_arity(A,N)     :- a_var(A,N), not a_var(A,N+1).
 a_arity_geq(A,M) :- a_arity(A,N), M = 1..3, N = M..3.
 
 % Action labels and consistent labels in each instance
+% Actions are counted in python: num_actions.
+% There are as many Actions as there are Labels for Actions.
+% Same Label = Same Action
+% label(L) There is the Label L.
+% label(A,L) Action A has Label L. (bijective)
+% labelname(I,B,L) in Instance I local Action B has Label L
+% labelmatch(I,A,B) in Instance I local Action B is global Action A.
+
 label(L) :- label(A,L).
 label(L) :- labelname(I,A,L).
 :- labelname(I,A,L1), labelname(I,A,L2), L1 != L2.
@@ -130,6 +138,7 @@ label(A,L) :- labelname(I,A,L),
 labelmatch(I,A,B) :- label(A,L), labelname(I,B,L).
 :- labelname(I,B,L), not label(A,L) : action(A).
 :- labelname(I,B,L), not labelmatch(I,A,B) : label(A,L).
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
