@@ -44,6 +44,7 @@ def get_args():
     parser.add_argument('--log_file', nargs=1, type=Path, default=default_log_file, help=f"Set log filename (default='{default_log_file}')")
     parser.add_argument('dfa', type=Path, help='Filename or folder for .dfa containing state space graph')
     parser.add_argument('lp', type=Path, help='Filename or folder for output .lp file')
+    parser.add_argument('--compute_inverse', action='store_true', help='Precompute inverse relation of actions')
 
     # parse arguments
     args = parser.parse_args()
@@ -81,6 +82,6 @@ if __name__ == '__main__':
         dfa = DFA(input_fname, logger)
         with output_fname.open('w') as fd:
             logger.info(f"Writing '{output_fname}'")
-            dfa.dump_as_lp(fd)
+            dfa.dump_as_lp(fd,args.compute_inverse)
     close_logger(logger)
 

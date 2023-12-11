@@ -286,6 +286,9 @@ def create_instances_in_destination_folder(graph_path: Path, graphs: List[str], 
                         elif line.startswith('val('):
                             i = line.index('(')
                             wfd.write(f'val({index+1},{line[i+1:]}')
+                        elif line.startswith('inverse('):
+                            i = line.index('(')
+                            wfd.write(f'inverse({index+1},{line[i+1:]}')
                         else:
                             wfd.write(line)
             logger.info(colored(f'Created instance {index+1} for file "{graph}" with {num_nodes} node(s) and {num_edges} edge(s)', 'green'))

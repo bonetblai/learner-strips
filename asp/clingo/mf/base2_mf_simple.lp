@@ -140,6 +140,12 @@ labelmatch(I,A,B) :- label(A,L), labelname(I,B,L).
 :- labelname(I,B,L), not label(A,L) : action(A).
 :- labelname(I,B,L), not labelmatch(I,A,B) : label(A,L).
 
+% inverse agregation
+inverse_canidate(A,B) :- inverse(I,C,D), labelmatch(I,A,C), labelmatch(I,B,D).
+inverse_compatible(I,A,B) :- inverse_canidate(A,B), inverse(I,C,D), labelmatch(I,A,C), labelmatch(I,B,D).
+inverse_compatible(I,A,B) :- inverse_canidate(A,B), instance(I),  { labelmatch(I,A,C) } = 0.
+inverse(A,B) :- inverse_canidate(A,B), inverse_compatible(I,A,B) : instance(I).
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -167,6 +173,11 @@ labelmatch(I,A,B) :- label(A,L), labelname(I,B,L).
 
 % No noop effects and no noop actions
 :- prec(A,M,X), eff(A,M,X).
+
+% Inverses impose heavy restrictions:
+:-  eff(A,(P,T),0),                    not prec(A,(P,T),  1),      inverse(A,B).
+:-  eff(A,(P,_),X),                       { eff(B,(P,_),1-X)} = 0, inverse(A,B).
+:- prec(B,(P,T),X), not eff(B,(P,T),1-X), {prec(A,(P,_),  X)} = 0, inverse(A,B).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -307,6 +318,9 @@ appl(I,A,OO1,S) :- action(A), objtuple(I,OO1,3), marked(I,S), not nappl(I,A,OO1,
 % If action A maps S1 into S2, there is instance of A assigned to edge
 :- marked(I,S1), tlabel(I,(S1,S2),B), labelmatch(I,A,B), { next(I,A,OO,S1,S2) } = 0.
 
+%For inverses also the oposite direction must be present
+:- next(I,A, _,S1,S2),  { next(I,B, _,S2,S1) } = 0, inverse(A,B).
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Check action effects on successor states (factored test)
@@ -320,6 +334,8 @@ pnext(I,3,A,O3,(O1,O2,O3),S1,S2) :- next(I,A,(O1,O2,O3),S1,S2),     S2 >= 0.
 % If A goes from S1 to S2 with O1 in V1 and O2 in V2, the effects must hold in S2
 :- eff(A,(P,(V1,V2)),X), pnext(I,V1,A,O1,OO,S1,S2), pnext(I,V2,A,O2,OO,S1,S2), val(I,(P,(O1,O2)),S2,1-X).
 
+% For inverse all effects must be effective
+:-   eff(A,(P,(V1,V2)),X),   pnext(V1,A,O1,OO,S1,S2), pnext(V2,A,O2,OO,S1,S2), val((P,(O1,O2)),S1,  X), inverse(A,B).
 
 % an effect should be visible at one node at least
 eff_used(A,(P,(V1,V2))) :- pnext(I,V1,A,O1,OO,S1,S2), pnext(I,V2,A,O2,OO,S1,S2), val(I,(P,(O1,O2)),S1,1-X), marked(I,S1), eff(A,(P,(V1,V2)),X).

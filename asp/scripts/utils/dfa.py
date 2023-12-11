@@ -55,12 +55,27 @@ class DFA:
                 raise RuntimeError(f'unknown suffix {self.fname.suffix} for DFA file')
             assert len(self.successors) == self.num_nodes
 
-    def dump_as_lp(self, fd):
+    def dump_as_lp(self, fd, compute_inverse):
         fd.write(f'% {self.num_nodes} nodes, {self.num_edges} edges\n')
         for node in range(self.num_nodes):
             fd.write(f'node({node}).\n')
         for label in self.labels:
             fd.write(f'labelname({self.labels[label]},"{label}").\n')
+        
+        if compute_inverse:
+            list_labels = list(self.labels)
+            inv_pos = [[True] * len(self.labels) for _ in range(len(self.labels))]
+            for node, node_successors in enumerate(self.successors):
+                for (label, next) in node_successors:
+                    next_succ = self.successors[next]
+                    for label2 in self.labels:
+                        if not (label2, node) in next_succ:
+                            inv_pos[list_labels.index(label)][list_labels.index(label2)] = False
+            for index1,label1 in enumerate(list_labels):
+                for index2,label2 in enumerate(list_labels):
+                    if inv_pos[index1][index2]:
+                        fd.write(f'inverse({self.labels[label1]},{self.labels[label2]}).\n')
+        
         for node, node_successors in enumerate(self.successors):
             for (label, next) in node_successors:
                 fd.write(f'edge(({node},{next})).\n')
