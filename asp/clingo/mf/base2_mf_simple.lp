@@ -147,6 +147,8 @@ inverse_compatible(I,A,B) :- inverse_canidate(A,B), instance(I),  { labelmatch(I
 inverse(A,B) :- inverse_canidate(A,B), inverse_compatible(I,A,B) : instance(I).
 safe_inverse(A,B) :- inverse(A,B), inverse(B,A), A != B, {inverse(A,_)}=1, {inverse(B,_)}=1, {inverse(_,A)}=1, {inverse(_,B)}=1.
 
+action_comp(I,A,B) :- action(A), labelmatch(I,A,B).
+action_comp(I,A,0) :- action(A), labelmatch(I,A,_).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -314,11 +316,14 @@ appl(I,A,OO1,S) :- action(A), objtuple(I,OO1,3), marked(I,S), not nappl(I,A,OO1,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Successors
 
+% Create missing unknown labels
+tlabel(I,(S1,S2),0) :- {tlabel(I,(S1,S2),B) : labelmatch(I,_,B)} = 0, edge(I,(S1,S2)).
+
 % If A(OO) is applicable at S1, choose a next node among those give by edges
-{ next(I,A,OO,S1,S2) : tlabel(I,(S1,S2),B) } = 1 :- appl(I,A,OO,S1), labelmatch(I,A,B), marked(I,S1).
+{ next(I,A,OO,S1,S2) : tlabel(I,(S1,S2),B), action_comp(I,A,B) } = 1 :- appl(I,A,OO,S1), marked(I,S1).
 
 % If action A maps S1 into S2, there is instance of A assigned to edge
-:- marked(I,S1), tlabel(I,(S1,S2),B), labelmatch(I,A,B), { next(I,A,OO,S1,S2) } = 0.
+:- marked(I,S1), tlabel(I,(S1,S2),B), { next(I,A,OO,S1,S2) : action_comp(I,A,B) } = 0.
 
 %For inverses also the oposite direction must be present
 :- next(I,A, _,S1,S2),  { next(I,B, _,S2,S1) } = 0,      inverse(A,B).
@@ -329,7 +334,8 @@ appl(I,A,OO1,S) :- action(A), objtuple(I,OO1,3), marked(I,S), not nappl(I,A,OO1,
 % Check action effects on successor states (factored test)
 
 % A maps S1 into S2 with O1 in V1, O2 in V2, and O3 in V3
-pnext(I,0,A, 0,(O1,O2,O3),S1,S2) :- tlabel(I,(S1,S2),B),            S2 >= 0, marked(I,S1), labelmatch(I,A,B), objtuple((O1,O2,O3),3). % for nullary predicates, object selection is irrelevant.
+pnext(I,0,A, 0,(O1,O2,O3),S1,S2) :- tlabel(I,(S1,S2),B), action(A), S2 >= 0, marked(I,S1), labelmatch(I,A,B), objtuple((O1,O2,O3),3). % for nullary predicates, object selection is irrelevant.
+pnext(I,0,A, 0,(O1,O2,O3),S1,S2) :- next(I,A,(O1,O2,O3),S1,S2),     S2 >= 0. % for nullary predicates
 pnext(I,1,A,O1,(O1,O2,O3),S1,S2) :- next(I,A,(O1,O2,O3),S1,S2),     S2 >= 0.
 pnext(I,2,A,O2,(O1,O2,O3),S1,S2) :- next(I,A,(O1,O2,O3),S1,S2),     S2 >= 0.
 pnext(I,3,A,O3,(O1,O2,O3),S1,S2) :- next(I,A,(O1,O2,O3),S1,S2),     S2 >= 0.
@@ -365,6 +371,9 @@ affects(A,(P,T)) :- eff(A,(P,T),X).
 
 % If A has X outgoing edges in S1, it should be applicable X times
 :- marked(I,S1), action(A), labelmatch(I,A,B), X = { tlabel(I,(S1,S2),B) }, { appl(I,A,OO,S1) } < X.
+:- marked(I,S1), X = { tlabel(I,(S1,S2),C) : labelmatch(I,_,C) }, { appl(I,B,OO,S1) : action(B) } = Y, {tlabel(I,(S1,S2),0)} > Y - X.
+:- { appl(I,A,OO,S1) : next(I,A,OO,S1,S2) } = 0 , action(A), tlabel(I,(S1,S2),B), labelmatch(I,A,B).
+:- { appl(I,A,OO,S1) : next(I,A,OO,S1,S2), action(A) } = 0 , tlabel(I,(S1,S2),0).
 
 % If there are X edges, there should be X applicable actions
 :- action(A), labelmatch(I,A,B), X = { tlabel(I,(S1,S2),B) : marked(I,S1) }, { appl(I,A,OO,S) } < X.
@@ -373,6 +382,8 @@ affects(A,(P,T)) :- eff(A,(P,T),X).
 % Define root if no root node is specified
  min(I,S) :- marked(I,S), S <= S1 : marked(I,S1).
 root(I,S) :- min(I,S), not root(I,N) : marked(I,N), N != S.
+
+:- tlabel(I,(S1,S2),_), not edge(I,(S1,S2)).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
