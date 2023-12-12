@@ -99,6 +99,7 @@ a_var(A,V) :- a_atom(A,(_,(_,V))).
 a_arity(A,N)     :- a_var(A,N), not a_var(A,N+1).
 a_arity_geq(A,M) :- a_arity(A,N), M = 1..3, N = M..3.
 
+safe_inverse(A,B) :- inverse(A,B), inverse(B,A), A != B, {inverse(A,_)}=1, {inverse(B,_)}=1, {inverse(_,A)}=1, {inverse(_,B)}=1.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -124,9 +125,10 @@ a_arity_geq(A,M) :- a_arity(A,N), M = 1..3, N = M..3.
 :- prec(A,M,X), eff(A,M,X).
 
 % Inverses impose heavy restrictions:
-:-  eff(A,(P,T),0),                    not prec(A,(P,T),  1),      inverse(A,B).
-:-  eff(A,(P,_),X),                       { eff(B,(P,_),1-X)} = 0, inverse(A,B).
-:- prec(B,(P,T),X), not eff(B,(P,T),1-X), {prec(A,(P,_),  X)} = 0, inverse(A,B).
+:-  eff(A,(P,T),0),                    not prec(A,(P,T),  1),           inverse(A,B).
+:-  eff(A,(P,_),X),                       { eff(B,(P,_),1-X)} = 0,      inverse(A,B).
+:-  eff(A,(P,T),X),                       { eff(B,(P,T),1-X)} = 0, safe_inverse(A,B).
+:- prec(B,(P,T),X), not eff(B,(P,T),1-X), {prec(A,(P,_),  X)} = 0,      inverse(A,B).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -235,7 +237,8 @@ appl(A,OO1,S) :- action(A), objtuple(OO1,3), node(S), not nappl(A,OO1,S),
 :- tlabel((S1,S2),A), { next(A,OO,S1,S2) } = 0.
 
 %For inverses also the oposite direction must be present
-:- next(A, _,S1,S2),  { next(B, _,S2,S1) } = 0, inverse(A,B).
+:- next(A, _,S1,S2),  { next(B, _,S2,S1) } = 0,      inverse(A,B).
+:- next(A,OO,S1,S2),  { next(B,OO,S2,S1) } = 0, safe_inverse(A,B).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

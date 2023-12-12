@@ -145,6 +145,7 @@ inverse_canidate(A,B) :- inverse(I,C,D), labelmatch(I,A,C), labelmatch(I,B,D).
 inverse_compatible(I,A,B) :- inverse_canidate(A,B), inverse(I,C,D), labelmatch(I,A,C), labelmatch(I,B,D).
 inverse_compatible(I,A,B) :- inverse_canidate(A,B), instance(I),  { labelmatch(I,A,C) } = 0.
 inverse(A,B) :- inverse_canidate(A,B), inverse_compatible(I,A,B) : instance(I).
+safe_inverse(A,B) :- inverse(A,B), inverse(B,A), A != B, {inverse(A,_)}=1, {inverse(B,_)}=1, {inverse(_,A)}=1, {inverse(_,B)}=1.
 
 
 
@@ -175,9 +176,10 @@ inverse(A,B) :- inverse_canidate(A,B), inverse_compatible(I,A,B) : instance(I).
 :- prec(A,M,X), eff(A,M,X).
 
 % Inverses impose heavy restrictions:
-:-  eff(A,(P,T),0),                    not prec(A,(P,T),  1),      inverse(A,B).
-:-  eff(A,(P,_),X),                       { eff(B,(P,_),1-X)} = 0, inverse(A,B).
-:- prec(B,(P,T),X), not eff(B,(P,T),1-X), {prec(A,(P,_),  X)} = 0, inverse(A,B).
+:-  eff(A,(P,T),0),                    not prec(A,(P,T),  1),           inverse(A,B).
+:-  eff(A,(P,_),X),                       { eff(B,(P,_),1-X)} = 0,      inverse(A,B).
+:-  eff(A,(P,T),X),                       { eff(B,(P,T),1-X)} = 0, safe_inverse(A,B).
+:- prec(B,(P,T),X), not eff(B,(P,T),1-X), {prec(A,(P,_),  X)} = 0,      inverse(A,B).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -319,7 +321,8 @@ appl(I,A,OO1,S) :- action(A), objtuple(I,OO1,3), marked(I,S), not nappl(I,A,OO1,
 :- marked(I,S1), tlabel(I,(S1,S2),B), labelmatch(I,A,B), { next(I,A,OO,S1,S2) } = 0.
 
 %For inverses also the oposite direction must be present
-:- next(I,A, _,S1,S2),  { next(I,B, _,S2,S1) } = 0, inverse(A,B).
+:- next(I,A, _,S1,S2),  { next(I,B, _,S2,S1) } = 0,      inverse(A,B).
+:- next(I,A,OO,S1,S2),  { next(I,B,OO,S2,S1) } = 0, safe_inverse(A,B).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
