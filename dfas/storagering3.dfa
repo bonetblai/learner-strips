@@ -1,0 +1,27 @@
+dfa 24 -1
+3 shuffle shuffleexchange0 shuffleexchange1
+1 0
+2 shuffle 8 shuffleexchange0 10
+2 shuffle 10 shuffleexchange1 8
+2 shuffle 12 shuffleexchange0 14
+2 shuffle 14 shuffleexchange1 12
+2 shuffle 9 shuffleexchange0 11
+2 shuffle 11 shuffleexchange1 9
+2 shuffle 13 shuffleexchange0 15
+2 shuffle 15 shuffleexchange1 13
+2 shuffle 16 shuffleexchange0 18
+2 shuffle 18 shuffleexchange1 16
+2 shuffle 20 shuffleexchange0 22
+2 shuffle 22 shuffleexchange1 20
+2 shuffle 17 shuffleexchange0 19
+2 shuffle 19 shuffleexchange1 17
+2 shuffle 21 shuffleexchange0 23
+2 shuffle 23 shuffleexchange1 21
+2 shuffle 0 shuffleexchange0 2
+2 shuffle 2 shuffleexchange1 0
+2 shuffle 4 shuffleexchange0 6
+2 shuffle 6 shuffleexchange1 4
+2 shuffle 1 shuffleexchange0 3
+2 shuffle 3 shuffleexchange1 1
+2 shuffle 5 shuffleexchange0 7
+2 shuffle 7 shuffleexchange1 5
