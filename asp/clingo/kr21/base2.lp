@@ -304,6 +304,9 @@ root(0) :- not root(N) : node(N), N != 0.
 
 :- tlabel((S1,S2),_), not edge((S1,S2)).
 
+% Indirect label distribution
+:- edge_num((S1,S2),J), next(A,OO,S1,S2), edge_map(A,M), M > 1, N != M-1 : edge_num((S3,S4),K), next(B,OO,S3,S4), edge_map(B,N), J >= K.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Display

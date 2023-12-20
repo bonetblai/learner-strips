@@ -76,11 +76,23 @@ class DFA:
                     if inv_pos[index1][index2]:
                         fd.write(f'inverse({self.labels[label1]},{self.labels[label2]}).\n')
         
+        edge_num = 1
+        edge_map = [0 for label in self.labels]
+        map_index = 1
         for node, node_successors in enumerate(self.successors):
             for (label, next) in node_successors:
                 fd.write(f'edge(({node},{next})).\n')
                 if not suppress_labels:
                     fd.write(f'tlabel(({node},{next}),{self.labels[label]}).\n')
+                else:
+                    fd.write(f'edge_num(({node},{next}),{edge_num}).\n')
+                    if edge_map[self.labels[label]-1] == 0:
+                        edge_map[self.labels[label]-1] = map_index
+                        map_index += 1
+                edge_num += 1
+        if suppress_labels:
+            for label, index in enumerate(edge_map):
+                fd.write(f'edge_map({label+1},{index}).\n')
 
     def sample_nodes(self, n, repeat=True, avoid=None):
         nodes = list(range(self.num_nodes))
