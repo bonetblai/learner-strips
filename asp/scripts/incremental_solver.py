@@ -112,9 +112,9 @@ g_clingo = {
 
 # templates
 g_templates = {
-    'solve'   : '{solver} --fast-exit -Wno-global-variable {lps} {_flags_} -c opt_synthesis=1 -c opt_val={opt_val} --sat-prepro={sat_prepro} --stats=2 --time-limit={time_limit}',
-    'verify'  : '{solver} --fast-exit -Wno-global-variable {lps} {graphs_with_path} {_flags_} -c opt_synthesis=0 -c opt_val={opt_val} --sat-prepro={sat_prepro} --stats=2 --time-limit={time_limit}',
-    'partial' : '{solver} --fast-exit -Wno-global-variable {lps} {partial_graph_path}/{graph} {_flags_} -c opt_synthesis={synthesis} -c opt_val={opt_val} --sat-prepro={sat_prepro} --stats=2 --time-limit={time_limit}',
+    'solve'   : '{solver} --fast-exit -Wno-global-variable {lps} {_flags_} -c opt_synthesis=1 -c opt_prec={opt_prec} -c opt_val={opt_val} --sat-prepro={sat_prepro} --stats=2 --time-limit={time_limit}',
+    'verify'  : '{solver} --fast-exit -Wno-global-variable {lps} {graphs_with_path} {_flags_} -c opt_synthesis=0 -c opt_prec={opt_prec} -c opt_val={opt_val} --sat-prepro={sat_prepro} --stats=2 --time-limit={time_limit}',
+    'partial' : '{solver} --fast-exit -Wno-global-variable {lps} {partial_graph_path}/{graph} {_flags_} -c opt_synthesis={synthesis} -c opt_prec={opt_prec} -c opt_val={opt_val} --sat-prepro={sat_prepro} --stats=2 --time-limit={time_limit}',
     'flags'   : { 'fixed'   : '{options} {additional_flags}',
                   'all'     : '-c num_objects={nobj} -c max_true_atoms_per_state={max_true_atoms} {options} {additional_flags}',
                 },
@@ -165,6 +165,7 @@ def get_args():
 
     # options for solver
     default_opt_val = 1
+    default_opt_prec = 2
     default_incremental = None
     default_version = 'kr21'
     solver = parser.add_argument_group('options for solver')
@@ -172,6 +173,7 @@ def get_args():
     solver.add_argument('--no_invariants', action='store_true', help="Don't enforce invariants when solving")
     solver.add_argument('--no_optimize', action='store_true', help="Don't do optimization when solving")
     solver.add_argument('--opt_val', type=int, default=default_opt_val, choices=[1, 2, 3], help=f"Set method for choosing state valuation, only for 'mf' version (default={default_opt_val})")
+    solver.add_argument('--opt_prec', type=int, default=default_opt_prec, choices=[1, 2, 3], help=f"Set method for choosing state valuation, only for 'orig' version (default={default_opt_prec})")
     solver.add_argument('--incremental', nargs=2, metavar=('num-graphs', 'max-depth'), default=default_incremental, type=int, help=f'Set options for incremental learning (default={default_incremental})')
     solver.add_argument('--version', type=str, default=default_version, help=f'Set solver version (default={default_version})')
 
@@ -277,10 +279,22 @@ def create_instances_in_destination_folder(graph_path: Path, graphs: List[str], 
                         elif line.startswith('edge('):
                             i = line.index('(')
                             wfd.write(f'edge({index+1},{line[i+1:]}')
+                            num_edges += 1
                         elif line.startswith('tlabel('):
                             i = line.index('(')
                             wfd.write(f'tlabel({index+1},{line[i+1:]}')
-                            num_edges += 1
+                        elif line.startswith('val('):
+                            i = line.index('(')
+                            wfd.write(f'val({index+1},{line[i+1:]}')
+                        elif line.startswith('inverse('):
+                            i = line.index('(')
+                            wfd.write(f'inverse({index+1},{line[i+1:]}')
+                        elif line.startswith('edge_num('):
+                            i = line.index('(')
+                            wfd.write(f'edge_num({index+1},{line[i+1:]}')
+                        elif line.startswith('edge_map('):
+                            i = line.index('(')
+                            wfd.write(f'edge_map({index+1},{line[i+1:]}')
                         else:
                             wfd.write(line)
             logger.info(colored(f'Created instance {index+1} for file "{graph}" with {num_nodes} node(s) and {num_edges} edge(s)', 'green'))
@@ -641,6 +655,7 @@ def main(args: dict):
             'options'             : task.get_options(),
             'sat_prepro'          : args.sat_prepro,
             'opt_val'             : args.opt_val,
+            'opt_prec'            : args.opt_prec,
         }
         parameters.update(flags_fixed=g_templates['flags']['fixed'].format(**parameters).strip(' '))
         parameters.update(time_limit=parameters['time_bound'])

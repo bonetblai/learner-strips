@@ -1,0 +1,6 @@
+dfa 3 -1
+2 unstack stack
+1 0
+2 stack 1 stack 2
+1 unstack 0
+1 unstack 0

@@ -1,0 +1,3 @@
+
+storagering3ops_3_nolabel.lp 3 0 -c max_num_invariants=2 -c max_predicates=4 -c max_static=1 VERIFY 6 0 storagering3ops_2.lp storagering3ops_3.lp storagering3ops_4.lp storagering3ops_5.lp storagering3ops_6.lp
+

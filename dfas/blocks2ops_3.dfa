@@ -1,0 +1,16 @@
+dfa 13 -1
+2 unstack stack
+1 0
+6 stack 1 stack 2 stack 3 stack 4 stack 5 stack 6
+2 unstack 0 stack 7
+2 unstack 0 stack 8
+2 unstack 0 stack 9
+2 unstack 0 stack 10
+2 unstack 0 stack 11
+2 unstack 0 stack 12
+1 unstack 1
+1 unstack 2
+1 unstack 3
+1 unstack 4
+1 unstack 5
+1 unstack 6

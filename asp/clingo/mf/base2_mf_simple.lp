@@ -14,6 +14,7 @@
 #const max_effects=6.    % for each action
 #const opt_unequal=1.    % inequality constraints for action arguments
 #const opt_synthesis=1.  % enable synthesis of model
+#const opt_prec=2.       % 2 enforce positive prec, 1 prefer positive prec, else disabled
 
 % Constants needed and set at call time:
 %#const num_objects >= 1
@@ -114,6 +115,14 @@ a_arity(A,N)     :- a_var(A,N), not a_var(A,N+1).
 a_arity_geq(A,M) :- a_arity(A,N), M = 1..3, N = M..3.
 
 % Action labels and consistent labels in each instance
+% Actions are counted in python: num_actions.
+% There are as many Actions as there are Labels for Actions.
+% Same Label = Same Action
+% label(L) There is the Label L.
+% label(A,L) Action A has Label L. (bijective)
+% labelname(I,B,L) in Instance I local Action B has Label L
+% labelmatch(I,A,B) in Instance I local Action B is global Action A.
+
 label(L) :- label(A,L).
 label(L) :- labelname(I,A,L).
 :- labelname(I,A,L1), labelname(I,A,L2), L1 != L2.
@@ -131,6 +140,16 @@ labelmatch(I,A,B) :- label(A,L), labelname(I,B,L).
 :- labelname(I,B,L), not label(A,L) : action(A).
 :- labelname(I,B,L), not labelmatch(I,A,B) : label(A,L).
 
+% inverse agregation
+inverse_canidate(A,B) :- inverse(I,C,D), labelmatch(I,A,C), labelmatch(I,B,D).
+inverse_compatible(I,A,B) :- inverse_canidate(A,B), inverse(I,C,D), labelmatch(I,A,C), labelmatch(I,B,D).
+inverse_compatible(I,A,B) :- inverse_canidate(A,B), instance(I),  { labelmatch(I,A,C) } = 0.
+inverse(A,B) :- inverse_canidate(A,B), inverse_compatible(I,A,B) : instance(I).
+safe_inverse(A,B) :- inverse(A,B), inverse(B,A), A != B, {inverse(A,_)}=1, {inverse(B,_)}=1, {inverse(_,A)}=1, {inverse(_,B)}=1.
+
+action_comp(I,A,B) :- action(A), labelmatch(I,A,B).
+action_comp(I,A,0) :- action(A), labelmatch(I,A,_).
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Actions: preconditions and effects
@@ -142,7 +161,9 @@ labelmatch(I,A,B) :- label(A,L), labelname(I,B,L).
 #defined act_inverse/1.
 #defined partitioning/0.
 
-{ prec(A,(P,T),0..1) : pred(P), argtuple(T) } max_precs :- action(A), not partitioning, not frozen(A), not act_inverse(A), opt_synthesis = 1.
+{ prec(A,(P,T),0..1) : pred(P), argtuple(T) } max_precs :- action(A), not partitioning, not frozen(A), not act_inverse(A), opt_synthesis = 1, opt_prec != 2.
+{ prec(A,(P,T),   1) : pred(P), argtuple(T) } max_precs :- action(A), not partitioning, not frozen(A), not act_inverse(A), opt_synthesis = 1, opt_prec  = 2.
+:- prec(A,M,0), opt_prec = 2.        % rule out negative precs
 :- prec(A,M,0), prec(A,M,1).         % rule out contradictory precs
 :- prec(_,(P,(0,0)),_), p_static(P). % CHECK: not nullary prec on static predicates
 
@@ -155,6 +176,12 @@ labelmatch(I,A,B) :- label(A,L), labelname(I,B,L).
 
 % No noop effects and no noop actions
 :- prec(A,M,X), eff(A,M,X).
+
+% Inverses impose heavy restrictions:
+:-  eff(A,(P,T),0),                    not prec(A,(P,T),  1),           inverse(A,B).
+:-  eff(A,(P,_),X),                       { eff(B,(P,_),1-X)} = 0,      inverse(A,B).
+:-  eff(A,(P,T),X),                       { eff(B,(P,T),1-X)} = 0, safe_inverse(A,B).
+:- prec(B,(P,T),X), not eff(B,(P,T),1-X), {prec(A,(P,_),  X)} = 0,      inverse(A,B).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -289,34 +316,50 @@ appl(I,A,OO1,S) :- action(A), objtuple(I,OO1,3), marked(I,S), not nappl(I,A,OO1,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Successors
 
+% Create missing unknown labels
+tlabel(I,(S1,S2),0) :- {tlabel(I,(S1,S2),B) : labelmatch(I,_,B)} = 0, edge(I,(S1,S2)).
+
 % If A(OO) is applicable at S1, choose a next node among those give by edges
-{ next(I,A,OO,S1,S2) : tlabel(I,(S1,S2),B) } = 1 :- appl(I,A,OO,S1), labelmatch(I,A,B), marked(I,S1).
+{ next(I,A,OO,S1,S2) : tlabel(I,(S1,S2),B), action_comp(I,A,B) } = 1 :- appl(I,A,OO,S1), marked(I,S1).
 
 % If action A maps S1 into S2, there is instance of A assigned to edge
-:- marked(I,S1), tlabel(I,(S1,S2),B), labelmatch(I,A,B), { next(I,A,OO,S1,S2) } != 1.
+:- marked(I,S1), tlabel(I,(S1,S2),B), { next(I,A,OO,S1,S2) : action_comp(I,A,B) } = 0.
+
+%For inverses also the oposite direction must be present
+:- next(I,A, _,S1,S2),  { next(I,B, _,S2,S1) } = 0,      inverse(A,B).
+:- next(I,A,OO,S1,S2),  { next(I,B,OO,S2,S1) } = 0, safe_inverse(A,B).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Check action effects on successor states (factored test)
 
 % A maps S1 into S2 with O1 in V1, O2 in V2, and O3 in V3
-pnext(I,0,A, 0,S1,S2) :- marked(I,S1), labelmatch(I,A,B), tlabel(I,(S1,S2),B), S2 >= 0. % for nullary predicates
-pnext(I,1,A,O1,S1,S2) :- next(I,A,(O1,O2,O3),S1,S2), S2 >= 0.
-pnext(I,2,A,O2,S1,S2) :- next(I,A,(O1,O2,O3),S1,S2), S2 >= 0.
-pnext(I,3,A,O3,S1,S2) :- next(I,A,(O1,O2,O3),S1,S2), S2 >= 0.
+pnext(I,0,A, 0,(O1,O2,O3),S1,S2) :- tlabel(I,(S1,S2),B), action(A), S2 >= 0, marked(I,S1), labelmatch(I,A,B), objtuple((O1,O2,O3),3). % for nullary predicates, object selection is irrelevant.
+pnext(I,0,A, 0,(O1,O2,O3),S1,S2) :- next(I,A,(O1,O2,O3),S1,S2),     S2 >= 0. % for nullary predicates
+pnext(I,1,A,O1,(O1,O2,O3),S1,S2) :- next(I,A,(O1,O2,O3),S1,S2),     S2 >= 0.
+pnext(I,2,A,O2,(O1,O2,O3),S1,S2) :- next(I,A,(O1,O2,O3),S1,S2),     S2 >= 0.
+pnext(I,3,A,O3,(O1,O2,O3),S1,S2) :- next(I,A,(O1,O2,O3),S1,S2),     S2 >= 0.
 
 % If A goes from S1 to S2 with O1 in V1 and O2 in V2, the effects must hold in S2
-:- eff(A,(P,(V1,V2)),X), pnext(I,V1,A,O1,S1,S2), pnext(I,V2,A,O2,S1,S2), val(I,(P,(O1,O2)),S2,1-X).
+:- eff(A,(P,(V1,V2)),X), pnext(I,V1,A,O1,OO,S1,S2), pnext(I,V2,A,O2,OO,S1,S2), val(I,(P,(O1,O2)),S2,1-X).
 
+% For inverse all effects must be effective
+:-   eff(A,(P,(V1,V2)),X),   pnext(V1,A,O1,OO,S1,S2), pnext(V2,A,O2,OO,S1,S2), val((P,(O1,O2)),S1,  X), inverse(A,B).
+
+% an effect should be visible at one node at least
+eff_used(A,(P,(V1,V2))) :- pnext(I,V1,A,O1,OO,S1,S2), pnext(I,V2,A,O2,OO,S1,S2), val(I,(P,(O1,O2)),S1,1-X), marked(I,S1), eff(A,(P,(V1,V2)),X).
+:- eff(A,(P,(V1,V2)),X), not eff_used(A,(P,(V1,V2))).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Inertia
 
 % There cannot be a non-caused change of a fluent
-:- marked(I,S1), edge(I,(S1,S2)), val(I,M,S1,V), val(I,M,S2,1-V), not caused(I,S1,S2,M).
+:- marked(I,S1), edge(I,(S1,S2)),    val(I,K,S1,V), val(I,K,S2,1-V), { caused(I,A,S1,S2,OO,K) } = 0.
+:- marked(I,S1), next(I,A,OO,S1,S2), val(I,K,S1,V), val(I,K,S2,1-V), { caused(I,A,S1,S2,OO,K) } = 0.
+
 
 % If A goes from S1 to S2 with O1 in V1 and O2 in V2, P(O1,O2) is caused if P(V1,V2) is effect
-caused(I,S1,S2,(P,(O1,O2))) :- affects(A,(P,(V1,V2))), pnext(I,V1,A,O1,S1,S2), pnext(I,V2,A,O2,S1,S2).
+caused(I,A,S1,S2,OO,(P,(O1,O2))) :- affects(A,(P,(V1,V2))), pnext(I,V1,A,O1,OO,S1,S2), pnext(I,V2,A,O2,OO,S1,S2).
 affects(A,(P,T)) :- eff(A,(P,T),X).
 
 
@@ -327,15 +370,23 @@ affects(A,(P,T)) :- eff(A,(P,T),X).
 :- marked(I,S1), edge(I,(S1,S2)), max_effects+1 #count{ M : val(I,M,S1,V), val(I,M,S2,1-V) }.
 
 % If A has X outgoing edges in S1, it should be applicable X times
-:- marked(I,S1), action(A), labelmatch(I,A,B), X = { tlabel(I,(S1,S2),B) }, { appl(I,A,OO,S1) } != X.
+:- marked(I,S1), action(A), labelmatch(I,A,B), X = { tlabel(I,(S1,S2),B) }, { appl(I,A,OO,S1) } < X.
+:- marked(I,S1), X = { tlabel(I,(S1,S2),C) : labelmatch(I,_,C) }, { appl(I,B,OO,S1) : action(B) } = Y, {tlabel(I,(S1,S2),0)} > Y - X.
+:- { appl(I,A,OO,S1) : next(I,A,OO,S1,S2) } = 0 , action(A), tlabel(I,(S1,S2),B), labelmatch(I,A,B).
+:- { appl(I,A,OO,S1) : next(I,A,OO,S1,S2), action(A) } = 0 , tlabel(I,(S1,S2),0).
 
 % If there are X edges, there should be X applicable actions
-:- action(A), labelmatch(I,A,B), X = { tlabel(I,(S1,S2),B) : marked(I,S1) }, { appl(I,A,OO,S) } != X.
-:- instance(I), X = { tlabel(I,(S1,S2),A) : marked(I,S1) }, { appl(I,B,OO,S) } != X.
+:- action(A), labelmatch(I,A,B), X = { tlabel(I,(S1,S2),B) : marked(I,S1) }, { appl(I,A,OO,S) } < X.
+:- instance(I), X = { tlabel(I,(S1,S2),A) : marked(I,S1) }, { appl(I,B,OO,S) } < X.
 
 % Define root if no root node is specified
  min(I,S) :- marked(I,S), S <= S1 : marked(I,S1).
 root(I,S) :- min(I,S), not root(I,N) : marked(I,N), N != S.
+
+:- tlabel(I,(S1,S2),_), not edge(I,(S1,S2)).
+
+% Indirect label distribution
+:- edge_num(I,(S1,S2),J), next(I,A,OO,S1,S2), edge_map(I,C,M), labelmatch(I,A,C), M > 1, N != M-1 : edge_num(I,(S3,S4),K), next(I,B,OO,S3,S4), edge_map(I,D,N), labelmatch(I,B,D), J >= K.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

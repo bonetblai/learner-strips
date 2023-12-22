@@ -14,6 +14,7 @@
 #const max_effects=6.    % for each action
 #const opt_unequal=1.    % inequality constraints for action arguments
 #const opt_synthesis=1.  % enable synthesis of model
+#const opt_prec=2.       % 2 enforce positive prec, 1 prefer positive prec, else disabled
 
 % Constants needed and set at call time:
 %#const num_objects >= 1.
@@ -98,6 +99,10 @@ a_var(A,V) :- a_atom(A,(_,(_,V))).
 a_arity(A,N)     :- a_var(A,N), not a_var(A,N+1).
 a_arity_geq(A,M) :- a_arity(A,N), M = 1..3, N = M..3.
 
+safe_inverse(A,B) :- inverse(A,B), inverse(B,A), A != B, {inverse(A,_)}=1, {inverse(B,_)}=1, {inverse(_,A)}=1, {inverse(_,B)}=1.
+
+action_comp(A,A) :- action(A).
+action_comp(A,0) :- action(A).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -106,7 +111,9 @@ a_arity_geq(A,M) :- a_arity(A,N), M = 1..3, N = M..3.
 % prec(A,(P,T),0): atom (P,T) is negative prec of action A
 % prec(A,(P,T),1): atom (P,T) is positive prec of action A
 
-{ prec(A,(P,T),0..1) : pred(P), argtuple(T) } max_precs :- action(A), opt_synthesis = 1.
+{ prec(A,(P,T),0..1) : pred(P), argtuple(T) } max_precs :- action(A), opt_synthesis = 1, opt_prec != 2.
+{ prec(A,(P,T),   1) : pred(P), argtuple(T) } max_precs :- action(A), opt_synthesis = 1, opt_prec  = 2.
+:- prec(A,M,0), opt_prec = 2.        % rule out negative precs
 :- prec(A,M,0), prec(A,M,1).         % rule out contradictory precs
 :- prec(_,(P,(0,0)),_), p_static(P). % CHECK: not nullary prec on static predicates
 
@@ -119,6 +126,12 @@ a_arity_geq(A,M) :- a_arity(A,N), M = 1..3, N = M..3.
 
 % No noop effects and no noop actions
 :- prec(A,M,X), eff(A,M,X).
+
+% Inverses impose heavy restrictions:
+:-  eff(A,(P,T),0),                    not prec(A,(P,T),  1),           inverse(A,B).
+:-  eff(A,(P,_),X),                       { eff(B,(P,_),1-X)} = 0,      inverse(A,B).
+:-  eff(A,(P,T),X),                       { eff(B,(P,T),1-X)} = 0, safe_inverse(A,B).
+:- prec(B,(P,T),X), not eff(B,(P,T),1-X), {prec(A,(P,_),  X)} = 0,      inverse(A,B).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -219,35 +232,51 @@ appl(A,OO1,S) :- action(A), objtuple(OO1,3), node(S), not nappl(A,OO1,S),
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Successors
 
+% Create missing unknown labels
+tlabel((S1,S2),0) :- {tlabel((S1,S2),A) : action(A)} = 0, edge((S1,S2)).
+
 % If A(OO) is applicable at S1, choose a next node among those give by edges
 % enforces determinism of actions.
-{ next(A,OO,S1,S2) : tlabel((S1,S2),A) } = 1 :- appl(A,OO,S1).
+{ next(A,OO,S1,S2) : tlabel((S1,S2),B), action_comp(A,B) } = 1 :- appl(A,OO,S1).
 
 % If action A maps S1 into S2, there is instance of A assigned to edge
-:- tlabel((S1,S2),A), { next(A,OO,S1,S2) } != 1.
+:- tlabel((S1,S2),B), { next(A,OO,S1,S2) : action_comp(A,B) } = 0.
+
+%For inverses also the oposite direction must be present
+:- next(A, _,S1,S2),  { next(B, _,S2,S1) } = 0,      inverse(A,B).
+:- next(A,OO,S1,S2),  { next(B,OO,S2,S1) } = 0, safe_inverse(A,B).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Check action effects on successor states (factored test)
 
 % A maps S1 into S2 with O1 in V1, O2 in V2, and O3 in V3
-pnext(0,A, 0,S1,S2) :-        tlabel((S1,S2),A), S2 >= 0. % for nullary predicates
-pnext(1,A,O1,S1,S2) :- next(A,(O1,O2,O3),S1,S2), S2 >= 0.
-pnext(2,A,O2,S1,S2) :- next(A,(O1,O2,O3),S1,S2), S2 >= 0.
-pnext(3,A,O3,S1,S2) :- next(A,(O1,O2,O3),S1,S2), S2 >= 0.
+pnext(0,A, 0,(O1,O2,O3),S1,S2) :- tlabel((S1,S2),A), action(A), S2 >= 0, objtuple((O1,O2,O3),3). % for nullary predicates, object selection is irrelevant.
+pnext(0,A, 0,(O1,O2,O3),S1,S2) :- next(A,(O1,O2,O3),S1,S2),     S2 >= 0. % for nullary predicates
+pnext(1,A,O1,(O1,O2,O3),S1,S2) :- next(A,(O1,O2,O3),S1,S2),     S2 >= 0.
+pnext(2,A,O2,(O1,O2,O3),S1,S2) :- next(A,(O1,O2,O3),S1,S2),     S2 >= 0.
+pnext(3,A,O3,(O1,O2,O3),S1,S2) :- next(A,(O1,O2,O3),S1,S2),     S2 >= 0.
 
 % If A goes from S1 to S2 with O1 in V1 and O2 in V2, the effects must hold in S2
-:- eff(A,(P,(V1,V2)),X), pnext(V1,A,O1,S1,S2), pnext(V2,A,O2,S1,S2), val((P,(O1,O2)),S2,1-X).
+:- eff(A,(P,(V1,V2)),X), pnext(V1,A,O1,OO,S1,S2), pnext(V2,A,O2,OO,S1,S2), val((P,(O1,O2)),S2,1-X).
 
+% For inverse all effects must be effective
+:-   eff(A,(P,(V1,V2)),X),   pnext(V1,A,O1,OO,S1,S2), pnext(V2,A,O2,OO,S1,S2), val((P,(O1,O2)),S1,  X), inverse(A,B).
+
+% an effect should be visible at one node at least
+eff_used(A,(P,(V1,V2))) :- pnext(V1,A,O1,OO,S1,S2), pnext(V2,A,O2,OO,S1,S2), val((P,(O1,O2)),S1,1-X), node(S1), eff(A,(P,(V1,V2)),X).
+:- eff(A,(P,(V1,V2)),X), not eff_used(A,(P,(V1,V2))).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Inertia
 
 % There cannot be a non-caused change of a fluent
-:- edge((S1,S2)), val(K,S1,V), val(K,S2,1-V), not caused(S1,S2,K).
+:- edge((S1,S2)),    val(K,S1,V), val(K,S2,1-V), { caused(A,S1,S2,OO,K) } = 0.
+:- next(A,OO,S1,S2), val(K,S1,V), val(K,S2,1-V), { caused(A,S1,S2,OO,K) } = 0.
+
 
 % If A goes from S1 to S2 with O1 in V1 and O2 in V2, P(O1,O2) is caused if P(V1,V2) is effect
-caused(S1,S2,(P,(O1,O2))) :- affects(A,(P,(V1,V2))), pnext(V1,A,O1,S1,S2), pnext(V2,A,O2,S1,S2).
+caused(A,S1,S2,OO,(P,(O1,O2))) :- affects(A,(P,(V1,V2))), pnext(V1,A,O1,OO,S1,S2), pnext(V2,A,O2,OO,S1,S2).
 affects(A,(P,T)) :- eff(A,(P,T),X).
 
 
@@ -258,14 +287,22 @@ affects(A,(P,T)) :- eff(A,(P,T),X).
 :- edge((S1,S2)), max_effects+1 #count{ M : val(M,S1,V), val(M,S2,1-V) }.
 
 % If A has X outgoing edges in S1, it should be applicable X times
-:- node(S1), action(A), X = { tlabel((S1,S2),A) }, { appl(A,OO,S1) } != X.
+:- node(S1), action(A), X = { tlabel((S1,S2),A) }, { appl(A,OO,S1) } < X.
+:- node(S1), X = { tlabel((S1,S2),A) : action(A) }, { appl(B,OO,S1) : action(B) } = Y, {tlabel((S1,S2),0)} > Y - X.
+:- { appl(A,OO,S1) : next(A,OO,S1,S2) } = 0 , action(A), tlabel((S1,S2),A).
+:- { appl(A,OO,S1) : next(A,OO,S1,S2), action(A) } = 0 , tlabel((S1,S2),0).
 
 % If there are X edges, there should be X applicable actions (redundant as it should be implied by above)
-:- action(A), X = { tlabel(E,A) }, { appl(A,OO,S) } != X.
-:- X = { tlabel(E,A) }, { appl(B,OO,S) } != X.
+:- action(A), X = { tlabel(E,A) }, { appl(A,OO,S) } < X.
+:- X = { tlabel(E,A) }, { appl(B,OO,S) } < X.
 
 % Define root(0) by default if no root node specified (root/1 is not used elsewhere)
 root(0) :- not root(N) : node(N), N != 0.
+
+:- tlabel((S1,S2),_), not edge((S1,S2)).
+
+% Indirect label distribution
+:- edge_num((S1,S2),J), next(A,OO,S1,S2), edge_map(A,M), M > 1, N != M-1 : edge_num((S3,S4),K), next(B,OO,S3,S4), edge_map(B,N), J >= K.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

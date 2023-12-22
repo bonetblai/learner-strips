@@ -61,6 +61,9 @@ def eff_2(a, p, args):
 def eff_3(a, p, args, val):
     return clingo.Function('eff', [clingo.Number(a), clingo.Function('', [clingo.Number(p),clingo.Function('',map_to_number(args))]), clingo.Number(val)])
 
+def effu_3(a, p, args):
+    return clingo.Function('eff_used', [clingo.Number(a), clingo.Function('', [clingo.Number(p),clingo.Function('',map_to_number(args))])])
+
 def prec_3(a, p, args, val):
     return clingo.Function('prec', [clingo.Number(a), clingo.Function('', [clingo.Number(p),clingo.Function('',map_to_number(args))]), clingo.Number(val)])
 
@@ -502,6 +505,7 @@ class STRIPSSchema:
                 symbols.append(eff_2(action, p, arg))
             for p, arg, val in self._effs[action]:
                 symbols.append(eff_3(action, p, arg, val))
+                symbols.append(effu_3(action, p, arg))
             for p, arg, val in self._precs[action]:
                 symbols.append(prec_3(action, p, arg, val))
             for args in self._unequal[action]:

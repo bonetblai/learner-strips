@@ -55,16 +55,44 @@ class DFA:
                 raise RuntimeError(f'unknown suffix {self.fname.suffix} for DFA file')
             assert len(self.successors) == self.num_nodes
 
-    def dump_as_lp(self, fd):
+    def dump_as_lp(self, fd, suppress_labels, compute_inverse):
         fd.write(f'% {self.num_nodes} nodes, {self.num_edges} edges\n')
         for node in range(self.num_nodes):
             fd.write(f'node({node}).\n')
         for label in self.labels:
             fd.write(f'labelname({self.labels[label]},"{label}").\n')
+        
+        if compute_inverse:
+            list_labels = list(self.labels)
+            inv_pos = [[True] * len(self.labels) for _ in range(len(self.labels))]
+            for node, node_successors in enumerate(self.successors):
+                for (label, next) in node_successors:
+                    next_succ = self.successors[next]
+                    for label2 in self.labels:
+                        if not (label2, node) in next_succ:
+                            inv_pos[list_labels.index(label)][list_labels.index(label2)] = False
+            for index1,label1 in enumerate(list_labels):
+                for index2,label2 in enumerate(list_labels):
+                    if inv_pos[index1][index2]:
+                        fd.write(f'inverse({self.labels[label1]},{self.labels[label2]}).\n')
+        
+        edge_num = 1
+        edge_map = [0 for label in self.labels]
+        map_index = 1
         for node, node_successors in enumerate(self.successors):
             for (label, next) in node_successors:
                 fd.write(f'edge(({node},{next})).\n')
-                fd.write(f'tlabel(({node},{next}),{self.labels[label]}).\n')
+                if not suppress_labels:
+                    fd.write(f'tlabel(({node},{next}),{self.labels[label]}).\n')
+                else:
+                    fd.write(f'edge_num(({node},{next}),{edge_num}).\n')
+                    if edge_map[self.labels[label]-1] == 0:
+                        edge_map[self.labels[label]-1] = map_index
+                        map_index += 1
+                edge_num += 1
+        if suppress_labels:
+            for label, index in enumerate(edge_map):
+                fd.write(f'edge_map({label+1},{index}).\n')
 
     def sample_nodes(self, n, repeat=True, avoid=None):
         nodes = list(range(self.num_nodes))

@@ -1,0 +1,2 @@
+
+universaldomain1ops_7_nolabel.lp 7 0 -c max_num_invariants=2 -c max_predicates=2 -c max_static=1 VERIFY 8 0 universaldomain1ops_5.lp universaldomain1ops_6.lp universaldomain1ops_7.lp universaldomain1ops_8.lp
