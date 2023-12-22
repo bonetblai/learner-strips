@@ -190,10 +190,11 @@ def get_args():
     verification.add_argument('--skipver', action='store_true', help='Skip verification step')
 
     # paths
-    default_results_path = ''
-    default_graph_path = '../graphs/full'
-    default_partial_graph_path = '../graphs/partial'
-    default_solver_path = '../clingo'
+    base_path = str(Path(__file__).parent.resolve())
+    default_results_path = base_path + '/'
+    default_graph_path = base_path + '/../graphs/full'
+    default_partial_graph_path = base_path + '/../graphs/partial'
+    default_solver_path = base_path + '/../clingo'
     paths = parser.add_argument_group('paths')
     paths.add_argument('--results', type=Path, default=default_results_path, help=f"Path to results folders (default='{default_results_path}')")
     paths.add_argument('--graph_path', type=Path, default=default_graph_path, help=f"Path to graphs (default='{default_graph_path}')")

@@ -16,7 +16,7 @@
 #const opt_synthesis=1.  % enable synthesis of model
 
 % Constants needed and set at call time:
-%#const num_objects >= 1
+%#const num_objects >= 1.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -142,6 +142,8 @@ p_reflexive(P) :- a_atom(_,(P,(V,V))), V > 0.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % States: valuations of ground atoms, either static or dynamic
 
+% val((predicate,objects),state optional,value): atom of predicate on objects has value in state.
+
 { val((P,OO),  0..1) } = 1 :- pred(P),     p_static(P), objtuple(OO,2).
 { val((P,OO),S,0..1) } = 1 :- pred(P), not p_static(P), objtuple(OO,2), node(S).
 
@@ -218,6 +220,7 @@ appl(A,OO1,S) :- action(A), objtuple(OO1,3), node(S), not nappl(A,OO1,S),
 % Successors
 
 % If A(OO) is applicable at S1, choose a next node among those give by edges
+% enforces determinism of actions.
 { next(A,OO,S1,S2) : tlabel((S1,S2),A) } = 1 :- appl(A,OO,S1).
 
 % If action A maps S1 into S2, there is instance of A assigned to edge
