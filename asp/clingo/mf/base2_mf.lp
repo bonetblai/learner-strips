@@ -140,6 +140,7 @@ labelmatch(I,A,B) :- label(A,L), labelname(I,B,L).
 :- labelname(I,B,L), not labelmatch(I,A,B) : label(A,L).
 
 % inverse agregation
+#defined inverse/2.
 inverse_canidate(A,B) :- inverse(I,C,D), labelmatch(I,A,C), labelmatch(I,B,D).
 inverse_compatible(I,A,B) :- inverse_canidate(A,B), inverse(I,C,D), labelmatch(I,A,C), labelmatch(I,B,D).
 inverse_compatible(I,A,B) :- inverse_canidate(A,B), instance(I),  { labelmatch(I,A,C) } = 0.

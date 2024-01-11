@@ -100,6 +100,7 @@ a_var(A,V) :- a_atom(A,(_,(_,V))).
 a_arity(A,N)     :- a_var(A,N), not a_var(A,N+1).
 a_arity_geq(A,M) :- a_arity(A,N), M = 1..3, N = M..3.
 
+#defined inverse/2.
 safe_inverse(A,B) :- inverse(A,B), inverse(B,A), A != B, {inverse(A,_)}=1, {inverse(B,_)}=1, {inverse(_,A)}=1, {inverse(_,B)}=1.
 
 action_comp(A,A) :- action(A).
