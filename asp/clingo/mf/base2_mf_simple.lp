@@ -335,7 +335,7 @@ tlabel(I,(S1,S2),0) :- {tlabel(I,(S1,S2),B) : labelmatch(I,_,B)} = 0, edge(I,(S1
 % Check action effects on successor states (factored test)
 
 % A maps S1 into S2 with O1 in V1, O2 in V2, and O3 in V3
-pnext(I,0,A, 0,(O1,O2,O3),S1,S2) :- tlabel(I,(S1,S2),B), action(A), S2 >= 0, marked(I,S1), labelmatch(I,A,B), objtuple((O1,O2,O3),3). % for nullary predicates, object selection is irrelevant.
+pnext(I,0,A, 0,(O1,O2,O3),S1,S2) :- tlabel(I,(S1,S2),B), action(A), S2 >= 0, marked(I,S1), labelmatch(I,A,B), objtuple(I,(O1,O2,O3),3). % for nullary predicates, object selection is irrelevant.
 pnext(I,0,A, 0,(O1,O2,O3),S1,S2) :- next(I,A,(O1,O2,O3),S1,S2),     S2 >= 0. % for nullary predicates
 pnext(I,1,A,O1,(O1,O2,O3),S1,S2) :- next(I,A,(O1,O2,O3),S1,S2),     S2 >= 0.
 pnext(I,2,A,O2,(O1,O2,O3),S1,S2) :- next(I,A,(O1,O2,O3),S1,S2),     S2 >= 0.
