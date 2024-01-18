@@ -141,7 +141,7 @@ labelmatch(I,A,B) :- label(A,L), labelname(I,B,L).
 :- labelname(I,B,L), not labelmatch(I,A,B) : label(A,L).
 
 % inverse agregation
-#defined inverse/2.
+#defined inverse/3.
 inverse_canidate(A,B) :- inverse(I,C,D), labelmatch(I,A,C), labelmatch(I,B,D).
 inverse_compatible(I,A,B) :- inverse_canidate(A,B), inverse(I,C,D), labelmatch(I,A,C), labelmatch(I,B,D).
 inverse_compatible(I,A,B) :- inverse_canidate(A,B), instance(I),  { labelmatch(I,A,C) } = 0.
@@ -387,6 +387,8 @@ root(I,S) :- min(I,S), not root(I,N) : marked(I,N), N != S.
 :- tlabel(I,(S1,S2),_), not edge(I,(S1,S2)).
 
 % Indirect label distribution
+#defined edge_num/3.
+#defined edge_map/3.
 :- edge_num(I,(S1,S2),J), next(I,A,_,S1,S2), edge_map(I,C,M), labelmatch(I,A,C), M > 1, N != M-1 : edge_num(I,(S3,S4),K), next(I,B,_,S3,S4), edge_map(I,D,N), labelmatch(I,B,D), J >= K.
 
 
