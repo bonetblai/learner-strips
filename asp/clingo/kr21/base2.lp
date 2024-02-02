@@ -100,6 +100,7 @@ a_var(A,V) :- a_atom(A,(_,(_,V))).
 a_arity(A,N)     :- a_var(A,N), not a_var(A,N+1).
 a_arity_geq(A,M) :- a_arity(A,N), M = 1..3, N = M..3.
 
+#defined inverse/2.
 safe_inverse(A,B) :- inverse(A,B), inverse(B,A), A != B, {inverse(A,_)}=1, {inverse(B,_)}=1, {inverse(_,A)}=1, {inverse(_,B)}=1.
 
 action_comp(A,A) :- action(A).
@@ -305,7 +306,9 @@ root(0) :- not root(N) : node(N), N != 0.
 :- tlabel((S1,S2),_), not edge((S1,S2)).
 
 % Indirect label distribution
-:- edge_num((S1,S2),J), next(A,OO,S1,S2), edge_map(A,M), M > 1, N != M-1 : edge_num((S3,S4),K), next(B,OO,S3,S4), edge_map(B,N), J >= K.
+#defined edge_num/2.
+#defined edge_map/2.
+:- edge_num((S1,S2),J), next(A,_,S1,S2), edge_map(A,M), M > 1, N != M-1 : edge_num((S3,S4),K), next(B,_,S3,S4), edge_map(B,N), J >= K.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
